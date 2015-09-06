@@ -1,5 +1,6 @@
 /**
- * 
+ * @author Thang Le. (letrthang@gmail.com).
+ *         {@link} www.letrungthang.blogspot.com
  */
 package thangle.trains.main;
 
