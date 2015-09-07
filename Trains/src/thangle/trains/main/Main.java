@@ -57,7 +57,7 @@ public class Main {
 			graphDAO = new GraphDAOImpl(graph);
 
 			/*
-			 * we assign node name by character got from input text file to node name by number.
+			 * We assign each node's name by character gotten from input text file to node's name by number.
 			 * Starting by 0 to 25 corresponding with "A" to "Z". So, in this exercise,
 			 * the mapping is: A=0, B=1, C=2, D=3, E=4.
 			 * So, an edge is presented by characters also is converted to numbers for programming convenient.
