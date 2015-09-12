@@ -6,7 +6,7 @@ package thangle.trains.model;
 import java.util.List;
 
 /**
- * @author thang.le
+ * @author Thang Le
  *
  */
 public interface GraphDAO {

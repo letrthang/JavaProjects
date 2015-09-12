@@ -12,13 +12,13 @@ import java.util.List;
 public class Graph {
 
 	public Integer V; // Number of nodes of the graph
-	public List<Node> Nodes; // To store all node in the graph
+	public List<Node> Nodes; // To store all nodes of the graph
 
 	// Constructor
 	public Graph(Integer V) {
 		this.V = V;
-		Nodes = new ArrayList<Node>(V);
 		// Initialize Nodes
+		Nodes = new ArrayList<Node>(V);
 		for (int i = 0; i < V; i++) {
 			Nodes.add(new Node());
 		}

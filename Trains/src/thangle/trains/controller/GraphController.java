@@ -17,11 +17,11 @@ import thangle.trains.view.GraphUserView;
 
 public class GraphController {
 
-	// To save all found routes in method "FindAllRoute"
+	// To save all routes were found in method "FindAllRoute"
 	public static Set<List<Integer>> foundRoutes;
-	Graph graph;
-	Algorithms algor;
-	GraphUserView graphUserView;
+	Graph graph; // store a graph
+	Algorithms algor; // for graph calculation
+	GraphUserView graphUserView; // for view
 
 	/**
 	 * constructor
@@ -37,11 +37,12 @@ public class GraphController {
 	}
 
 	/**
-	 * calculate the distance from a given path.
+	 * calculate the distance of a given path.
+	 * Distance of path ABCD = AB + BC + CD. One of them is zero, then distance is zero.
 	 * 
 	 * @param route
 	 *            given route
-	 * @return distance or zero if the given path cannot route
+	 * @return distance of route or zero if the given path cannot route
 	 */
 	public Integer CalculateRouteDistance(List<Integer> route) {
 		Integer distance = 0;
@@ -54,7 +55,7 @@ public class GraphController {
 					distance = 0; // no link between two adjacent nodes in the given path
 					break; // so, quit calculation
 				}
-				// Nightmare code because i wrote it at midnight:))
+				// Nightmare code because i wrote it at midnight :))
 				distance += graph.Nodes.get(route.get(i)).GetWei().get(route.get(i + 1));
 
 			}
@@ -64,13 +65,13 @@ public class GraphController {
 	}
 
 	/**
-	 * we calculate to generate a set of combinatorial routes with condition of
+	 * we generate a set of combinatorial routes with condition of
 	 * max number of input given nodes. It uses the combinatorial algorithm for
 	 * calculation. Please refer: https://code.google.com/p/combinatoricslib/
 	 * 
 	 * @param inputRoutes
-	 *            (input): input routes. we combine these routes to get final merged route 
-	 *            that satisfy the input condition
+	 *            (input): input routes. we combine these input routes to get final merged route
+	 *            that satisfy the input condition (maxNodes).
 	 * @param outputRoutes
 	 *            (output): store the result
 	 * @param numberElement
@@ -81,8 +82,7 @@ public class GraphController {
 	public void CombinatoryRoutesWithNumberNodes(Set<List<Integer>> inputRoutes, Set<List<Integer>> outputRoutes,
 			Integer numberElement, Integer maxNodes) {
 
-		// we add all routes to a map that key is route's ID (= 0,1,2...), value
-		// is the route
+		// we add all routes to a map that key is route's ID (= 0,1,2...), value is the route
 		HashMap<Integer, List<Integer>> allFoundRoute = new HashMap<Integer, List<Integer>>();
 		List<Integer> routeID = new ArrayList<Integer>();
 		Integer n = 0;
@@ -95,16 +95,14 @@ public class GraphController {
 		ICombinatoricsVector<Integer> originalVector = Factory.createVector(routeID);
 		Generator<Integer> gen = Factory.createPermutationWithRepetitionGenerator(originalVector, numberElement);
 		for (ICombinatoricsVector<Integer> perm : gen) {
-			// we get each permutation (perm) and calculate distance. Eg. if
-			// Permutation = [0,1,2]
-			// then total distance = distance of (route0 + route1 + route2)
+			// we get each permutation (perm) and calculate total number of nodes/stops.
+			// Eg. if Permutation = [0,1,2], then total nodes = number of nodes of (route0 + route1 + route2)
 			Integer totalNodes = 0;
 			for (Integer j : perm) {
 				// number of stop of a route = size of list -1.
 				totalNodes += (allFoundRoute.get(j).size() - 1);
 			}
-			// if totalDistance < maxDistance, we merge routes in permutation to
-			// a final route
+			// if totalNodes < maxNodes, we merge these routes in permutation to a final route
 			if (totalNodes < maxNodes) {
 				List<Integer> mergeList = new ArrayList<Integer>();
 				for (Integer j : perm) {
@@ -124,13 +122,13 @@ public class GraphController {
 	}
 
 	/**
-	 * we calculate to generate a set of combinatorial routes with condition of
+	 * we generate a set of combinatorial routes with condition of
 	 * given max distance. It uses the combinatorial algorithm for calculation.
 	 * Please refer: https://code.google.com/p/combinatoricslib/
 	 * 
 	 * @param inputRoutes
-	 *            (input): input routes. we combine these routes to get final merged route 
-	 *            that satisfy the input condition.
+	 *            (input): input routes. we combine these routes to get final merged route
+	 *            that satisfy the input condition (maxDistance).
 	 * @param outputRoutes
 	 *            (output): store the result
 	 * @param numberElement
@@ -141,8 +139,7 @@ public class GraphController {
 	public void CombinatoryRoutesWithDistance(Set<List<Integer>> inputRoutes, Set<List<Integer>> outputRoutes,
 			Integer numberElement, Integer maxDistance) {
 
-		// we add all routes to a map that key is route's ID (= 0,1,2...), value
-		// is the route
+		// we add all routes to a map that key is route's ID (= 0,1,2...), value is the route
 		HashMap<Integer, List<Integer>> allFoundRoute = new HashMap<Integer, List<Integer>>();
 		List<Integer> routeID = new ArrayList<Integer>();
 		Integer n = 0;
@@ -155,9 +152,8 @@ public class GraphController {
 		ICombinatoricsVector<Integer> originalVector = Factory.createVector(routeID);
 		Generator<Integer> gen = Factory.createPermutationWithRepetitionGenerator(originalVector, numberElement);
 		for (ICombinatoricsVector<Integer> perm : gen) {
-			// we get each permutation (perm) and calculate distance. Eg. if
-			// Permutation = [0,1,2]
-			// then total distance = distance of (route0 + route1 + route2)
+			// we get each permutation (perm) and calculate distance.
+			// Eg. if permutation = [0,1,2], then total distance = total distance of (route0 + route1 + route2)
 			Integer totalDistance = 0;
 			for (Integer j : perm) {
 				totalDistance += CalculateRouteDistance(allFoundRoute.get(j));
@@ -261,7 +257,7 @@ public class GraphController {
 	}
 
 	/**
-	 * remove duplicated nodes in a route. 
+	 * remove duplicated nodes in a route.
 	 * For example: "0->1->1->2" will be converted to "0->1->2".
 	 */
 	public void removeNodeDuplicateInRoute(List<Integer> duplicateRoute, List<Integer> noDuplicateRoute) {

@@ -6,7 +6,7 @@ package thangle.trains.model;
 import java.util.List;
 
 /**
- * @author thang.le
+ * @author Thang Le
  *
  */
 public class GraphDAOImpl implements GraphDAO {
@@ -34,7 +34,7 @@ public class GraphDAOImpl implements GraphDAO {
 	}
 
 	/**
-	 * Add a list of Edge to graph
+	 * Add a list of Edges to the graph
 	 * 
 	 * @param edgeList
 	 *            List of edges is read from input text file
