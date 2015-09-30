@@ -21,7 +21,7 @@ public class Main {
 
 		// initialize workersLst. for sample, retails has 4 workers 
 		// but can increase number worker by increasing index of for loop below
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 4; i++) {
 			Worker wker = new Worker(i, "worker " + i);
 			workersLst.add(wker);
 		}
