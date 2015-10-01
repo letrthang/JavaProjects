@@ -56,12 +56,12 @@ public class WorkerSchedule {
 
 		// set work-days for workers not complete assignment at 1st step
 		for (Worker wrker : workersLst) {
-			int i = 0;
+			int i = 6;
 			while (wrker.isAssignedWorkDay() == false) {
 				wrker.setWorkDays(Util.numToDay(i));
 				// update worker list of respective day
 				daysLst.get(i).setWorkers(wrker);
-				i++;
+				i--;
 			}
 		}
 

@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface WorkerDAO {
 
-	public List<Worker> readWorkerListFromFile(String filePath);
+	public List<String> readWorkerListFromFile(String filePath);
 }
