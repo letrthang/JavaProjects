@@ -18,38 +18,32 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		List<Worker> workersLst = new ArrayList<>();
-		List<String> workersNameLst;
+		List<Worker> workersLst ;
 		List<Day> daysLst = new ArrayList<Day>();
 
 		WorkerSchedule workerSchedule;
 		ScheduleView scheduleView;
 
-		/*
-		 *  Initialize the resource file path
-		 */
+		// 1. Initialize the resource file path
 		String filePath = "resource/Workers_1.txt";
 
+		// 2. initialize workersLst by reading workers from input text file
 		WorkerDAO workerDAO = new WorkerDAOImpl();
-		workersNameLst = workerDAO.readWorkerListFromFile(filePath);
-		// 1. initialize workersLst from input text file
-		for (int i = 0; i < workersNameLst.size() ; i++) {
-			Worker wker = new Worker(i, workersNameLst.get(i));
-			workersLst.add(wker);
-		}
-
-		// 2. initialize daysLst. put all weekday to this list
+		workersLst = workerDAO.readWorkerListFromFile(filePath);
+		
+		// 3. initialize list of weekdays, from Mon to Sun. Put all weekdays to this list
 		for (int i = 0; i <= 6; i++) {
 			daysLst.add(new Day(i, Util.numToDay(i)));
 		}
 
-		// 3. initialize controller and view
-		workerSchedule = new WorkerSchedule(workersLst, daysLst);
-		scheduleView = new ScheduleView(workersLst, daysLst);
+		// 4. initialize controller and view
+		workerSchedule = new WorkerSchedule(workersLst, daysLst); //controller
+		scheduleView = new ScheduleView(workersLst, daysLst); // view
 
-		workerSchedule.assignScheduleToWorkers();
-		scheduleView.showWorkerSchedule();
-		scheduleView.showRetailCalendar();
+		// 5. execute and display results
+		workerSchedule.assignScheduleToWorkers(); // do a calculation
+		scheduleView.showWorkerSchedule(); // display schedule of each worker
+		scheduleView.showRetailCalendar();  // display calendar of retail
 	}
 
 }

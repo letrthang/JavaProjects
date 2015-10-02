@@ -14,16 +14,18 @@ public class WorkerDAOImpl implements WorkerDAO {
 	}
 
 	/*
-	 * we can implement to read worker list from a text file or DB here.
+	 * This method to read worker list from a formatted text file (or from DB if needed) here.
 	 * 
 	 * @see model.WorkerDAO#readWorkerListFromFile(java.lang.String)
 	 */
-	public List<String> readWorkerListFromFile(String filePath) {
+	public List<Worker> readWorkerListFromFile(String filePath) {
 		
 			String inputWorkers = "";
 			String workerName = "";
 
-			List<String> workerList = new ArrayList<String>();
+			List<String> workerNameList = new ArrayList<String>();
+			List<Worker> workersLst = new ArrayList<Worker>();
+			
 			try {
 				inputWorkers = new String(Files.readAllBytes(Paths.get(filePath)));
 			} catch (IOException e) {
@@ -31,7 +33,7 @@ public class WorkerDAOImpl implements WorkerDAO {
 			}
 			inputWorkers.toUpperCase();
 			inputWorkers.trim();
-			System.out.println("Read input worker: " + inputWorkers);
+			System.out.println("Read input workers: " + inputWorkers);
 
 			for (int i = 0; i < inputWorkers.length(); i++) {
 				if (inputWorkers.charAt(i) != ",".charAt(0)) {
@@ -41,7 +43,7 @@ public class WorkerDAOImpl implements WorkerDAO {
 					if (workerName.length() == 0) {
 						System.out.println("Warning: wrong input format");
 					} else {
-						workerList.add(workerName);
+						workerNameList.add(workerName);
 					}
 					workerName = "";
 				}
@@ -51,13 +53,28 @@ public class WorkerDAOImpl implements WorkerDAO {
 					if (workerName.length() == 0) {
 						System.out.println("Warning: wrong input format");
 					} else {
-						workerList.add(workerName);
+						workerNameList.add(workerName);
 					}
 				}
 			}
 
-			return workerList;
+			// convert worker name to Worker object
+			for (int i = 0; i < workerNameList.size() ; i++) {
+				Worker wker = new Worker(i, workerNameList.get(i));
+				workersLst.add(wker);
+			}
+
+			return workersLst;
 
 		
+	}
+	
+	/*
+	 * This method to save worker list to a formatted text file (or from DB if needed).
+	 * User can add new worker from a GUI (View) and save new workers via this method.
+	 * However, this program doesn't have a GUI, so no need to implement this method. Just design idea :))
+	 */ 
+	public boolean writeWorkerListToFile(List<Worker> workers) {
+		return true;
 	}
 }

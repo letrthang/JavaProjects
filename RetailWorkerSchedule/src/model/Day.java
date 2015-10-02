@@ -9,7 +9,7 @@ public class Day {
 
 	private int dayId;
 	private eDays day;
-	private Set<Worker> workers;
+	private Set<Worker> workers; // all workers associate with the day
 
 	public Day(int id, eDays wd) {
 		dayId = id;

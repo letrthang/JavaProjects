@@ -19,7 +19,7 @@ public class WorkerSchedule {
 	}
 
 	/**
-	 * assign off days and work days for all workers
+	 * To assign off days and work days for all workers
 	 */
 	public void assignScheduleToWorkers() {
 		int workerIndex = 0;
@@ -29,7 +29,7 @@ public class WorkerSchedule {
 			// weekday needs minimum 2 workers
 			if ((day.getDay() != eDays.Sat) && (day.getDay() != eDays.Sun)) {
 				while (day.getWorkers().size() < 2) {
-					workerIndex = genRandomNumber(0, workersLst.size() -1); // take randomly index of a worker
+					workerIndex = genRandomNumber(0, workersLst.size() -1); //take randomly index of a worker
 					Worker worker = workersLst.get(workerIndex);
 
 					if (worker.isAssignedWorkDay() == false) {
@@ -79,11 +79,11 @@ public class WorkerSchedule {
 	}
 
 	/**
-	 * return random day
+	 * return a random number in range min:max
 	 * 
 	 * @param min
 	 * @param max
-	 * @return
+	 * @return a random number
 	 */
 	public int genRandomNumber(int min, int max) {
 		int rad = 0;
