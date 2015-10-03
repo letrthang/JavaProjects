@@ -16,8 +16,8 @@ public class Worker {
 	public Worker(int ID, String nameWker) {
 		id = ID;
 		name = nameWker;
-		workDays = new HashSet<eDays>();
-		offDays = new HashSet<eDays>();
+		workDays = new HashSet<eDays>(); // all working days of a worker
+		offDays = new HashSet<eDays>(); // all off days of a worker
 	}
 
 	
