@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="controller.WorkerSchedule" project="RetailWorkerSchedule" 
     file="/RetailWorkerSchedule/src/controller/WorkerSchedule.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="659" y="85"/>    
+    <position height="-1" width="-1" x="647" y="85"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="model.Day" project="RetailWorkerSchedule" 
     file="/RetailWorkerSchedule/src/model/Day.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="227" width="177" x="583" y="209"/>    
+    <position height="227" width="177" x="559" y="202"/>    
     <display autosize="false" stereotype="false" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
