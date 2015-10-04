@@ -18,12 +18,18 @@ public class WorkerSchedule {
 	}
 
 	/**
-	 * To assign off days and work days for all workers
+	 * To assign off days and work days for all workers.
+	 * We take a day from list of days and assign to it a list of random worker.
+	 * A random worker is taken randomly from worker list by using a random number as the index of the list.
+	 * Each day will be assigned with a minimum number of workers as requirement (step 1).
+	 * After that we review each worker, if a worker hasn't assigned 5 work days yet, then continue to assign
+	 * to this worker a new work day until this worker has enough 5 work days (step 2).
+	 * In the end, we assign off-days for each worker (step 3). 
 	 */
 	public void assignScheduleToWorkers() {
 		int workerIndex = 0;
 		
-		// 1st: set work days for workers randomly
+		// 1: set work days for workers randomly
 		for (Day day : daysLst) {
 			// weekday needs minimum 2 workers
 			if ((day.getDay() != eDays.Sat) && (day.getDay() != eDays.Sun)) {
@@ -53,7 +59,7 @@ public class WorkerSchedule {
 			}
 		}
 
-		// set work-days for workers not complete assignment at 1st step
+		// 2. set work-days for workers not complete assignment at 1st step
 		for (Worker wrker : workersLst) {
 			int i = 6;
 			while (wrker.isAssignedWorkDay() == false) {
@@ -64,7 +70,7 @@ public class WorkerSchedule {
 			}
 		}
 
-		// set off-days for workers not complete assignment at 1st step
+		// 3. set off-days for workers not complete assignment at 1st step
 		for (Worker wrker : workersLst) {
 			int j = 0;
 			while (wrker.isAssignedOffDay() == false) {
