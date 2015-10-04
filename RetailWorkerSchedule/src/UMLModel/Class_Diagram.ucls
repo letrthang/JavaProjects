@@ -3,7 +3,7 @@
   generalizations="true" realizations="true" associations="true" dependencies="true" nesting-relationships="true">  
   <class id="1" language="java" name="model.Worker" project="RetailWorkerSchedule" 
     file="/RetailWorkerSchedule/src/model/Worker.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="284" width="171" x="76" y="216"/>    
+    <position height="256" width="176" x="76" y="216"/>    
     <display autosize="false" stereotype="false" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="false"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="model.Day" project="RetailWorkerSchedule" 
     file="/RetailWorkerSchedule/src/model/Day.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="246" width="190" x="563" y="247"/>    
+    <position height="227" width="195" x="563" y="247"/>    
     <display autosize="false" stereotype="false" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="false"/>      
@@ -39,7 +39,7 @@
   </class>  
   <interface id="5" language="java" name="model.WorkerDAO" project="RetailWorkerSchedule" 
     file="/RetailWorkerSchedule/src/model/WorkerDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="161" y="583"/>    
+    <position height="-1" width="-1" x="165" y="558"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="false"/>      
@@ -48,7 +48,7 @@
   </interface>  
   <class id="6" language="java" name="model.WorkerDAOImpl" project="RetailWorkerSchedule" 
     file="/RetailWorkerSchedule/src/model/WorkerDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="463" y="585"/>    
+    <position height="-1" width="-1" x="473" y="556"/>    
     <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="false"/>      
