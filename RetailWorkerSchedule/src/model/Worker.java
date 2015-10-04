@@ -3,21 +3,20 @@ package model;
 import java.util.HashSet;
 import java.util.Set;
 
-import common.eDays;
 
 public class Worker {
 
 	private int id;
-	private Set<eDays> workDays;
-	private Set<eDays> offDays;
+	private Set<Day> workDays;
+	private Set<Day> offDays;
 	private String name;
 	
 	// constructor
 	public Worker(int ID, String nameWker) {
 		id = ID;
 		name = nameWker;
-		workDays = new HashSet<eDays>(); // all working days of a worker
-		offDays = new HashSet<eDays>(); // all off days of a worker
+		workDays = new HashSet<Day>(); // all working days of a worker
+		offDays = new HashSet<Day>(); // all off days of a worker
 	}
 
 	
@@ -55,7 +54,7 @@ public class Worker {
 	/**
 	 * @return the workDays
 	 */
-	public Set<eDays> getWorkDays() {
+	public Set<Day> getWorkDays() {
 		return workDays;
 	}
 
@@ -63,14 +62,14 @@ public class Worker {
 	 * @param workDays
 	 *            the workDays to set
 	 */
-	public void setWorkDays(eDays workDay) {
+	public void setWorkDays(Day workDay) {
 		this.workDays.add(workDay);
 	}
 
 	/**
 	 * @return the offDays
 	 */
-	public Set<eDays> getOffDays() {
+	public Set<Day> getOffDays() {
 		return offDays;
 	}
 
@@ -78,7 +77,7 @@ public class Worker {
 	 * @param offDays
 	 *            the offDays to set
 	 */
-	public void setOffDays(eDays offDay) {
+	public void setOffDays(Day offDay) {
 		this.offDays.add(offDay);
 	}
 
@@ -86,8 +85,8 @@ public class Worker {
 
 		String offDaysStr = "";
 
-		for (eDays day : offDays) {
-			offDaysStr += day.toString() + ", ";
+		for (Day day : offDays) {
+			offDaysStr += day.getDay().toString() + ", ";
 		}
 		return offDaysStr;
 	}
@@ -96,8 +95,8 @@ public class Worker {
 
 		String workDaysStr = "";
 
-		for (eDays day : workDays) {
-			workDaysStr += day.toString() + ", "; 
+		for (Day day : workDays) {
+			workDaysStr += day.getDay().toString() + ", "; 
 		}
 		return workDaysStr;
 	}

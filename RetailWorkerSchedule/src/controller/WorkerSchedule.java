@@ -3,7 +3,6 @@ package controller;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import common.Util;
 import common.eDays;
 import model.Day;
 import model.Worker;
@@ -35,7 +34,7 @@ public class WorkerSchedule {
 					if (worker.isAssignedWorkDay() == false) {
 						day.setWorkers(worker);
 						// update work day for worker
-						workersLst.get(workerIndex).setWorkDays(day.getDay());
+						workersLst.get(workerIndex).setWorkDays(day);
 					}
 
 				}
@@ -48,7 +47,7 @@ public class WorkerSchedule {
 					if (worker.isAssignedWorkDay() == false) {
 						day.setWorkers(worker);
 						// update work day for worker
-						workersLst.get(workerIndex).setWorkDays(day.getDay());
+						workersLst.get(workerIndex).setWorkDays(day);
 					}
 				}
 			}
@@ -58,7 +57,7 @@ public class WorkerSchedule {
 		for (Worker wrker : workersLst) {
 			int i = 6;
 			while (wrker.isAssignedWorkDay() == false) {
-				wrker.setWorkDays(Util.numToDay(i));
+				wrker.setWorkDays(daysLst.get(i));
 				// update worker list of respective day
 				daysLst.get(i).setWorkers(wrker);
 				i--;
@@ -69,8 +68,8 @@ public class WorkerSchedule {
 		for (Worker wrker : workersLst) {
 			int j = 0;
 			while (wrker.isAssignedOffDay() == false) {
-				if (!wrker.getWorkDays().contains(Util.numToDay(j))) {
-					wrker.setOffDays(Util.numToDay(j));
+				if (!wrker.getWorkDays().contains(daysLst.get(j))) {
+					wrker.setOffDays(daysLst.get(j));
 				}
 				j++;
 			}
