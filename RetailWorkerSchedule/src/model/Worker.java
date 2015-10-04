@@ -97,7 +97,7 @@ public class Worker {
 		String workDaysStr = "";
 
 		for (eDays day : workDays) {
-			workDaysStr += day.toString() + ", ";
+			workDaysStr += day.toString() + ", "; 
 		}
 		return workDaysStr;
 	}
