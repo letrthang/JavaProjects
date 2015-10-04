@@ -7,7 +7,7 @@ import model.Worker;
 
 public class ScheduleView {
 
-	private List<Worker> workersLst;
+	private List<Worker> workersLst; 
 	private List<Day> daysLst;
 
 	/**
