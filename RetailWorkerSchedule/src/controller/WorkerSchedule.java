@@ -59,7 +59,8 @@ public class WorkerSchedule {
 			}
 		}
 
-		// 2. set work-days for workers not complete assignment at 1st step
+		// 2. set work-days for workers not complete assignment at 1st step.
+		// for simple, we don't take the random number
 		for (Worker wrker : workersLst) {
 			int i = 6;
 			while (wrker.isAssignedWorkDay() == false) {
