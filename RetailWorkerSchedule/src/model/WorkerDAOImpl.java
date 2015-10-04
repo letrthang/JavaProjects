@@ -13,10 +13,10 @@ public class WorkerDAOImpl implements WorkerDAO {
 
 	}
 
-	/*
+	/**
 	 * This method to read worker list from a formatted text file (or from DB if needed) here.
 	 * 
-	 * @see model.WorkerDAO#readWorkerListFromFile(java.lang.String)
+	 * @return list of Workers
 	 */
 	public List<Worker> readWorkerListFromFile(String filePath) {
 		
