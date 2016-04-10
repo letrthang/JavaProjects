@@ -55,7 +55,8 @@ public class Spreadsheet {
 						ret = detectCyclicDependency(cellBld);
 						// detect cyclic
 						if (ret == true) {
-							// clear tracking a cell is cyclic dependency
+							// stop tracking if there is a cell cyclic
+							// dependency found
 							vistedCells.clear();
 							break;
 						} else {
@@ -202,7 +203,7 @@ public class Spreadsheet {
 					rpnRes = spr.RPNAlgorithm(ce);
 
 					System.out.println("rpn is =" + String.format("%.5f", rpnRes));
-				
+
 				}
 
 			}
