@@ -53,14 +53,14 @@ public class Spreadsheet {
 						// Recursive to visit all dependencies of the current
 						// cell
 						ret = detectCyclicDependency(cellBld);
-						// detect cyclic
+						// detect cyclic dependency
 						if (ret == true) {
 							// stop tracking if there is a cell cyclic
 							// dependency found
 							vistedCells.clear();
 							break;
 						} else {
-							// remove cell that current cell references to
+							// remove cell that current cell references to.
 							vistedCells.remove(cellBld);
 							// And remove itself also. Sorry, it is really nightmare
 							// code, hope you understand :))
@@ -186,25 +186,24 @@ public class Spreadsheet {
 		// 2. read csv and convert cells to a 2D matrix
 		Utility.CSVReader(CellMatrix);
 
-		numRow = CellMatrix.size();
-		numCol = CellMatrix.get(0).size();
+		numRow = CellMatrix.size(); // get number of rows
+		numCol = CellMatrix.get(0).size(); // get number of columns
 		System.out.println("Number row: " + numRow + ", number column: " + numCol + "\n");
 
-		// Starting calculate RPN
+		// 3. Starting calculate RPN
 		for (int i = 0; i < numRow; i++) {
 			for (int j = 0; j < numCol; j++) {
 				row = Character.toString((char) (i + 'A'));
 				column = Integer.toString(j + 1);
-				// System.out.println("Row= " + row + " --- Col= " + column);
 
-				// 3. detect cyclic dependency first
+				// 3.1. detect cyclic dependency first
 				Cell ce = Utility.buildCell(row, column);
 				ret = spr.detectCyclicDependency(ce);
 				if (ret) {
 					System.out.println("Cell " + row + column + " has cyclic dependencies");
 				} else {
 
-					// 4. Actual Calculate RPN
+					// 3.2. Actual Calculate RPN
 					try {
 						double rpnRes = 0;
 						rpnRes = spr.RPNAlgorithm(ce);
