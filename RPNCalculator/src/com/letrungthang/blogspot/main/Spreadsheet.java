@@ -140,6 +140,8 @@ public class Spreadsheet {
 						// to other cell
 						stack.push(RPNAlgorithm(ce));
 					} else {
+						// put to stack immediately if operand not linking to
+						// other cell
 						stack.push(Double.parseDouble(next));
 					}
 				} catch (NumberFormatException c) {
