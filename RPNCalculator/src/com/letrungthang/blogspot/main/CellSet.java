@@ -37,4 +37,10 @@ public class CellSet {
 
 		return false;
 	}
+	
+	public void clear(){
+		if(cellSet != null){
+			cellSet.clear();
+		}
+	}
 }

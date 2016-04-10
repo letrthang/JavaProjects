@@ -84,7 +84,7 @@ public class Utility {
 				CellMatrix.add(new ArrayList<String>());
 			}
 
-			// read next lines and add to 2D matrix
+			// read next lines and add cells to 2D matrix
 			while ((line = br.readLine()) != null) {
 				// use comma as separator
 				String[] nextLine = line.split(cvsSplitBy);
@@ -108,7 +108,7 @@ public class Utility {
 			}
 		}
 
-		System.out.println("Read CSV Done!");
+		//System.out.println("Read CSV Done!");
 	}
 
 	// for test

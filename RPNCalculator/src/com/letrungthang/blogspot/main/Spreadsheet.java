@@ -12,6 +12,7 @@ import java.util.Stack;
 public class Spreadsheet {
 
 	private CellSet vistedCells = new CellSet();
+	//
 	private static List<List<String>> CellMatrix;
 
 	Spreadsheet() {
@@ -41,7 +42,7 @@ public class Spreadsheet {
 				// add the cell visited to a set for tracking back
 				vistedCells.add(cell);
 
-				// split the expression
+				// split the expression at white space
 				String exprSplit[] = cell.expression.split("\\s+");
 				for (int i = 0; i < exprSplit.length; i++) {
 
@@ -54,9 +55,15 @@ public class Spreadsheet {
 						ret = detectCyclicDependency(cellBld);
 						// detect cyclic
 						if (ret == true) {
-							break; // a cell is cyclic dependency
+							// clear tracking a cell is cyclic dependency
+							vistedCells.clear();
+							break;
 						} else {
+							// remove cell that current cell references to
 							vistedCells.remove(cellBld);
+							// remove itself also. Sorry, it is really nightmare
+							// code, hope you understand :))
+							vistedCells.remove(cell);
 						}
 					}
 				}
@@ -137,11 +144,11 @@ public class Spreadsheet {
 					if (nextIsReferencedCell(next)) {
 						Cell ce = Utility.buildCell(next.substring(0, 1), next.substring(1));
 						// recursive here to calculate operand that referencing
-						// to other cell
+						// on other cell
 						stack.push(RPNAlgorithm(ce));
 					} else {
-						// put to stack immediately if operand not linking to
-						// other cell
+						// put into stack immediately if operand not linking to
+						// any other cell
 						stack.push(Double.parseDouble(next));
 					}
 				} catch (NumberFormatException c) {
@@ -162,21 +169,45 @@ public class Spreadsheet {
 	 * entry function
 	 */
 	public static void main(String[] args) {
+
+		int numRow = 0;
+		int numCol = 0;
+		String row = null;
+		String column = null;
+		boolean ret = true;
+
 		// 1. Initialize Spreadsheet
 		Spreadsheet spr = new Spreadsheet();
 		// 2. read csv and convert to a matrix
 		Utility.CSVReader(CellMatrix);
-		// 3. detect cyclic dependency
-		Cell ce = Utility.buildCell("C", "1");
-		boolean ret = spr.detectCyclicDependency(ce);
-		System.out.println("res =" + ret);
-		// 4. calculate RPN
-		if (!ret) {
-			double rpnRes = 0;
-			rpnRes = spr.RPNAlgorithm(ce);
 
-			System.out.println("rpn is =" + String.format("%.5f", rpnRes));
+		numRow = CellMatrix.size();
+		numCol = CellMatrix.get(0).size();
+
+		// calculate RPN
+		for (int i = 0; i < numRow; i++) {
+			for (int j = 0; j < numCol; j++) {
+				row = Character.toString((char) (i + 'A'));
+				column = Integer.toString(j + 1);
+				// System.out.println("Row= " + row + " --- Col= " + column);
+
+				// 3. detect cyclic dependency
+				Cell ce = Utility.buildCell(row, column);
+				ret = spr.detectCyclicDependency(ce);
+				if (ret) {
+					System.out.println("Cell " + row + column + " has cyclic dependencies");
+				} else {
+					// 4. Calculate RPN
+					double rpnRes = 0;
+					rpnRes = spr.RPNAlgorithm(ce);
+
+					System.out.println("rpn is =" + String.format("%.5f", rpnRes));
+				
+				}
+
+			}
 		}
+
 	}
 
 }
