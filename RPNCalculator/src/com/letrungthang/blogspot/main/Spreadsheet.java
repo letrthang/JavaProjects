@@ -190,21 +190,21 @@ public class Spreadsheet {
 		numCol = CellMatrix.get(0).size();
 		System.out.println("Number row: " + numRow + ", number column: " + numCol + "\n");
 
-		// calculate RPN
+		// Starting calculate RPN
 		for (int i = 0; i < numRow; i++) {
 			for (int j = 0; j < numCol; j++) {
 				row = Character.toString((char) (i + 'A'));
 				column = Integer.toString(j + 1);
 				// System.out.println("Row= " + row + " --- Col= " + column);
 
-				// 3. detect cyclic dependency
+				// 3. detect cyclic dependency first
 				Cell ce = Utility.buildCell(row, column);
 				ret = spr.detectCyclicDependency(ce);
 				if (ret) {
 					System.out.println("Cell " + row + column + " has cyclic dependencies");
 				} else {
 
-					// 4. Calculate RPN
+					// 4. Actual Calculate RPN
 					try {
 						double rpnRes = 0;
 						rpnRes = spr.RPNAlgorithm(ce);

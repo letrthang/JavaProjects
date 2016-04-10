@@ -55,11 +55,12 @@ public class Utility {
 	}
 
 	/*
-	 * read csv file and convert cell position to a 2D matrix
+	 * read csv file and convert cell position to a 2D matrix.
+	 * csv is from resource directory
 	 */
 	public static void CSVReader(List<List<String>> CellMatrix) {
 
-		String csvFile = "resource/input_data1.csv";
+		String csvFile = "resource/input_data1.csv"; 
 		BufferedReader br = null;
 		String line = "";
 		String cvsSplitBy = ",";
