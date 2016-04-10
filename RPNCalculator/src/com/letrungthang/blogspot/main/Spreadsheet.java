@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 /**
- * @author ThangLe
+ * @author Thang Le.
  * @version 10 April 2016
  *
  */
@@ -50,7 +50,7 @@ public class Spreadsheet {
 					// find operand of expression that references to other cell
 					if (Character.isLetter(character.charAt(0))) {
 						Cell cellBld = Utility.buildCell(character.substring(0, 1), character.substring(1));
-						// recursive to visit all dependencies of the current
+						// Recursive to visit all dependencies of the current
 						// cell
 						ret = detectCyclicDependency(cellBld);
 						// detect cyclic
@@ -62,7 +62,7 @@ public class Spreadsheet {
 						} else {
 							// remove cell that current cell references to
 							vistedCells.remove(cellBld);
-							// remove itself also. Sorry, it is really nightmare
+							// And remove itself also. Sorry, it is really nightmare
 							// code, hope you understand :))
 							vistedCells.remove(cell);
 						}
@@ -88,7 +88,7 @@ public class Spreadsheet {
 	}
 
 	/**
-	 * check if an operand links to an other cell
+	 * check if an operand is linking to an other cell
 	 * 
 	 */
 	public boolean nextIsReferencedCell(String next) {
@@ -146,7 +146,7 @@ public class Spreadsheet {
 				try {
 					if (nextIsReferencedCell(next)) {
 						Cell ce = Utility.buildCell(next.substring(0, 1), next.substring(1));
-						// recursive here to calculate operand that referencing
+						// Recursive here to calculate operand that referencing
 						// on other cell
 						stack.push(RPNAlgorithm(ce));
 					} else {
@@ -183,7 +183,7 @@ public class Spreadsheet {
 
 		// 1. Initialize Spreadsheet
 		Spreadsheet spr = new Spreadsheet();
-		// 2. read csv and convert to a matrix
+		// 2. read csv and convert cells to a 2D matrix
 		Utility.CSVReader(CellMatrix);
 
 		numRow = CellMatrix.size();
@@ -209,9 +209,9 @@ public class Spreadsheet {
 						double rpnRes = 0;
 						rpnRes = spr.RPNAlgorithm(ce);
 						String expr = Global.gCellMatrix.get(i).get(j);
-						System.out.println(expr + "  .................  " + String.format("%.5f", rpnRes));
+						System.out.println(expr + "  ....................  " + String.format("%.5f", rpnRes));
 					} catch (Exception e) {
-						System.out.println("Hey... something went wrong...");
+						System.out.println("Hey... something went wrong...pls check the log!");
 						e.printStackTrace();
 					}
 

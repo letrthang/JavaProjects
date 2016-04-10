@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author ThangLe
+ * @author Thang Le
  *
  */
 public class Utility {
@@ -109,10 +109,10 @@ public class Utility {
 			}
 		}
 
-		//System.out.println("Read CSV Done!");
+		System.out.println("Read csv file done!. Input CSV file path: "+ csvFile);
 	}
 
-	// for test
+	// for unit test only
 	public static void main_test(String[] args) {
 		String test = "81 Z5 +";
 		boolean res = false;
