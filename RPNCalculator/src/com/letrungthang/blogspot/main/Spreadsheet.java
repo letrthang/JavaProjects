@@ -104,7 +104,7 @@ public class Spreadsheet {
 	 * 
 	 * @param cell
 	 */
-	public double RPNAlgorithm(Cell cell) {
+	public double RPNAlgorithm(Cell cell) throws Exception {
 
 		// scanner to manipulate input and stack to store double values
 		String next;
@@ -132,6 +132,7 @@ public class Spreadsheet {
 
 						if (first == 0) {
 							System.out.println("The RPN equation attempted to divide by zero.");
+							throw new Exception();
 						} else {
 							stack.push(second / first);
 						}
@@ -139,6 +140,7 @@ public class Spreadsheet {
 				} else {
 					System.out.println(
 							"A mathematical operator occured before there were enough numerical values for it to evaluate.");
+					throw new Exception();
 				}
 			} else {
 				try {
@@ -154,6 +156,7 @@ public class Spreadsheet {
 					}
 				} catch (NumberFormatException c) {
 					System.out.println("The string is not a valid RPN equation.");
+					throw new Exception();
 				}
 			}
 		}
@@ -161,6 +164,7 @@ public class Spreadsheet {
 		if (stack.size() > 1) {
 			System.out.println(
 					"There too many numbers and not enough mathematical operators with which to evaluate them.");
+			throw new Exception();
 		}
 
 		return (Double) stack.pop();
@@ -184,6 +188,7 @@ public class Spreadsheet {
 
 		numRow = CellMatrix.size();
 		numCol = CellMatrix.get(0).size();
+		System.out.println("Number row: " + numRow + ", number column: " + numCol + "\n");
 
 		// calculate RPN
 		for (int i = 0; i < numRow; i++) {
@@ -198,11 +203,17 @@ public class Spreadsheet {
 				if (ret) {
 					System.out.println("Cell " + row + column + " has cyclic dependencies");
 				} else {
-					// 4. Calculate RPN
-					double rpnRes = 0;
-					rpnRes = spr.RPNAlgorithm(ce);
 
-					System.out.println("rpn is =" + String.format("%.5f", rpnRes));
+					// 4. Calculate RPN
+					try {
+						double rpnRes = 0;
+						rpnRes = spr.RPNAlgorithm(ce);
+						String expr = Global.gCellMatrix.get(i).get(j);
+						System.out.println(expr + "  .................  " + String.format("%.5f", rpnRes));
+					} catch (Exception e) {
+						System.out.println("Hey... something went wrong...");
+						e.printStackTrace();
+					}
 
 				}
 
