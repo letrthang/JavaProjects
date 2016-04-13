@@ -105,8 +105,10 @@ public class Spreadsheet {
 	}
 
 	/**
-	 * Reverse Polish Notation algorithm
-	 * 
+	 * Reverse Polish Notation algorithm.
+	 * A part of this function is copied from:
+	 * {@link} http://www.java2s.com/Code/Java/Collections-Data-Structure/ReversePolishNotation.htm
+	 * Main idea here is to add recursive method to traverser all cells hat linking to current cell.  
 	 * @param cell
 	 */
 	public double RPNAlgorithm(Cell cell) throws Exception {
@@ -152,7 +154,7 @@ public class Spreadsheet {
 					if (nextIsReferencedCell(next)) {
 						Cell ce = Utility.buildCell(next.substring(0, 1), next.substring(1));
 						// Recursive here to calculate operand that referencing
-						// on other cell
+						// to other cells
 						stack.push(RPNAlgorithm(ce));
 					} else {
 						// put into stack immediately if operand not linking to
