@@ -1,4 +1,4 @@
-package com.letrungthang.blogspot.main;
+package com.letrungthang.blogspot.global;
 
 import java.util.ArrayList;
 import java.util.List;

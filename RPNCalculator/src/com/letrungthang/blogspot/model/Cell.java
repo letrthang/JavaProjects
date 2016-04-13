@@ -1,4 +1,4 @@
-package com.letrungthang.blogspot.main;
+package com.letrungthang.blogspot.model;
 
 public class Cell {
 
@@ -6,7 +6,7 @@ public class Cell {
 	public String column; // number eg. 1, 20...
 	public String expression; // content of the cell
 
-	Cell(String RowVal, String ColumnVal, String ExpressionVal) {
+	public Cell(String RowVal, String ColumnVal, String ExpressionVal) {
 		row = RowVal;
 		column = ColumnVal;
 		expression = ExpressionVal;

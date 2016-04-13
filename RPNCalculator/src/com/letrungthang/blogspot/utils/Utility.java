@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.letrungthang.blogspot.main;
+package com.letrungthang.blogspot.utils;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,6 +9,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.letrungthang.blogspot.global.Global;
+import com.letrungthang.blogspot.model.Cell;
 
 /**
  * @author Thang Le
@@ -109,7 +112,7 @@ public class Utility {
 			}
 		}
 
-		System.out.println("Read csv file done!. Input CSV file path: "+ csvFile);
+		System.out.println("Read csv file done!. Input CSV file: "+ csvFile);
 	}
 
 	// for unit test only

@@ -1,7 +1,9 @@
-package com.letrungthang.blogspot.main;
+package com.letrungthang.blogspot.utils;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import com.letrungthang.blogspot.model.Cell;
 
 /*
  * This class is a wrapper of standard Set for supporting Cell class
@@ -9,7 +11,7 @@ import java.util.Set;
 public class CellSet {
 	private Set<Cell> cellSet;
 
-	CellSet() {
+	public CellSet() {
 		cellSet = new HashSet<Cell>();
 	}
 

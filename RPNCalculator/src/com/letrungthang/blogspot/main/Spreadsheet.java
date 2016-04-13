@@ -4,15 +4,20 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
+import com.letrungthang.blogspot.global.Global;
+import com.letrungthang.blogspot.model.Cell;
+import com.letrungthang.blogspot.utils.CellSet;
+import com.letrungthang.blogspot.utils.Utility;
+
 /**
  * @author Thang Le.
  * @version 10 April 2016
  *
  */
 public class Spreadsheet {
-
+	// keep tracking cells visited
 	private CellSet vistedCells = new CellSet();
-	//
+	// matrix of cells in input spreadsheet.
 	private static List<List<String>> CellMatrix;
 
 	Spreadsheet() {
