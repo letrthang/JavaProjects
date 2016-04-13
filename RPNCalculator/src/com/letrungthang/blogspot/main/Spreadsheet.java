@@ -108,7 +108,7 @@ public class Spreadsheet {
 	 * Reverse Polish Notation algorithm.
 	 * A part of this function is copied from:
 	 * {@link} http://www.java2s.com/Code/Java/Collections-Data-Structure/ReversePolishNotation.htm
-	 * Main idea here is to add recursive method to traverser all cells hat linking to current cell.  
+	 * Main idea here is to add recursive method to traverser all cells that linking to current cell.  
 	 * @param cell
 	 */
 	public double RPNAlgorithm(Cell cell) throws Exception {
