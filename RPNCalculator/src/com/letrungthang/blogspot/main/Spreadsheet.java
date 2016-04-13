@@ -42,7 +42,7 @@ public class Spreadsheet {
 		} else {
 
 			if (vistedCells.contains(cell)) {
-				return true; // cyclic reference
+				return true; // cyclic dependency detected
 			} else {
 				// add the cell visited to a set for tracking back
 				vistedCells.add(cell);
@@ -68,7 +68,7 @@ public class Spreadsheet {
 							// remove cell that current cell references to.
 							vistedCells.remove(cellBld);
 							// And remove itself also. Sorry, it is really nightmare
-							// code, hope you understand :))
+							// code, hope you not angry :))
 							vistedCells.remove(cell);
 						}
 					}
