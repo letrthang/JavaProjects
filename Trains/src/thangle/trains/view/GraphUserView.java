@@ -8,7 +8,7 @@ import thangle.trains.controller.GraphController;
 public class GraphUserView {
 	GraphController graphController;
 
-	public GraphUserView() {
+	public GraphUserView() { 
 
 	}
 
