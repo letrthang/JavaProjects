@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="371.0" minWidth="665.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="385.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reader.main.GUIMainController">
+   <children>
+      <Label layoutX="12.0" layoutY="97.0" prefHeight="35.0" prefWidth="815.0" text="Copy text below and paste to isif.properties file." textFill="#1f16cd" />
+      <ComboBox fx:id="cboSelectReader" layoutX="14.0" layoutY="49.0" onAction="#selectReaderAction" prefHeight="25.0" prefWidth="245.0">
+         <effect>
+            <DropShadow />
+         </effect>
+         </ComboBox> 
+      <TextArea fx:id="txtReaderConfig" layoutX="12.0" layoutY="123.0" minHeight="251.0" minWidth="593.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="251.0" prefWidth="736.0">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font></TextArea>
+      <Label alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="24.0" prefHeight="25.0" prefWidth="121.0" text="Readers List" />
+      <Button fx:id="butGetReader" layoutX="627.0" layoutY="49.0" mnemonicParsing="false" onAction="#getReaderList" prefHeight="25.0" prefWidth="121.0" text="Get Readers">
+         <effect>
+            <InnerShadow />
+         </effect>
+       </Button>
+   </children>
+</AnchorPane>
