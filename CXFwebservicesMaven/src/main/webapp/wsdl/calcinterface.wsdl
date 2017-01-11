@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CalcService" targetNamespace="http://util.math.gen/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://util.math.gen/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"> 
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://util.math.gen/" schemaLocation="calcinterface_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="multiply">
+    <wsdl:part name="parameters" element="tns:multiply">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="add">
+    <wsdl:part name="parameters" element="tns:add">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addResponse">
+    <wsdl:part name="parameters" element="tns:addResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="multiplyResponse">
+    <wsdl:part name="parameters" element="tns:multiplyResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CalcInterface">
+    <wsdl:operation name="add">
+      <wsdl:input name="add" message="tns:add">
+    </wsdl:input>
+      <wsdl:output name="addResponse" message="tns:addResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <wsdl:input name="multiply" message="tns:multiply">
+    </wsdl:input>
+      <wsdl:output name="multiplyResponse" message="tns:multiplyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CalcServiceSoapBinding" type="tns:CalcInterface">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="add">
+      <soap12:operation soapAction="urn:Add" style="document"/>
+      <wsdl:input name="add">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <soap12:operation soapAction="urn:Multiply" style="document"/>
+      <wsdl:input name="multiply">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="multiplyResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CalcService">
+    <wsdl:port name="CalcPort" binding="tns:CalcServiceSoapBinding">
+      <soap12:address location="http://localhost:8080/CXFservicesMaven/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
