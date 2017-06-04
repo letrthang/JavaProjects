@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="371.0" minWidth="665.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="385.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reader.main.GUIMainController">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="371.0" minWidth="665.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="385.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reader.main.GUIMainController">
    <children>
       <Label layoutX="12.0" layoutY="97.0" prefHeight="35.0" prefWidth="815.0" text="Copy text below and paste to isif.properties file." textFill="#1f16cd" />
       <ComboBox fx:id="cboSelectReader" layoutX="14.0" layoutY="49.0" onAction="#selectReaderAction" prefHeight="25.0" prefWidth="245.0">
@@ -27,5 +27,8 @@
             <InnerShadow />
          </effect>
        </Button>
+      <ComboBox layoutX="284.0" layoutY="49.0" prefWidth="150.0" />
+      <Label layoutX="284.0" layoutY="28.0" text="SAM Type" />
+      <Button layoutX="454.0" layoutY="49.0" mnemonicParsing="false" text="Simulate Production" />
    </children>
 </AnchorPane>
