@@ -20,11 +20,11 @@
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 	<context:annotation-config />
 	<mvc:annotation-driven />
-	<context:component-scan base-package="user.manager, gen.math.util, math.util" />
+	<context:component-scan base-package="restful.services, soap.services" />
 
 	<!-- soap services -->
-	<jaxws:endpoint id="calc" implementor="math.util.CalcPortImpl"
-		wsdlLocation="wsdl/calcinterface.wsdl" address="/soapservices">
+	<jaxws:endpoint id="iCalc" implementor="soap.services.CalcImpl"
+		address="/soapservices">
 		<jaxws:features>
 			<bean class="org.apache.cxf.feature.LoggingFeature" />
 		</jaxws:features>
@@ -37,7 +37,7 @@
 		class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider" />
 
 	<!-- configure for restful endpoint -->
-	<jaxrs:server id="userController" address="/restservices">
+	<jaxrs:server id="iUserController" address="/restservices">
 		<jaxrs:serviceBeans>
 			<ref bean="userService" />
 		</jaxrs:serviceBeans>

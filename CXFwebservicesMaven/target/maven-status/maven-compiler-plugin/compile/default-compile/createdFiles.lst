@@ -1,0 +1,5 @@
+restful\services\IUserController.class
+restful\services\UserControllerImpl.class
+soap\services\ICalc.class
+restful\services\User.class
+soap\services\CalcImpl.class
