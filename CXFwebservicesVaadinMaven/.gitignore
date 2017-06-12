@@ -1,0 +1,10 @@
+/debug/
+/release/
+/bin/
+*.class
+.*
+~*
+$*
+!/.gitignore
+
+/target/
