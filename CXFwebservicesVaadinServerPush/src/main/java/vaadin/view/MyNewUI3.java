@@ -21,7 +21,7 @@ public class MyNewUI3 extends NewUI3 implements View {
 
 	private static final long serialVersionUID = 1L;
 	public static final String VIEW_NAME = "MyNewUI3";
-	public File file;
+	private File file;
 
 	public MyNewUI3() {
 		button.addClickListener(e -> {

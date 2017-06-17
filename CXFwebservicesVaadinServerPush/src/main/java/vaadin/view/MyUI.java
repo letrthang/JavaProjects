@@ -54,7 +54,7 @@ public class MyUI extends UI {
 		public void run() {
 			try {
 				// Update the data for a while
-				while (count < 500) {
+				while (count < 10000) {
 					Thread.sleep(1000);
 
 					// Calling special 'access' method on UI object, for
@@ -86,7 +86,7 @@ public class MyUI extends UI {
 				access(new Runnable() {
 					@Override
 					public void run() {
-						myNewUI.getLabel().setValue("Done job.");
+						myNewUI.getLabel().setValue("Too tired to count. sleep :))");
 					}
 				});
 			} catch (InterruptedException e) {
@@ -96,18 +96,18 @@ public class MyUI extends UI {
 	}
 
 	public void tellTime() {
-		System.out.println("tellTime");
+		//System.out.println("tellTime");
 		myNewUI.getLabel().setValue("Now : " + Instant.now());
 	}
 
 	public void tellTime2() {
-		System.out.println("tellTime2");
+		//System.out.println("tellTime2");
 		myNewUI2.getLabel().setValue("Now : " + Instant.now());
-		System.out.println("get text NewUI2: " + myNewUI2.getText());
+		//System.out.println("get text NewUI2: " + myNewUI2.getText());
 	}
 
 	public void tellTime3() {
-		System.out.println("tellTime3");
+		//System.out.println("tellTime3");
 		myNewUI3.getLabel().setValue("Now : " + Instant.now());
 	}
 
