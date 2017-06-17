@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout width="606px" height="494px">
+   <vaadin-label width="167px" plain-text _id="label" :middle :center>
+     Label 
+   </vaadin-label>
+   <vaadin-button width="115px" height="29px" plain-text _id="button">
+     Button 
+   </vaadin-button>
+   <vaadin-check-box caption="enable to auto set progress bar" width="173px" height="37px" _id="checkBox" :center></vaadin-check-box>
+   <vaadin-combo-box caption="select to jump to new page or set progress bar" width="180px" data-item-type="java.lang.String" _id="comboBox" :middle :right>
+    <option item="Option1">Option 1</option>
+    <option item="Option2">Option 2</option>
+    <option item="Option3">Option 3</option>
+   </vaadin-combo-box>
+   <vaadin-check-box-group data-item-type="java.lang.String" _id="checkBoxGroup">
+    <option item="Option1">Option 1</option>
+    <option item="Option2">Option 2</option>
+    <option item="Option3">Option 3</option>
+   </vaadin-check-box-group>
+   <vaadin-slider caption="To be triggered depending on check box value" width="227px" _id="slider" :middle :center></vaadin-slider>
+  </vaadin-vertical-layout>
+ </body>
+</html>
