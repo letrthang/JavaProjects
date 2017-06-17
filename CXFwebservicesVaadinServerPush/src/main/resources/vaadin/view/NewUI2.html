@@ -6,18 +6,40 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-vertical-layout size-full>
-   <vaadin-button width="104px" plain-text _id="button" :middle :center>
-     Button 
-   </vaadin-button>
-   <vaadin-label caption="just to test server push" width="246px" plain-text _id="label" :middle :center>
-     Label 
-   </vaadin-label>
-   <vaadin-text-field value="text.." _id="textField" :middle :center></vaadin-text-field>
-   <vaadin-button width="117px" plain-text _id="button1" :center>
-     Button 
-   </vaadin-button>
-   <vaadin-inline-date-field width="172px" height="50px" _id="inlineDateField" :center></vaadin-inline-date-field>
+  <vaadin-vertical-layout height="554px">
+   <vaadin-grid-layout width="777px" height="264px">
+    <row>
+     <column>
+      <vaadin-button width="104px" plain-text _id="button" :center>
+        Button 
+      </vaadin-button>
+     </column>
+    </row>
+    <row>
+     <column>
+      <vaadin-label caption="just to test server push" width="281px" height="40px" plain-text _id="label" :middle :center>
+        Label 
+      </vaadin-label>
+     </column>
+    </row>
+    <row>
+     <column>
+      <vaadin-text-field width="218px" value="text.." _id="textField" :middle :center></vaadin-text-field>
+     </column>
+    </row>
+    <row>
+     <column>
+      <vaadin-button width="117px" plain-text _id="button1" :middle :center>
+        Button 
+      </vaadin-button>
+     </column>
+    </row>
+    <row>
+     <column>
+      <vaadin-inline-date-field width="172px" height="50px" _id="inlineDateField" :bottom :center></vaadin-inline-date-field>
+     </column>
+    </row>
+   </vaadin-grid-layout>
   </vaadin-vertical-layout>
  </body>
 </html>

@@ -13,7 +13,7 @@ import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.UI;
 
 @Component
-@Theme("runo")
+@Theme("valo")
 @SpringUI
 @Push
 public class MyUI extends UI {

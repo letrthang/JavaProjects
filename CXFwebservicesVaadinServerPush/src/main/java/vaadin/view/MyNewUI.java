@@ -29,7 +29,9 @@ public class MyNewUI extends NewUI implements View {
 
 	public MyNewUI() {
 		button.addClickListener(e -> {
-			addComponent(new Label("Thanks " + label.getValue() + ", it works!"));
+			// addComponent(new Label("Thanks " + label.getValue() + ", it
+			// works!"));
+			doNavigate(MyNewUI2.VIEW_NAME);
 		});
 
 		comboBox.setItems("1", "2", "3");
@@ -37,9 +39,15 @@ public class MyNewUI extends NewUI implements View {
 			boolean cb = checkBox.getValue();
 			if (cb == true) {
 				slider.setValue((double) 50);
-				setImage("img2.jpg");
 			} else {
-				doNavigate(MyNewUI2.VIEW_NAME);
+				String cbv = comboBox.getValue();
+				if (cbv.equals("1")) {
+					setImage("img1.jpg");
+				} else if (cbv.equals("2")) {
+					setImage("img2.jpg");
+				} else {
+					setImage("img3.jpg");
+				}
 			}
 		});
 

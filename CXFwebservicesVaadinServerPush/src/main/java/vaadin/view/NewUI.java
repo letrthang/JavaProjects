@@ -24,8 +24,8 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class NewUI extends VerticalLayout {
 	protected Image image;
-	protected Label label;
 	protected Button button;
+	protected Label label;
 	protected CheckBox checkBox;
 	protected ComboBox<java.lang.String> comboBox;
 	protected Slider slider;

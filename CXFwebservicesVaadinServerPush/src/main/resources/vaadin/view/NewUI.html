@@ -4,23 +4,46 @@
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
   <meta name="vaadin-version" content="8.0.5">
+  <meta name="package-mapping" content="com_vaadin:com.vaadin">
  </head>
  <body>
-  <vaadin-vertical-layout width="893px" height="656px">
-   <vaadin-image caption="Cẩu đầu trảm 2017 - Test webservices: https://caudautram.herokuapp.com/webservices" width="370px" height="114px" _id="image" :center></vaadin-image>
-   <vaadin-label caption="just to test server push - look good" width="273px" plain-text _id="label" :bottom :center>
-     Label 
-   </vaadin-label>
-   <vaadin-button width="115px" height="29px" plain-text _id="button" :bottom :center>
-     Button 
-   </vaadin-button>
-   <vaadin-check-box caption="enable to auto set progress bar to 50% position" width="405px" height="37px" _id="checkBox" :middle :center></vaadin-check-box>
-   <vaadin-combo-box caption="select any to jump to new page or set progress bar to 50% if checkbox enabled" width="180px" data-item-type="java.lang.String" _id="comboBox" :center>
-    <option item="Option1">Option 1</option>
-    <option item="Option2">Option 2</option>
-    <option item="Option3">Option 3</option>
-   </vaadin-combo-box>
-   <vaadin-slider caption="To be set if checkbox is selected and dropbox change new value" width="373px" _id="slider" :middle :center></vaadin-slider>
+  <vaadin-vertical-layout width="892px" height="795px">
+   <vaadin-image caption="Cẩu đầu trảm 2017 - Test webservices here: https://caudautram.herokuapp.com/webservices" width="645px" height="294px" _id="image" :center></vaadin-image>
+   <vaadin-grid-layout width="823px" height="397px">
+    <row>
+     <column>
+      <vaadin-button width="115px" height="29px" plain-text _id="button" :middle :center>
+        Button 
+      </vaadin-button>
+     </column>
+    </row>
+    <row>
+     <column>
+      <vaadin-label caption="just to test server push - look good" width="298px" plain-text _id="label" :center>
+        Label 
+      </vaadin-label>
+     </column>
+    </row>
+    <row>
+     <column>
+      <vaadin-check-box caption="enable to auto set progress bar to 50% position" width="405px" height="37px" _id="checkBox" :middle :center></vaadin-check-box>
+     </column>
+    </row>
+    <row>
+     <column>
+      <vaadin-combo-box caption="select any to jump to new page or set progress bar to 50% if checkbox enabled" width="180px" data-item-type="java.lang.String" _id="comboBox" :middle :center>
+       <option item="Option1">Option 1</option>
+       <option item="Option2">Option 2</option>
+       <option item="Option3">Option 3</option>
+      </vaadin-combo-box>
+     </column>
+    </row>
+    <row>
+     <column>
+      <vaadin-slider caption="To be set if checkbox is selected and dropbox change new value" width="373px" _id="slider" :center></vaadin-slider>
+     </column>
+    </row>
+   </vaadin-grid-layout>
   </vaadin-vertical-layout>
  </body>
 </html>
