@@ -246,15 +246,15 @@
 }
 
 .v-debugwindow-row.FINE {
-	color: #777;
+	color: #737373;
 }
 
 .v-debugwindow-row.FINER {
-	color: #888;
+	color: gray;
 }
 
 .v-debugwindow-row.FINEST {
-	color: #888;
+	color: #8c8c8c;
 }
 
 .v-debugwindow-row > span.caption {
@@ -2040,7 +2040,7 @@ body .base.v-app .v-app-loading {
 	width: 200px;
 }
 
-.base .v-app-loginpage .v-button, .base .v-app-loginpage .v-button {
+.base .v-app-loginpage .v-button {
 	float: left;
 }
 

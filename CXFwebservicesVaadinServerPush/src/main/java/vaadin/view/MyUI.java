@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.vaadin.annotations.Push;
 import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.Widgetset;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
@@ -14,6 +15,7 @@ import com.vaadin.ui.UI;
 
 @Component
 @Theme("valo")
+@Widgetset("AppWidgetset") 
 @SpringUI
 @Push
 public class MyUI extends UI {

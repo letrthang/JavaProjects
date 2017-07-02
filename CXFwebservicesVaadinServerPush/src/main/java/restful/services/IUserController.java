@@ -8,7 +8,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 /**
  *  "readUser" which is only accepted GET request. So url should be:
- *  http://localhost:8080/CXFwebservicesMaven-1.0.0/restservices/rest/user/12345
+ *  http://localhost:8080/CXFwebservicesMaven-1.0.0/webservices/restservices/rest/user/12345
  *  
  *  "createUser" which is only accepted POST request. need use some tools as SoapUI
  *  to send POST request to server
@@ -16,6 +16,7 @@ import javax.ws.rs.Produces;
  * */
 @Path("/rest")
 public interface IUserController {
+	
 	@POST
 	@Path("/user")
 	@Produces("application/json")
@@ -27,6 +28,5 @@ public interface IUserController {
 	@Produces("application/json")
 	@Consumes("application/json")
 	public User readUser(@PathParam("id") String id);
-	
 	
 }
