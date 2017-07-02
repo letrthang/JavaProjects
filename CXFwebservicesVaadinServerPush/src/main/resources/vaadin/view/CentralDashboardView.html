@@ -8,10 +8,10 @@
   <meta name="package-mapping" content="com_vaadin_addon_charts:com.vaadin.addon.charts">
  </head>
  <body>
-  <vaadin-vertical-layout width="1089px" height="918px">
-   <vaadin-absolute-layout width="1050px" height="870px">
+  <vaadin-vertical-layout width="1089px" height="892px">
+   <vaadin-absolute-layout width="1050px" height="855px">
     <vaadin-slider caption="Change image size" width="377px" _id="slider" :top="16px" :left="225px"></vaadin-slider>
-    <vaadin-button height-full plain-text _id="button" :top="16px" :bottom="817px" :left="16px">
+    <vaadin-button height-full plain-text _id="button" :top="16px" :bottom="802px" :left="16px">
       Users Management 
     </vaadin-button>
     <vaadin-label caption="System database status" width="150px" height="25px" plain-text _id="label" :top="451px" :left="36px">
@@ -29,13 +29,17 @@
     <vaadin-label caption="System Status" width="152px" plain-text _id="label3" :top="450px" :left="768px">
       Active 
     </vaadin-label>
-    <vaadin-image caption="ALE SOAP and UHES RESTful webservices: https://neonplatform.herokuapp.com/services" width="868px" height="297px" _id="image" :top="92px" :left="79px"></vaadin-image>
-    <com_vaadin_addon_charts-chart width="986px" height="310px" _id="chart" :top="529px" :left="16px"></com_vaadin_addon_charts-chart>
+    <com_vaadin_addon_charts-chart width="986px" height="310px" _id="chart" :top="509px" :left="16px"></com_vaadin_addon_charts-chart>
     <vaadin-combo-box caption="Change To New Image" height="37px" data-item-type="java.lang.String" _id="comboBox" :top="16px" :left="629px">
      <option item="Option1">Option 1</option>
      <option item="Option2">Option 2</option>
      <option item="Option3">Option 3</option>
     </vaadin-combo-box>
+    <vaadin-accordion width="800px" height="289px" :top="69px" :left="109px">
+     <tab caption="ALE SOAP and UHES RESTful webservices: https://neonplatform.herokuapp.com/services" selected>
+      <vaadin-image caption="ALE SOAP and UHES RESTful webservices: https://neonplatform.herokuapp.com/services" width="788px" height="239px" _id="image"></vaadin-image>
+     </tab>
+    </vaadin-accordion>
    </vaadin-absolute-layout>
   </vaadin-vertical-layout>
  </body>
