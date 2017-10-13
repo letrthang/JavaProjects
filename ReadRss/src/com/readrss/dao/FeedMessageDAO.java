@@ -23,7 +23,11 @@ public class FeedMessageDAO {
 	}
 
 	public void saveFeedMessage(FeedMessage message) {
+
 		try {
+			if (message == null)
+				throw new IOException();
+
 			BufferedWriter out = new BufferedWriter(new FileWriter(message.getUiid() + ".txt"));
 			out.write(message.getFullContent());
 

@@ -42,8 +42,9 @@ public class HtmlPageReader {
 			fullContent = new String(buffer.toString());
 			String uiid = sURL.replaceAll(":", "").replaceAll("/", "");
 
+			// set message content
 			feedMessage.setFullContent(fullContent);
-			// quick implement for uiid ^;^
+			// set uiid. quick implement for uiid, reuse url as Id ^;^
 			feedMessage.setUiid(uiid);
 
 			// System.out.println(buffer.toString());
