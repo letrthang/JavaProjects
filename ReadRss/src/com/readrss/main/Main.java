@@ -9,7 +9,7 @@ import com.readrss.view.RssView;
 /**
  * @author Thang Le.
  * 
- *         project is implemented follow MVP pattern.
+ *         project is implemented following the MVP pattern.
  *
  */
 public class Main {
@@ -20,7 +20,7 @@ public class Main {
 	public static void main(String[] args) {
 		List<String> urlLst = new ArrayList<>();
 		urlLst.add("http://tech.uzabase.com/entry/2017/10/11/130352");
-		urlLst.add("http://tech.uzabase.com/entry/2017/09/26/191009-");
+		urlLst.add("http://tech.uzabase.com/entry/2017/09/26/191009");
 
 		rssView = new RssView();
 		rssPresenter = new RssPresenter(rssView);
