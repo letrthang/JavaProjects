@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html
+  lang="ja"
+
+data-admin-domain="//blog.hatena.ne.jp"
+data-author="uzabase"
+data-avail-langs="ja en"
+data-blog="uzabase.hatenablog.com"
+data-blog-host="uzabase.hatenablog.com"
+data-blog-is-public="1"
+data-blog-name="UZABASE Tech Blog"
+data-blog-uri="http://tech.uzabase.com/"
+data-blog-uuid="8454420450077187183"
+data-blogs-uri-base="http://tech.uzabase.com"
+data-brand="pro"
+data-data-layer="{&quot;hatenablog&quot;:{&quot;admin&quot;:{},&quot;pro&quot;:&quot;pro&quot;,&quot;page_id&quot;:&quot;entry&quot;,&quot;blog&quot;:{&quot;enable_ads&quot;:&quot;false&quot;,&quot;name&quot;:&quot;UZABASE Tech Blog&quot;,&quot;is_public&quot;:&quot;true&quot;,&quot;uri&quot;:&quot;http://tech.uzabase.com/&quot;,&quot;force_pc_view&quot;:&quot;false&quot;,&quot;entry_show_footer_related_entries&quot;:&quot;true&quot;,&quot;is_responsive_view&quot;:&quot;false&quot;,&quot;enable_keyword_link&quot;:&quot;false&quot;,&quot;owner_name&quot;:&quot;uzabase&quot;},&quot;brand&quot;:&quot;pro&quot;,&quot;analytics&quot;:{&quot;property_id&quot;:&quot;UA-59337057-1&quot;,&quot;non_sampling_property_id&quot;:&quot;&quot;,&quot;brand_property_id&quot;:&quot;&quot;,&quot;separated_property_id&quot;:&quot;UA-29716941-26&quot;},&quot;brand_tracking_category&quot;:&quot;pro&quot;,&quot;permalink_entry&quot;:{&quot;hour&quot;:&quot;19&quot;,&quot;author_name&quot;:&quot;kudogen&quot;,&quot;date&quot;:&quot;2017-09-26&quot;,&quot;categories&quot;:&quot;&quot;,&quot;title&quot;:&quot;Gauge Test Automation Tool\u3068\u30a2\u30b8\u30e3\u30a4\u30eb\u958b\u767a&quot;,&quot;uri&quot;:&quot;http://tech.uzabase.com/entry/2017/09/26/191009&quot;},&quot;router_type&quot;:&quot;blogs&quot;}}"
+data-device="pc"
+data-dont-recommend-pro="false"
+data-globalheader-color="b"
+data-globalheader-type="pc"
+data-has-touch-view="1"
+data-hide-header="1"
+data-page="entry"
+data-plus-available="1"
+data-pro="true"
+data-router-type="blogs"
+data-static-domain="https://cdn.blog.st-hatena.com"
+data-version="869ec7ae3a36b6b3e99d534577d60b38"
+
+itemscope
+itemtype="http://schema.org/Article"
+
+  data-initial-state="{}"
+
+  >
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+  
+
+  
+
+
+
+  
+
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=9; IE=10; IE=11" />
+  <title>Gauge Test Automation Toolã?¨ã?¢ã?¸ã?£ã?¤ã?«é??ç?º - UZABASE Tech Blog</title>
+
+  
+  <link rel="canonical" href="http://tech.uzabase.com/entry/2017/09/26/191009"/>
+
+
+
+  
+  
+
+<meta itemprop="name" content="Gauge Test Automation Toolã?¨ã?¢ã?¸ã?£ã?¤ã?«é??ç?º - UZABASE Tech Blog"/>
+
+  <meta itemprop="image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/k/kudogen/20170718/20170718122930.png"/>
+
+
+  <meta property="og:title" content="Gauge Test Automation Toolã?¨ã?¢ã?¸ã?£ã?¤ã?«é??ç?º - UZABASE Tech Blog"/>
+<meta property="og:type" content="article"/>
+  <meta property="og:url" content="http://tech.uzabase.com/entry/2017/09/26/191009"/>
+
+  <meta property="og:image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/k/kudogen/20170718/20170718122930.png"/>
+
+    <meta property="og:description" content="ã??ã??ã?«ã?¡ã?¯SPEEDAã?®QAã??ã?¼ã? ã?®å·¥è?¤ã?§ã??ã?? æ??è¿?ã?§ã?¯ã??ã?¹ã??è?ªå??å??å?¨ã??ã?®ã??ã?¼ã?«ã??æ?°å¤?ã??å­?å?¨ã??ã?¦ã??ã?¾ã??ã??ã??è?±èª?ã?§ã?®ã?¿æ??ä¾?ã??ã??ã?¦ã??ã?¦æ?¥æ?¬ã?§å¤?ã??ã?®äººã?«ç?¥ã??ã??ã?¦ã??ã?ªã??ã?µã?¼ã??ã?¹ã??å¤?ã??ã?¨æ??ã??ã?¾ã??ã?? ã??ã??ã?ªä¸­ã??Gaugeã?¨ã??ã??è?ªå??å??ã?®ã??ã?¼ã?«ã??ã?¤ã?±ã?¦ã??ã?¨ã??ã??æ??å ±ã??ç?ºè¦?ã??ã??ã?®ã?§å®?é??ã?«èª¿ã?¹ã?¦ã?¿ã?¾ã??ã??ã?? ã?¯ã??ã??ã?« Gaugeã?¨ã?¯ThoughtWorksç¤¾ã??é??ç?ºã??ã?¦ã??ã??ã?ªã?¼ã??ã?³ã?½ã?¼ã?¹ã?®ã??ã?¹ã??è?ªå??å??ã??ã?¼ã?«ã?§ã??ï¼?2017å¹´7æ??ç?¾å?¨ã?§ã??ã?¼ã?¿ç??ï¼?ã?? ã??ã?£ã?¨å?·ä½?ç??ã?«è¨?ã??ã?¨æ§?ã??ã?ªã?­ã?¼ã?«ã?®ã?¡ã?³ã??ã?¼ã??è?ªå??ã??ã?¹ã??ã?®ã?¹ã?¯ã?ªã??ã??ã??ç??è§£ã?§ã??ã??ã??ã??ã?«ã??ã??ã??ã??ã?®specificationã??ã?¼ã?«ï¼?æ??ã??ã??ç«?ã?¡ä½?ç½®ç??ã?«ã?¯Cucumber/Gherkâ?¦" />
+<meta property="og:site_name" content="UZABASE Tech Blog"/>
+
+  <meta property="article:published_time" content="1506420609" />
+
+      <meta name="twitter:card"  content="summary_large_image" />
+    <meta name="twitter:image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/k/kudogen/20170718/20170718122930.png" />
+  <meta name="twitter:title" content="Gauge Test Automation Toolã?¨ã?¢ã?¸ã?£ã?¤ã?«é??ç?º - UZABASE Tech Blog" />    <meta name="twitter:description" content="ã??ã??ã?«ã?¡ã?¯SPEEDAã?®QAã??ã?¼ã? ã?®å·¥è?¤ã?§ã??ã?? æ??è¿?ã?§ã?¯ã??ã?¹ã??è?ªå??å??å?¨ã??ã?®ã??ã?¼ã?«ã??æ?°å¤?ã??å­?å?¨ã??ã?¦ã??ã?¾ã??ã??ã??è?±èª?ã?§ã?®ã?¿æ??ä¾?ã??ã??ã?¦ã??ã?¦æ?¥æ?¬ã?§å¤?ã??ã?®äººã?«ç?¥ã??ã??ã?¦ã??ã?ªã??ã?µã?¼ã??ã?¹ã??å¤?ã??ã?¨æ??ã??ã?¾ã??ã?? ã??ã??ã?ªä¸­ã??Gaugeã?¨ã??ã??è?ªå??å??ã?®ã??ã?¼ã?«ã??ã?¤ã?±ã?¦ã??ã?¨ã??ã??æ??å ±ã??ç?ºè¦?ã??ã??ã?®ã?§å®?é??ã?«èª¿ã?¹ã?¦ã?¿ã?¾ã??ã??ã?? ã?¯ã??ã??ã?« Gaugeã?¨ã?¯Thougâ?¦" />  <meta name="twitter:app:name:iphone" content="ã?¯ã?¦ã?ªã??ã?­ã?°ã?¢ã??ã?ª" />
+  <meta name="twitter:app:id:iphone" content="583299321" />
+  <meta name="twitter:app:url:iphone" content="hatenablog:///open?uri=http%3A%2F%2Ftech.uzabase.com%2Fentry%2F2017%2F09%2F26%2F191009" />  <meta name="twitter:site" content="@Uzabase_Tech" />
+  
+    <meta name="google-site-verification" content="gbXhTZujNWi0bbMji4Bi3GQJY0GaA6h23bZm_YruNWc">    <meta name="description" content="ã??ã??ã?«ã?¡ã?¯SPEEDAã?®QAã??ã?¼ã? ã?®å·¥è?¤ã?§ã??ã?? æ??è¿?ã?§ã?¯ã??ã?¹ã??è?ªå??å??å?¨ã??ã?®ã??ã?¼ã?«ã??æ?°å¤?ã??å­?å?¨ã??ã?¦ã??ã?¾ã??ã??ã??è?±èª?ã?§ã?®ã?¿æ??ä¾?ã??ã??ã?¦ã??ã?¦æ?¥æ?¬ã?§å¤?ã??ã?®äººã?«ç?¥ã??ã??ã?¦ã??ã?ªã??ã?µã?¼ã??ã?¹ã??å¤?ã??ã?¨æ??ã??ã?¾ã??ã?? ã??ã??ã?ªä¸­ã??Gaugeã?¨ã??ã??è?ªå??å??ã?®ã??ã?¼ã?«ã??ã?¤ã?±ã?¦ã??ã?¨ã??ã??æ??å ±ã??ç?ºè¦?ã??ã??ã?®ã?§å®?é??ã?«èª¿ã?¹ã?¦ã?¿ã?¾ã??ã??ã?? ã?¯ã??ã??ã?« Gaugeã?¨ã?¯Thougâ?¦" />
+
+  
+<script
+  id="embed-gtm-data-layer-loader"
+  data-data-layer-page-specific="{&quot;hatenablog&quot;:{&quot;blogs_permalink&quot;:{&quot;blog_hide_afc&quot;:&quot;true&quot;,&quot;has_related_entries_with_elasticsearch&quot;:&quot;true&quot;,&quot;afc_issued&quot;:&quot;false&quot;}}}"
+>
+(function() {
+  function loadDataLayer(elem, attrName) {
+    if (!elem) { return {}; }
+    var json = elem.getAttribute(attrName);
+    if (!json) { return {}; }
+    return JSON.parse(json);
+  }
+
+  var globalVariables = loadDataLayer(
+    document.documentElement,
+    'data-data-layer'
+  );
+  var pageSpecificVariables = loadDataLayer(
+    document.getElementById('embed-gtm-data-layer-loader'),
+    'data-data-layer-page-specific'
+  );
+
+  var variables = [globalVariables, pageSpecificVariables];
+
+  if (!window.dataLayer) {
+    window.dataLayer = [];
+  }
+
+  for (var i = 0; i < variables.length; i++) {
+    window.dataLayer.push(variables[i]);
+  }
+})();
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P4CXTW');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+
+  <link rel="shortcut icon" href="https://cdn.image.st-hatena.com/image/favicon/b1a5d0f5afcbbe358080d194bf638d9bfac3c67d/version=1/https%3A%2F%2Fcdn.mogile.archive.st-hatena.com%2Fv1%2Fimage%2Fhayassh%2F302459540337117913.png">
+<link rel="icon" sizes="192x192" href="https://cdn.image.st-hatena.com/image/square/96037f5d6a710eacb42efd6ba941636e3dbd8e3b/backend=imagemagick;height=192;version=1;width=192/https%3A%2F%2Fcdn.mogile.archive.st-hatena.com%2Fv1%2Fimage%2Fhayassh%2F302459540337117913.png">
+
+  
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://tech.uzabase.com/feed"/>
+<link rel="alternate" type="application/rss+xml" title="RSS2.0" href="http://tech.uzabase.com/rss"/>
+<link rel="alternate" type="application/json+oembed" href="http://hatenablog.com/oembed?url=http%3A%2F%2Ftech.uzabase.com%2Fentry%2F2017%2F09%2F26%2F191009&amp;format=json" title="oEmbed Profile of Gauge Test Automation Toolã?¨ã?¢ã?¸ã?£ã?¤ã?«é??ç?º"/>
+<link rel="alternate" type="text/xml+oembed" href="http://hatenablog.com/oembed?url=http%3A%2F%2Ftech.uzabase.com%2Fentry%2F2017%2F09%2F26%2F191009&amp;format=xml" title="oEmbed Profile of Gauge Test Automation Toolã?¨ã?¢ã?¸ã?£ã?¤ã?«é??ç?º"/>
+  
+  <link rel="author" href="http://www.hatena.ne.jp/kudogen/">
+
+
+  
+    <link rel="stylesheet" type="text/css" href="https://cdn.blog.st-hatena.com/css/blog.css?version=a469305b75470a32d88f693a44b9fe428212d500&amp;env=production"/>
+
+    
+  <link rel="stylesheet" type="text/css" href="//blog.hatena.ne.jp/-/blog_style/8454420450077187183/af16f1fd85e2b7f51341fb93f1f1bb061628f356"/>
+  
+
+  
+
+  
+<script> </script>
+
+  
+<style>
+  div#google_afc_user,
+  div.google-afc-user-container,
+  div.google_afc_image,
+  div.google_afc_blocklink {
+      display: block !important;
+  }
+</style>
+
+
+  
+</head>
+
+  <body class="page-entry enable-top-editarea globalheader-off">
+    
+    <div id="header-container">
+     <div id="sp-suggest" style="display: none;"><a id="sp-suggest-link" href="#">ã?¹ã??ã?¼ã??ã??ã?©ã?³ç?¨ã?®è¡¨ç¤ºã?§è¦?ã??</a></div>
+    </div>
+
+    <div id="globalheader-container"
+  data-brand="hatenablog"
+  style="display: none"
+  
+  >
+  <iframe id="globalheader" height="37" frameborder="0" allowTransparency="true"></iframe>
+</div>
+
+
+    <div id="container">
+      <div id="container-inner">
+        <header id="blog-title" data-brand="hatenablog">
+  <div id="blog-title-inner" >
+    <div id="blog-title-content">
+      <h1 id="title"><a href="http://tech.uzabase.com/">UZABASE Tech Blog</a></h1>
+      
+        <h2 id="blog-description">æ ªå¼?ä¼?ç¤¾ã?¦ã?¼ã?¶ã??ã?¼ã?¹ã?®æ??è¡?ã??ã?¼ã? ã??ã?­ã?°ã?§ã??ã?? ä¸»ã?«é?±æ¬¡ã?®æ??ã?¡å??ã??LTã??ã?»ã??ã??ã?¼ã?»ã?¤ã??ã?³ã??æ??å ±ã?«ã?¤ã??ã?¦æ?¸ã??ã?¾ã??ã??</h2>
+      
+    </div>
+  </div>
+</header>
+
+        
+  <div id="top-editarea">
+    <meta name="google-site-verification" content="gbXhTZujNWi0bbMji4Bi3GQJY0GaA6h23bZm_YruNWc" />
+  </div>
+
+
+        
+        
+
+
+
+
+<div id="content" class="hfeed"
+  
+  >
+  <div id="content-inner">
+    <div id="wrapper">
+      <div id="main">
+        <div id="main-inner">
+          
+
+
+          
+  
+  <!-- google_ad_section_start -->
+  <!-- rakuten_ad_target_begin -->
+  
+  
+  
+
+  
+
+  
+    
+      
+        <article class="entry hentry js-entry-article date-first autopagerize_page_element chars-3200 words-200 mode-markdown entry-odd" id="entry-8599973812280671827" data-keyword-campaign="" data-uuid="8599973812280671827" data-publication-type="entry">
+  <div class="entry-inner">
+    <header class="entry-header">
+    <div class="date entry-date first">
+    <a href="http://tech.uzabase.com/archive/2017/09/26" rel="nofollow">
+      <time pubdate datetime="2017-09-26T10:10:09Z" title="2017-09-26T10:10:09Z">
+        <span class="date-year">2017</span><span class="hyphen">-</span><span class="date-month">09</span><span class="hyphen">-</span><span class="date-day">26</span>
+      </time>
+    </a>
+  </div>
+  <h1 class="entry-title">
+  <a href="http://tech.uzabase.com/entry/2017/09/26/191009" class="entry-title-link bookmark">Gauge Test Automation Toolã?¨ã?¢ã?¸ã?£ã?¤ã?«é??ç?º</a>
+</h1>
+
+  
+  
+
+
+  
+
+  
+
+</header>
+
+    
+
+    <div class="entry-content">
+  
+    <p>ã??ã??ã?«ã?¡ã?¯SPEEDAã?®QAã??ã?¼ã? ã?®å·¥è?¤ã?§ã??ã??<br/>
+æ??è¿?ã?§ã?¯ã??ã?¹ã??è?ªå??å??å?¨ã??ã?®ã??ã?¼ã?«ã??æ?°å¤?ã??å­?å?¨ã??ã?¦ã??ã?¾ã??ã??ã??è?±èª?ã?§ã?®ã?¿æ??ä¾?ã??ã??ã?¦ã??ã?¦æ?¥æ?¬ã?§å¤?ã??ã?®äººã?«ç?¥ã??ã??ã?¦ã??ã?ªã??ã?µã?¼ã??ã?¹ã??å¤?ã??ã?¨æ??ã??ã?¾ã??ã??<br/>
+ã??ã??ã?ªä¸­ã??<b>Gauge</b>ã?¨ã??ã??è?ªå??å??ã?®ã??ã?¼ã?«ã??ã?¤ã?±ã?¦ã??ã?¨ã??ã??æ??å ±ã??ç?ºè¦?ã??ã??ã?®ã?§å®?é??ã?«èª¿ã?¹ã?¦ã?¿ã?¾ã??ã??ã??</p>
+
+<h1>ã?¯ã??ã??ã?«</h1>
+
+<p>Gaugeã?¨ã?¯ThoughtWorksç¤¾ã??é??ç?ºã??ã?¦ã??ã??ã?ªã?¼ã??ã?³ã?½ã?¼ã?¹ã?®ã??ã?¹ã??è?ªå??å??ã??ã?¼ã?«ã?§ã??ï¼?2017å¹´7æ??ç?¾å?¨ã?§ã??ã?¼ã?¿ç??ï¼?ã??<br/>
+ã??ã?£ã?¨å?·ä½?ç??ã?«è¨?ã??ã?¨æ§?ã??ã?ªã?­ã?¼ã?«ã?®ã?¡ã?³ã??ã?¼ã??è?ªå??ã??ã?¹ã??ã?®ã?¹ã?¯ã?ªã??ã??ã??ç??è§£ã?§ã??ã??ã??ã??ã?«ã??ã??ã??ã??ã?®specificationã??ã?¼ã?«ï¼?æ??ã??ã??ç«?ã?¡ä½?ç½®ç??ã?«ã?¯Cucumber/Gherkinã?®ä»£æ?¿ï¼?ã?«ã?ªã??ã?¾ã??ã??<br/>
+ã??ã?£ã??ã??Gaugeã?®è?¯ã??ã?¨ã??ã??ã??æ??ã??ã??ã?¨ä¸?è¨?ã?«ã?ªã??ã?¾ã??ã??</p>
+
+<ul>
+<li>Selenium Webdriverã?¨ä¸?ç·?ã?«ä½¿ã??ã??</li>
+<li>ã??ã?¼ã?¯ã??ã?¦ã?³å½¢å¼?ã?§è¨?è¿°ã?§ã??ã??</li>
+<li>ã??ã?¸ã??ã?¹è¨?èª?ã?§ã??ã?¹ã??ä»?æ§?ã??è¨?è¿°ã?§ã??ã??ï¼?å®?è¡?å?¯è?½ã?ªä»?æ§?æ?¸ã?®æ¦?å¿µã??ã?µã??ã?¼ã??ï¼?</li>
+<li>å¤?è¨?èª?ã??ã??ã?«ã??ã??ã?©ã??ã??ã??ã?©ã?¼ã? ã??ã?µã??ã?¼ã??</li>
+<li>å¤?é?¨ã??ã?¼ã?¿ã?½ã?¼ã?¹ã??ã??ã??ã?¹ã??ã??ã?¼ã?¿ã??èª­ã?¿è¾¼ã??ã??</li>
+<li>æ?¡å¼µå?¯è?½ï¼?è?ªå??ã?§pluginã??é??ç?ºã?§ã??ã??ï¼?</li>
+<li>IDEã?®ã?µã??ã?¼ã??ã??å??å®?ã??ã?¦ã??ã??</li>
+</ul>
+
+
+<h1>Gaugeã?§ä½¿ã??ç?¨èª?</h1>
+
+<p>ä¸?è¨?ã??Gaugeã?§ä½¿ç?¨ã??ã??å?ºæ?¬ç??ã?ªç?¨èª?ï¼?æ¦?å¿µï¼?ã?§ã??ã??<br/>
+ä½¿ã??å§?ã??ã??ã?®ã?«æ??ä½?é??å¿?è¦?ã??ã??ã?ªã??ã?®ã??ã??ã??ã?¯ã?¢ã??ã??ã??ã?¦ã??ã??ã?®ã?§ã??å½?ç?¶ä»?ã?«ã??ã??ã??ã?¾ã??ã??</p>
+
+<ul>
+<li>Specifications(spec)</li>
+<li>Scenarios</li>
+<li>Steps</li>
+<li>Tags</li>
+</ul>
+
+
+<p>ã??ã??å°?ã??è©³ã??ã??èª¬æ??ã??ã?¦ã??ã??ã?¾ã??ã??</p>
+
+<h4>Specification(spec)</h4>
+
+<p>ã??ã?¹ã??å¯¾è±¡ã?¢ã??ã?ªã?±ã?¼ã?·ã?§ã?³ã?®ç?¹å®?ã?®æ©?è?½ã?®ä»?æ§?ã??èª¬æ??ã??ã?¦ã??ã?¾ã??ã??</p>
+
+<h4>Scenarios</h4>
+
+<p>å??Scenarioã?¯ã??ç?¹å®?ã?®ä»?æ§?ã?®1ã?¤ã?®ã??ã?­ã?¼ã??è¡¨ã??ã?¦ã??ã?¾ã??ã??ä»?æ§?ã?«ã?¯å°?ã?ªã??ã?¨ã??1ã?¤ã?®Scenarioã??å?«ã?¾ã??ã?¦ã??ã??å¿?è¦?ã??ã??ã??ã?¾ã??ã??</p>
+
+<h4>Steps</h4>
+
+<p>ä»?æ§?ã??å®?è¡?å?¯è?½ã?ªã?³ã?³ã??ã?¼ã??ã?³ã??ã?«å??ã??ã??ã??ã?®ã??Stepã?«ã?ªã??ã?¾ã??ã??ã??ã?¼ã?¯ã??ã?¦ã?³å½¢å¼?ã?®unordered list itemsï¼?bulleted pointsï¼?ã?¨ã??ã?¦è¨?è¿°ã??ã??ã?¾ã??ã??<br/>
+ï¼?å¤§ã??ã??Context Stepsã??Tear Down Stepsã??Scenarioã??conceptså??ã?®Stepsã?«å??ã??ã??ã??ã?¾ã??ã??ã??ä»?å??ã?¯ã??ã??ã??ã?¸ã??ã?®èª¬æ??ã?¯å?²æ??ã??ã?¾ã??ï¼?ã??</p>
+
+<h4>Tags</h4>
+
+<p>Tagã?¯specã??Scenarioã??é?¢é?£ä»?ã??ã??ã??ã??ã??ã?«ä½¿ç?¨ã??ã?¾ã??ã??ã?¿ã?°ã??ç?¨ã??ã?¦specã??Scenarioã??ã??ã?£ã?«ã?¿ã?ªã?³ã?°ã??ã??ã??ã?¨ã??ã?§ã??ã??å¾?ã??ä¾¿å?©ã?«ã?ªã??ã?¾ã??ã??</p>
+
+<h1>Gaugeã?®ã?¤ã?³ã?¹ã??ã?¼ã?«</h1>
+
+<p>ä¸?è¨?ã??ã?¼ã?¸ã??ã??ã??ã?¦ã?³ã?­ã?¼ã??ã?§ã??ã?¾ã??ã??ã?¤ã?³ã?¹ã??ã?¼ã?«æ?¹æ³?ã??ç°¡å??ã?§ã??ä¸?è¨?ã??ã?¼ã?¸ã?«æ?¸ã??ã?¦ã??ã??é??ã??ã?«é?²ã??ã?¦ã??ã??ã?°5å??ã??ã??ã??ã??ã??ã?«Gaugeè?ªä½?ã?¯ã?¤ã?³ã?¹ã??ã?¼ã?«ã?§ã??ã?¾ã??ã??<br/>
+<a href="https://getgauge.io/get-started.html">https://getgauge.io/get-started.html</a></p>
+
+<h1>ã?µã?³ã??ã?«ã?³ã?¼ã??ã??è¦?ã?¦ã?¿ã??</h1>
+
+<p>ä¸?è¨?ã??ã?¼ã?¸ã??ã??è?ªå??ã?®å¥½ã?¿ã?®è¨?èª?ã?®Sampleã?³ã?¼ã??ã?®Githubã?ªã?³ã?¯ã?¸é£?ã?¶ã??ã?¨ã??ã?§ã??ã?¾ã??ã??<br/>
+<a href="https://docs.getgauge.io/examples.html">https://docs.getgauge.io/examples.html</a></p>
+
+<p>ç§?ã?¯Web app using Seleniumã?®Javaã?®Sampleã?³ã?¼ã??ã??é?¸æ??ã??ã?¾ã??ã??ã??<br/>
+<a href="https://github.com/getgauge/gauge-example-java">https://github.com/getgauge/gauge-example-java</a></p>
+
+<p>ä¸?è¨?ã??Specificationã?®ã??ã?¡ã?¤ã?«ã?«ã?ªã??ã?¾ã??ã??<br/>
+ä¸?è¨?ã?§èª¬æ??ã??ã??ç?¨èª?ã?¯ã??ã??ã?ªå½¢ã?§ä½¿ã??ã??ã?¾ã??ã??</p>
+
+<p>user.specï¼?è?ªç?¶è¨?èª?ã?§ã??ã?¹ã??ã?±ã?¼ã?¹ã??è¨?è¿°ã??ã?¦ã??ã??ã??ã?¡ã?¤ã?«ï¼?</p>
+
+<pre class="code" data-lang="" data-unlink>Signup   //Specification
+======
+
+Register a customer  //Scenario
+-------------------
+tags: user, signup, high, final, smoke  //Tags
+
+* Sign up a new customer                  //Step1
+* On the customer page                    //Step2
+* Just registered customer is listed      //Step3
+</pre>
+
+
+<p>ä¸?è¨?ã?®Specã??ã?¡ã?¤ã?«ã?¯IDEã?§ã?¿ã??å??ã??æ?¿ã??ã?§HTML Previewã??é?²è¦§ã?§ã??ã?¾ã??ã??Specã??ã?¡ã?¤ã?«ã??ã??ã?®ã?¾ã?¾ä»?æ§?æ?¸ã?¨ã??ã?¦ä½¿ã??ã?¾ã??ã??
+ï¼?è?ªå??ã?®å ´å??ã?¯IntelliJã??ä½¿ã??ã?¾ã??ã??ã??IDEå?´ã?§ã??ã?©ã?°ã?¤ã?³ã??ã?¤ã?³ã?¹ã??ã?¼ã?«ã??ã?¦ã??ã??å¿?è¦?ã??ã??ã??ã?¾ã??ï¼?ã??ã??
+<span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/k/kudogen/20170718/20170718122930.png" alt="f:id:kudogen:20170718122930p:plain" title="f:id:kudogen:20170718122930p:plain" class="hatena-fotolife" itemprop="image"></span></p>
+
+<p>ä¸?è¨?ã??Seleniumã?®ã??ã?¹ã??ã?³ã?¼ã??ã?«ã?ªã??ã?¾ã??ã??
+å??Stepã?«å¯¾ã??ã?¦ã?®ã??ã?¹ã??ã?³ã?¼ã??ã??@Stepã?¨ã??ã??å½¢ã?§å®?è£?ã??ã??ã?¦ã??ã??ã?®ã??å??ã??ã??ã?¾ã??ã??<br/>
+UserSpec.java</p>
+
+<pre class="code lang-java" data-lang="java" data-unlink><span class="synType">public</span> <span class="synType">class</span> UserSpec {
+    <span class="synType">private</span> <span class="synType">final</span> WebDriver driver;
+
+    <span class="synType">public</span> UserSpec() {
+        <span class="synType">this</span>.driver = DriverFactory.getDriver();
+    }
+
+    <span class="synType">public</span> String localPart() {
+        <span class="synComment">// Creating a random local part of an email address also used as username</span>
+        <span class="synStatement">return</span> UUID.randomUUID().toString();
+    }
+
+    <span class="synPreProc">@Step</span>(<span class="synConstant">&quot;On signup page&quot;</span>)    <span class="synComment">//Stepsã?®å®?è£?é?¨å??</span>
+    <span class="synType">public</span> <span class="synType">void</span> navigateToSignUpPage() {
+        driver.get(SignUpPage.SignUpUrl);
+    }
+</pre>
+
+
+<h1>ã?¬ã??ã?¼ã??æ©?è?½</h1>
+
+<p>ã??ã?©ã?°ã?¤ã?³ã??ã?¤ã?³ã?¹ã??ã?¼ã?«ã??ã?¦ã??ã??ã? ã??ã?§ã??ã??ã?¹ã??æµ?ã??åº¦ã?«HTMLã?®ã??ã?¹ã??ã?¬ã??ã?¼ã??ã??å??ã??å?ºã??ã?¦ã??ã??ã?¾ã??ï¼?ä¸?è¨?ç?»å??å??ç?§ï¼?<br/>
+å®?è¡?ã??ã??ã??ã?¹ã??ã??Specificationã??Tagã?§æ¤?ç´¢ã?§ã??ã?¦ã??Specæ¯?ã??Scenarioæ¯?ã??Stepæ¯?ã?«ã?©ã??ã??ã??ã??å®?è¡?æ??é??ã??ã??ã??ã?£ã??ã??ã??ç°¡å??ã?«ã??ã??ã??ã?¾ã??ã??<br/>
+<span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/k/kudogen/20170718/20170718123453.png" alt="f:id:kudogen:20170718123453p:plain" title="f:id:kudogen:20170718123453p:plain" class="hatena-fotolife" itemprop="image"></span></p>
+
+<h1>ä»?å??ã?«ã??ã?¼ã??ã?¦ã??ã?ªã??æ©?è?½</h1>
+
+<p>ã??ã??ã?¾ã?§ã?«ç´¹ä»?ã??ã??ã?®ã?¯ã??ã??ã?¾ã?§ã??è¶?å?ºæ?¬ç??ã?ªTerminologyã?§ã??ã??
+ä»?ã?«ã??ä¸?è¨?ã?®ã??ã??ã?ªã??ã?®ã??ã??ã??ã?®ã?§ã??ã??ã??ä»?å??ã?¯è§¦ã??ã??ã??ã?¦ã??ã?¾ã??ã??ã??</p>
+
+<ul>
+<li>Concepts</li>
+<li>Parameters</li>
+<li>Stepã?®ç¨®é¡?ï¼?Contexts, Tear Down Stepsï¼?</li>
+</ul>
+
+
+<p>ã?¾ã??ã??ã?ªã??å½¹ç«?ã?¡ã??ã??ã?ªä¸?è¨?æ©?è?½ã??ã??ã??ã?¾ã??ã??ã??ä»?å??ã?¯ã?«ã??ã?¼ã??ã?¦ã??ã?¾ã??ã??ã??</p>
+
+<ul>
+<li>Data driven execution</li>
+<li>Parallel Execution</li>
+</ul>
+
+
+<h1>ã?¾ã?¨ã??</h1>
+
+<p>å¼?ç¤¾ã?§ã?¯ã??ã?¹ã??ã?±ã?¼ã?¹ï¼?ä»?æ§?æ?¸ã?¨ã??ã??è??ã??æ?¹ã??ã??ã??ã?»ã?¼ã??ã?¹ã?¦ã?®ã??ã?­ã?¸ã?§ã?¯ã??ã?§UATã??æ?¸ã??ã?¦ã??ã?¾ã??ã??<br/>
+å??ã??ä¸?è¨?ã?®ã??ã??ã?ªå??ã??çµ?ã?¿ã??ã??ã?¦ã??ã??ã?®ã?§ã??ã??ã??ã??ã?£ã?¨ã??ã??ã??ã??æ?¹ã??ã?ªã??ã??æ?¢ã??ã?¦ã??ã??ã?¨ã??ã??ã?«è¦?ã?¤ã??ã??ã?®ã??Gaugeã?§ã??ã??ã??<br/>
+Gaugeã?¯å®?è¡?å?¯è?½ã?ªã??ã?­ã?¥ã?¡ã?³ã??ã?¨ã??ã??æ¦?å¿µ("the concept of executable documentation")ã??ã?µã??ã?¼ã??ã??ã?¦ã??ã?¾ã??ã??<br/>
+ã?¾ã??è?ªå??ã??ã?¹ã??ã?®ã?±ã?¼ã?¹ã??èª°ã?§ã??èª­ã??ã??ã??ã??ã?«ã??ã??ã?¨ã??ã??è??ã??æ?¹ã??å¼?ç¤¾ã?®é??ç?ºã??ã?¼ã? ã??ä»?ã?¾ã?§å??ã??çµ?ã??ã?§ã??ã?¦ã??ã??ã??ã?¨ã?§ã??ã??ã??Gaugeã??ä½¿ã??ã?°ã??ã??ã?¹ã??ã?¼ã??ã?«å®?ç?¾ã?§ã??ã??ã??ã?§ã??ã??<br/>
+ä»?å¾?ã?¯æ§?ã??ã?ªã??ã?­ã?¸ã?§ã?¯ã??ã?§Gaugeã??å°?å?¥ã??ã?¦ã??ã??ã??ã?¨è??ã??ã?¦ã??ã?¾ã??ã??</p>
+
+<p>æ¬¡å??ã?¯ä»?å??ã?«ã??ã?¼ã?§ã??ã?ªã??ã?£ã??Gaugeã?®Advancedã?ªæ©?è?½ã??ä¸­å¿?ã?«å??ã??ä¸?ã??ã??ã??ã?­ã?°è¨?äº?ã??å?·ç­?äº?å®?ã?§ã??ã??</p>
+
+<hr />
+
+<p>æ ªå¼?ä¼?ç¤¾ã?¦ã?¼ã?¶ã??ã?¼ã?¹ã?§ã?¯ã??ã??ã??è?¯ã??é??ç?ºã??ã?­ã?»ã?¹ã??å?±ã?«ä½?ã??ä¸?ã??ã?¦ã??ã??ã??ã??ã?¨ã?³ã?¸ã??ã?¢ã??<a href="https://www.uzabase.com/recruit/occupation/">å¤§å??é??ä¸­</a>ã?§ã??ï¼?</p>
+
+  
+</div>
+
+    
+  <footer class="entry-footer">
+    
+    <p class="entry-footer-section">
+  <span class="author vcard"><span class="fn" data-load-nickname="1" data-user-name="kudogen">kudogen</span></span>
+  <span class="entry-footer-time"><a href="http://tech.uzabase.com/entry/2017/09/26/191009"><time data-relative datetime="2017-09-26T10:10:09Z" title="2017-09-26T10:10:09Z" pubdate class="updated">2017-09-26 19:10</time></a></span>
+</p>
+
+    
+  <div class="hatena-star-container">
+  </div>
+  <div class="hatena-star-metadata" style="display: none">
+    <a class="hatena-star-permalink" href="http://tech.uzabase.com/entry/2017/09/26/191009">Gauge Test Automation Toolã?¨ã?¢ã?¸ã?£ã?¤ã?«é??ç?º</a>
+  </div>
+
+
+    
+<div class="social-buttons">
+  
+  
+    <div class="social-button-item">
+      <a href="http://b.hatena.ne.jp/entry/http://tech.uzabase.com/entry/2017/09/26/191009" class="hatena-bookmark-button" data-hatena-bookmark-layout="vertical-balloon" data-hatena-bookmark-lang="ja" title="ã??ã?®è¨?äº?ã??ã?¯ã?¦ã?ªã??ã??ã?¯ã??ã?¼ã?¯ã?«è¿½å? "><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="ã??ã?®è¨?äº?ã??ã?¯ã?¦ã?ªã??ã??ã?¯ã??ã?¼ã?¯ã?«è¿½å? " width="20" height="20" style="border: none;" /></a>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div class="fb-share-button" data-layout="box_count" data-href="http://tech.uzabase.com/entry/2017/09/26/191009"></div>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://tech.uzabase.com/entry/2017/09/26/191009" data-count="vertical" data-text="Gauge Test Automation Toolã?¨ã?¢ã?¸ã?£ã?¤ã?«é??ç?º - UZABASE Tech Blog" data-lang="ja">Tweet</a>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div class="g-plusone" data-size="tall" data-href="http://tech.uzabase.com/entry/2017/09/26/191009"></div>
+    </div>
+  
+  
+  
+  
+</div>
+
+    
+
+    <div class="customized-footer">
+      
+
+        
+
+        
+
+          <div class="entry-footer-modules" id="entry-footer-secondary-modules">      
+<div class="hatena-module hatena-module-related-entries" >
+      
+  <!-- Hatena-Epic-has-related-entries-with-elasticsearch:true -->
+  <div class="hatena-module-title">
+    é?¢é?£è¨?äº?
+  </div>
+  <div class="hatena-module-body">
+    <ul class="related-entries hatena-urllist urllist-with-thumbnails">
+  
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <a class="urllist-image-link related-entries-image-link" href="http://tech.uzabase.com/entry/2017/09/20/174010">
+  <img alt="TCP Fast Open" src="https://cdn.image.st-hatena.com/image/square/6a7666ca4cb9ff49a526d94381e3a3733da2a7c2/backend=imagemagick;height=100;version=1;width=100/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fr%2Fryoqun%2F20170803%2F20170803105742.png" class="urllist-image related-entries-image" title="TCP Fast Open" width="100">
+</a>
+            <div class="urllist-date-link related-entries-date-link">
+  <a href="http://tech.uzabase.com/archive/2017/09/20" rel="nofollow">
+    <time pubdate datetime="2017-09-20T08:40:10Z" title="2017-09-20T08:40:10Z">
+      2017-09-20
+    </time>
+  </a>
+</div>
+
+          <a href="http://tech.uzabase.com/entry/2017/09/20/174010" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">TCP Fast Open</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">ã?¯ã??ã??ã?¾ã??ã?¦ã??ã??ã?­ã??ã?¯ã??é??ç?ºã??ã?¼ã? ã?®å°?é??å¯º (ryoqun)ã?§ã??ã?? â?¦</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <a class="urllist-image-link related-entries-image-link" href="http://tech.uzabase.com/entry/2017/09/12/164756">
+  <img alt="ã??ã?«ã??ã??ã?¹ã??ã?§ã?®Docker Containeré??é??ä¿¡ ç¬¬3å??: Kubernetesã?®ã??ã??ã??ã?¯ã?¼ã?¯(CNI, kube-proxy, kube-dns)" src="https://cdn.image.st-hatena.com/image/square/cd7506d0bc297b400a2bff90bd8b28c1712b0555/backend=imagemagick;height=100;version=1;width=100/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fk%2Fkenji-suzuki%2F20170903%2F20170903221229.png" class="urllist-image related-entries-image" title="ã??ã?«ã??ã??ã?¹ã??ã?§ã?®Docker Containeré??é??ä¿¡ ç¬¬3å??: Kubernetesã?®ã??ã??ã??ã?¯ã?¼ã?¯(CNI, kube-proxy, kube-dns)" width="100">
+</a>
+            <div class="urllist-date-link related-entries-date-link">
+  <a href="http://tech.uzabase.com/archive/2017/09/12" rel="nofollow">
+    <time pubdate datetime="2017-09-12T07:47:56Z" title="2017-09-12T07:47:56Z">
+      2017-09-12
+    </time>
+  </a>
+</div>
+
+          <a href="http://tech.uzabase.com/entry/2017/09/12/164756" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">ã??ã?«ã??ã??ã?¹ã??ã?§ã?®Docker Containeré??é??ä¿¡ ç¬¬3å??: Kubernetesã?®ã??ã??ã??ã?¯ã?¼ã?¯â?¦</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">ã??ã??ã?«ã?¡ã?¯ã??SPEEDAé??ç?ºã??ã?¼ã? ã?®é?´æ?¨ã?§ã??ã?? ã??ã??ã?¾ã?§ã??ã?«ã??ã??ã?¹â?¦</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <a class="urllist-image-link related-entries-image-link" href="http://tech.uzabase.com/entry/2016/12/05/101546">
+  <img alt="CIç?°å¢? ã?«é?¢ã??ã?? Tips ã??å?±æ??ã??ã??å??å¼·ä¼?ã??Web Tech Tokyo #2ã??ã??é??å?¬ã??ã?¾ã??ã??" src="https://cdn.image.st-hatena.com/image/square/626de3405af826c45cf745077c3b0b31e6d92e85/backend=imagemagick;height=100;version=1;width=100/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fh%2Fhorobetsu613%2F20161128%2F20161128162435.jpg" class="urllist-image related-entries-image" title="CIç?°å¢? ã?«é?¢ã??ã?? Tips ã??å?±æ??ã??ã??å??å¼·ä¼?ã??Web Tech Tokyo #2ã??ã??é??å?¬ã??ã?¾ã??ã??" width="100">
+</a>
+            <div class="urllist-date-link related-entries-date-link">
+  <a href="http://tech.uzabase.com/archive/2016/12/05" rel="nofollow">
+    <time pubdate datetime="2016-12-05T01:15:46Z" title="2016-12-05T01:15:46Z">
+      2016-12-05
+    </time>
+  </a>
+</div>
+
+          <a href="http://tech.uzabase.com/entry/2016/12/05/101546" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">CIç?°å¢? ã?«é?¢ã??ã?? Tips ã??å?±æ??ã??ã??å??å¼·ä¼?ã??Web Tech Tokyo #2ã??ã??é??å?¬ã??ã?¾ã??ã??</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">ã??ã??ã?«ã?¡ã?¯ã??ã??ã?¥ã?¼ã?ºã??ã??ã?¯ã?¹ã?®å¤§å·?ã?§ã??ã??2016å¹´11æ??14æ?¥ã?«ã??Wâ?¦</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <a class="urllist-image-link related-entries-image-link" href="http://tech.uzabase.com/entry/2016/03/11/155758">
+  <img alt="Hinemos5.0.1ç§»è¡?è¨?ï¼?ã??ã?®ï¼?ï¼?ç??æ?³ã?¨ç?¾å®?ã?®è??è?¤ï¼?" src="https://cdn.image.st-hatena.com/image/square/f4b0c6a4ee01ba5511e7ef77af99d41bbc13c735/backend=imagemagick;height=100;version=1;width=100/http%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fm%2Fmanabu-kobayashi%2F20160226%2F20160226221222.jpg" class="urllist-image related-entries-image" title="Hinemos5.0.1ç§»è¡?è¨?ï¼?ã??ã?®ï¼?ï¼?ç??æ?³ã?¨ç?¾å®?ã?®è??è?¤ï¼?" width="100">
+</a>
+            <div class="urllist-date-link related-entries-date-link">
+  <a href="http://tech.uzabase.com/archive/2016/03/11" rel="nofollow">
+    <time pubdate datetime="2016-03-11T06:57:58Z" title="2016-03-11T06:57:58Z">
+      2016-03-11
+    </time>
+  </a>
+</div>
+
+          <a href="http://tech.uzabase.com/entry/2016/03/11/155758" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">Hinemos5.0.1ç§»è¡?è¨?ï¼?ã??ã?®ï¼?ï¼?ç??æ?³ã?¨ç?¾å®?ã?®è??è?¤ï¼?</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">ã?¦ã?¼ã?¶ã??ã?¼ã?¹ ã?¤ã?³ã??ã?©ã??ã?¼ã? ã?®å°?æ??ã?§ã??ã?? å??å??ã?®è¨?äº?ã??ã??å¼?ã??â?¦</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <div class="urllist-date-link related-entries-date-link">
+  <a href="http://tech.uzabase.com/archive/2015/03/06" rel="nofollow">
+    <time pubdate datetime="2015-03-06T09:02:32Z" title="2015-03-06T09:02:32Z">
+      2015-03-06
+    </time>
+  </a>
+</div>
+
+          <a href="http://tech.uzabase.com/entry/2015/03/06/180232" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">AWS Cloudwatch Logsã??NewsPicksã?§è©¦ã??ã?¦ã?¿ã??è©±</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">ã??ã??ã?«ã?¡ã?¯ã??NewsPicksé??ç?ºã?»é??ç?¨ã??æ??å½?ã??ã?¦ã??ã??æ?¨ä¸?ã?§ã??ã?? ä»?â?¦</div>
+      </div>
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+  </div>
+        
+
+      
+    </div>
+    
+  <div class="comment-box">
+    
+    <ul class="comment">
+      <li class="read-more-comments" style="display: none;"><a>ã??ã?£ã?¨èª­ã??</a></li>
+    </ul>
+    
+      <a class="leave-comment-title">ã?³ã?¡ã?³ã??ã??æ?¸ã??</a>
+    
+  </div>
+
+  </footer>
+
+  </div>
+</article>
+
+      
+      
+    
+  
+
+  
+  <!-- rakuten_ad_target_end -->
+  <!-- google_ad_section_end -->
+  
+  
+  
+  <div class="pager pager-permalink permalink">
+    
+      
+      <span class="pager-prev">
+        <a href="http://tech.uzabase.com/entry/2017/10/11/130352" rel="prev">
+          <span class="pager-arrow">&laquo; </span>
+          Chrome hackingã?¨ç§°ã??ã??ã?©ã?¦ã?¶ã?®ã?¬ã?¤ã?¢ã?¦â?¦
+        </a>
+      </span>
+    
+    
+      
+      <span class="pager-next">
+        <a href="http://tech.uzabase.com/entry/2017/09/20/174010" rel="next">
+          TCP Fast Open
+          <span class="pager-arrow"> &raquo;</span>
+        </a>
+      </span>
+    
+  </div>
+
+
+  
+
+
+
+        </div>
+      </div>
+
+      <aside id="box1">
+  <div id="box1-inner">
+  </div>
+</aside>
+
+    </div><!-- #wrapper -->
+
+    
+<aside id="box2">
+  
+  <div id="box2-inner">
+    
+      
+
+<div class="hatena-module hatena-module-profile">
+  <div class="hatena-module-title">
+    ã??ã?­ã??ã?£ã?¼ã?«
+  </div>
+  <div class="hatena-module-body">
+    
+
+    
+
+    
+
+    
+    <div class="profile-description">
+      <p>ã??çµ?æ¸?æ??å ±ã?§ã??ä¸?ç??ã??ã??ã??ã??ã??ã??ã??ã??ã?·ã?§ã?³ã?«ã??ä¼?æ¥­ã?»æ¥­ç??æ??å ±ã??ã?©ã??ã??ã??ã?©ã?¼ã? ã??SPEEDAã??ã??ã?½ã?¼ã?·ã?£ã?«çµ?æ¸?ã??ã?¥ã?¼ã?¹ã??NewsPicksã??ã?ªã?©ã??æ??ä¾?ã??ã??<a href="http://www.uzabase.com/" target="_blank">æ ªå¼?ä¼?ç¤¾ã?¦ã?¼ã?¶ã??ã?¼ã?¹</a>ã?®æ??è¡?ã??ã?¼ã? ã??ã?­ã?°ã?§ã??ã?? <br />
+ä¸»ã?«é?±æ¬¡ã?®æ??ã?¡å??ã??LTã??ã?»ã??ã??ã?¼ã?»ã?¤ã??ã?³ã??æ??å ±ã?«ã?¤ã??ã?¦æ?¸ã??ã?¾ã??ã??</p>
+
+    </div>
+    
+
+    
+      <div class="hatena-follow-button-box btn-subscribe js-hatena-follow-button-box"
+  
+  >
+
+  <a href="#" class="hatena-follow-button js-hatena-follow-button">
+    <span class="subscribing">
+      <span class="foreground">èª­è??ã?§ã??</span>
+      <span class="background">èª­è??ã??ã??ã??ã??</span>
+    </span>
+    <span class="unsubscribing" data-track-name="profile-widget-subscribe-button" data-track-once>
+      <span class="foreground">èª­è??ã?«ã?ªã??</span>
+      <span class="background">èª­è??ã?«ã?ªã??</span>
+    </span>
+  </a>
+  <div class="subscription-count-box js-subscription-count-box">
+    <i></i>
+    <u></u>
+    <span class="subscription-count js-subscription-count">
+    </span>
+  </div>
+</div>
+
+    
+
+    
+    <div class="hatena-follow-button-box btn-twitter">
+      <a href="https://twitter.com/Uzabase_Tech" class="twitter-follow-button" data-show-count="false" data-lang="ja">
+        @Uzabase_Techã??ã??ã?©ã?­ã?¼
+      </a>
+    </div>
+    
+
+    
+  </div>
+</div>
+
+    
+      
+<div class="hatena-module hatena-module-html">
+  <div class="hatena-module-body">
+    <a href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ftech.uzabase.com%2Ffeed'  target='blank'><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-big_2x.png' alt='follow us in feedly' width='131' height='56'></a>
+  </div>
+</div>
+
+    
+      
+<div class="hatena-module hatena-module-entries-access-ranking"
+  data-count="5"
+  data-source="total_bookmark"
+  data-enable_customize_format="0"
+
+  data-display_entry_category="0"
+  data-display_entry_image="1"
+  data-display_entry_image_size_width="100"
+  data-display_entry_image_size_height="100"
+  data-display_entry_body_length="0"
+  data-display_entry_date="0"
+  data-display_entry_title_length="20"
+  data-restrict_entry_title_length="0"
+  data-display_bookmark_count="1"
+
+>
+  <div class="hatena-module-title">
+    
+      <a href="http://b.hatena.ne.jp/entrylist?url=http%3A%2F%2Ftech.uzabase.com%2F&amp;sort=count">æ³¨ç?®è¨?äº?</a>
+    
+  </div>
+  <div class="hatena-module-body">
+    
+  </div>
+</div>
+
+    
+      <div class="hatena-module hatena-module-recent-entries ">
+  <div class="hatena-module-title">
+    <a href="http://tech.uzabase.com/archive">
+      æ??æ?°è¨?äº?
+    </a>
+  </div>
+  <div class="hatena-module-body">
+    <ul class="recent-entries hatena-urllist ">
+  
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://tech.uzabase.com/entry/2017/10/11/130352" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">Chrome hackingã?¨ç§°ã??ã??ã?©ã?¦ã?¶ã?®ã?¬ã?¤ã?¢ã?¦ã??ã??ã?°ã??ã?¿ã??ã?ªã?§èª¿ã?¹ã?¦ã?¿ã?¾ã??ã??</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://tech.uzabase.com/entry/2017/09/26/191009" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">Gauge Test Automation Toolã?¨ã?¢ã?¸ã?£ã?¤ã?«é??ç?º</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://tech.uzabase.com/entry/2017/09/20/174010" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">TCP Fast Open</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://tech.uzabase.com/entry/2017/09/12/164756" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">ã??ã?«ã??ã??ã?¹ã??ã?§ã?®Docker Containeré??é??ä¿¡ ç¬¬3å??: Kubernetesã?®ã??ã??ã??ã?¯ã?¼ã?¯(CNI, kube-proxy, kube-dns)</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://tech.uzabase.com/entry/2017/08/23/175813" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">ã??ã?«ã??ã??ã?¹ã??ã?§ã?®Docker Containeré??é??ä¿¡ ç¬¬2å?? Port Forwarding ã?¨ Overlay Network</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+    
+      
+
+<div class="hatena-module hatena-module-archive" data-archive-type="default" data-archive-url="http://tech.uzabase.com/archive">
+  <div class="hatena-module-title">
+    <a href="http://tech.uzabase.com/archive">æ??å?¥ã?¢ã?¼ã?«ã?¤ã??</a>
+  </div>
+  <div class="hatena-module-body">
+  </div>
+</div>
+
+    
+      <div class="hatena-module hatena-module-search-box">
+  <div class="hatena-module-title">
+    æ¤?ç´¢
+  </div>
+  <div class="hatena-module-body">
+    <form class="search-form" role="search" action="http://tech.uzabase.com/search" method="get">
+  <input type="text" name="q" class="search-module-input" value="" placeholder="è¨?äº?ã??æ¤?ç´¢" required>
+  <input type="submit" value="æ¤?ç´¢" class="search-module-button" />
+</form>
+
+  </div>
+</div>
+
+    
+      
+<div class="hatena-module hatena-module-html">
+  <div class="hatena-module-body">
+                <a class="twitter-timeline"  href="https://twitter.com/Uzabase_Tech" data-widget-id="602044388248719360">@Uzabase_Techã??ã??ã?®ã??ã?¤ã?¼ã??</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          
+  </div>
+</div>
+
+    
+    
+  </div>
+</aside>
+
+
+  </div>
+</div>
+
+
+
+
+        
+
+        
+
+        
+
+      </div>
+    </div>
+    
+
+    
+
+    
+  <script src="https://s.hatena.ne.jp/js/HatenaStar.js"></script>
+
+
+    
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+  
+    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=719729204785177&version=v2.7";
+  
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    
+
+<div class="quote-box">
+  <div class="tooltip-quote tooltip-quote-star">
+    <i class="blogicon-star" title="å¼?ç?¨ã?¹ã?¿ã?¼ã??ã?¤ã??ã??"></i>
+  </div>
+  <div class="tooltip-quote tooltip-quote-stock">
+    <i class="blogicon-quote" title="å¼?ç?¨ã??ã?¹ã??ã??ã?¯"></i>
+  </div>
+  <div class="tooltip-quote tooltip-quote-tweet js-tooltip-quote-tweet">
+    <a class="js-tweet-quote" target="_blank" data-track-name="quote-tweet" data-track-once><i class="blogicon-twitter" title="å¼?ç?¨ã??ã?¦ã??ã?¤ã?¼ã??ã??ã??"></i></a>
+  </div>
+</div>
+
+<div class="message-box" id="quote-star-message-box" style="display: none; position: absolute;">
+  ã?¹ã?¿ã?¼ã??ã?¤ã??ã?¾ã??ã??
+</div>
+
+<div class="quote-stock-panel" id="quote-stock-message-box" style="position: absolute; z-index: 3000">
+  <div class="message-box" id="quote-stock-succeeded-message" style="display: none">
+    <p>å¼?ç?¨ã??ã?¹ã??ã??ã?¯ã??ã?¾ã??ã??</p>
+    <button class="btn btn-primary" id="quote-stock-show-editor-button" data-track-name="curation-quote-edit-button">ã?¹ã??ã??ã?¯ä¸?è¦§ã??è¦?ã??</button>
+    <button class="btn quote-stock-close-message-button">é??ã??ã??</button>
+  </div>
+
+  <div class="message-box" id="quote-login-required-message" style="display: none">
+    <p>å¼?ç?¨ã??ã??ã?«ã?¯ã?¾ã??ã?­ã?°ã?¤ã?³ã??ã?¦ã??ã? ã??ã??</p>
+    <button class="btn btn-primary" id="quote-login-button">ã?­ã?°ã?¤ã?³</button>
+    <button class="btn quote-stock-close-message-button">é??ã??ã??</button>
+  </div>
+
+  <div class="error-box" id="quote-stock-failed-message" style="display: none">
+    <p>å¼?ç?¨ã??ã?¹ã??ã??ã?¯ã?§ã??ã?¾ã??ã??ã?§ã??ã??ã??å??åº¦ã??è©¦ã??ã??ã? ã??ã??</p>
+    <button class="btn quote-stock-close-message-button">é??ã??ã??</button>
+  </div>
+
+  <div class="error-box" id="unstockable-quote-message-box" style="display: none; position: absolute; z-index: 3000;">
+    <p>é??å®?å?¬é??è¨?äº?ã?®ã??ã??å¼?ç?¨ã?§ã??ã?¾ã??ã??ã??</p>
+  </div>
+</div>
+
+<script type="x-underscore-template" id="js-requote-button-template">
+  <div class="requote-button js-requote-button">
+    <button class="requote-button-btn tipsy-top" title="å¼?ç?¨ã??ã??"><i class="blogicon-quote"></i></button>
+  </div>
+</script>
+
+
+
+    
+    <div id="hidden-subscribe-button" style="display: none;">
+      <div class="hatena-follow-button-box btn-subscribe js-hatena-follow-button-box"
+  
+  >
+
+  <a href="#" class="hatena-follow-button js-hatena-follow-button">
+    <span class="subscribing">
+      <span class="foreground">èª­è??ã?§ã??</span>
+      <span class="background">èª­è??ã??ã??ã??ã??</span>
+    </span>
+    <span class="unsubscribing" data-track-name="profile-widget-subscribe-button" data-track-once>
+      <span class="foreground">èª­è??ã?«ã?ªã??</span>
+      <span class="background">èª­è??ã?«ã?ªã??</span>
+    </span>
+  </a>
+  <div class="subscription-count-box js-subscription-count-box">
+    <i></i>
+    <u></u>
+    <span class="subscription-count js-subscription-count">
+    </span>
+  </div>
+</div>
+
+    </div>
+
+    
+  <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+
+<script src="https://apis.google.com/js/platform.js" async defer>
+  { lang: 'ja', "parsetags": "explicit" }
+</script>
+<script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+
+
+  <script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/react-with-addons.min.js?version=15.4.1"></script>
+  <script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/react-dom.min.js?version=15.4.1"></script>
+
+
+<script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/jquery.min.js?version=1.12.3"></script>
+<script type="text/javascript" src="//cdn7.www.st-hatena.com/js/jquery/jquery-ui.1.10.0.custom.min.js"></script>
+<script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/jquery.flot.js?version=0.8.3"></script>
+<script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/jquery.flot.time.js?version=0.8.3"></script>
+
+
+
+
+<script id="hatenablog-js" data-env="production"
+  type="text/javascript" src="https://cdn.blog.st-hatena.com/js/hatenablog.js?version=460124e8c040c37cbef825c34beaed62be5bb58f&amp;env=production" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/texts-ja.js?version=04bb28a95e22746295d5a6cd497468c7e628c710&amp;env=production"></script>
+
+
+  <script type="text/javascript">Hatena.Diary.GlobalHeader.init()</script>
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+
+
+    
+
+
+
+
+
+  </body>
+</html>
+
