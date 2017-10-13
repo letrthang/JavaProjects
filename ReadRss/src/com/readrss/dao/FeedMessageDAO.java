@@ -22,6 +22,11 @@ public class FeedMessageDAO {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Save message to text file
+	 * 
+	 * @param message
+	 */
 	public void saveFeedMessage(FeedMessage message) {
 
 		try {

@@ -1,1 +1,5 @@
-Import project to Eclipse to run.
+- For used convenience, import the project to Eclipse.
+- Java 8, 64bit.
+- Entry point: com.readrss.main.Main.Java.
+- Text files are saved in project location.
+- class diagram at: docs/design.pdf

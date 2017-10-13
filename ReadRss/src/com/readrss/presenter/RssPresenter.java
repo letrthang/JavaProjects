@@ -33,6 +33,11 @@ public class RssPresenter {
 		this.view = view;
 	}
 
+	/**
+	 * Read and display message to console
+	 * 
+	 * @param urlLst
+	 */
 	public void readAndDisplayRss(List<String> urlLst) {
 		FeedMessage feedMessage;
 
@@ -53,6 +58,11 @@ public class RssPresenter {
 		}
 	}
 
+	/**
+	 * Read and save message to file.
+	 * 
+	 * @param urlLst
+	 */
 	public void readAndStoreRss(List<String> urlLst) {
 		FeedMessage feedMessage;
 

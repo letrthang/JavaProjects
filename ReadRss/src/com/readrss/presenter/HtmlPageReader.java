@@ -22,6 +22,12 @@ public class HtmlPageReader {
 
 	}
 
+	/**
+	 * Read content of a page as byte stream from url
+	 * 
+	 * @param sURL
+	 * @return
+	 */
 	public FeedMessage readHtmlPage(String sURL) {
 		StringBuffer buffer = null;
 		URL url = null;
@@ -49,17 +55,26 @@ public class HtmlPageReader {
 
 			// System.out.println(buffer.toString());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		return feedMessage;
 	}
 
+	/**
+	 * Remove "token" in message
+	 * 
+	 * @param message
+	 * @param token
+	 * @return
+	 */
 	public FeedMessage conversionContent(FeedMessage message, String token) {
 		String newContent;
 
-		// just remove token
+		if (message == null || token == null)
+			return message;
+
+		// just remove token on the message
 		newContent = message.getFullContent().replaceAll(token, "");
 		message.setFullContent(newContent);
 
