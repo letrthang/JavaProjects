@@ -73,6 +73,7 @@ public class RssPresenter {
 		try {
 			for (String url : urlLst) {
 				feedMessage = htmlPageReader.readHtmlPage(url);
+				feedMessage = htmlPageReader.conversionContent(feedMessage, "NewsPicks");
 				feedMessageDAO.saveFeedMessage(feedMessage);
 			}
 		} catch (Exception e) {
