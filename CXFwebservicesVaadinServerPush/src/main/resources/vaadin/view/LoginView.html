@@ -2,37 +2,21 @@
 <html>
  <head>
   <meta charset="UTF-8">
-  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-vertical-layout height="752px">
-   <vaadin-grid-layout width="807px" height="632px" :middle :center>
-    <row>
-     <column>
-      <vaadin-button width="165px" plain-text _id="button" :center>
-        Back to Main Page 
-      </vaadin-button>
-     </column>
-    </row>
-    <row>
-     <column>
-      <vaadin-label caption="Just to test server push with websockets" width="284px" height="40px" plain-text _id="label" :middle :center>
-        Label 
-      </vaadin-label>
-     </column>
-    </row>
-    <row>
-     <column>
-      <vaadin-image caption="your uploaded image" width="628px" height="317px" _id="image" :middle :center></vaadin-image>
-     </column>
-    </row>
-    <row>
-     <column>
-      <vaadin-upload caption="upload an image" width="170px" _id="upload" :middle :center></vaadin-upload>
-     </column>
-    </row>
-   </vaadin-grid-layout>
+  <vaadin-vertical-layout width="1065px" height="535px">
+   <vaadin-absolute-layout width="989px" height="458px">
+    <vaadin-text-field caption="Email" width="396px" _id="textField" :top="99px" :left="130px"></vaadin-text-field>
+    <vaadin-password-field caption="Password" width="395px" _id="passwordField" :top="206px" :left="130px"></vaadin-password-field>
+    <vaadin-button width="172px" plain-text _id="button" :top="287px" :left="130px">
+      Login 
+    </vaadin-button>
+    <vaadin-button width="188px" plain-text _id="button1" :top="287px" :left="343px">
+      Create a account 
+    </vaadin-button>
+   </vaadin-absolute-layout>
   </vaadin-vertical-layout>
  </body>
 </html>
