@@ -8,42 +8,60 @@
   <meta name="package-mapping" content="com_vaadin_addon_charts:com.vaadin.addon.charts">
  </head>
  <body>
-  <vaadin-vertical-layout size-full>
-   <vaadin-absolute-layout>
-    <vaadin-slider caption="Change image size" width="261px" _id="slider" :top="16px" :left="618px"></vaadin-slider>
-    <vaadin-button plain-text _id="button" :top="16px" :bottom="802px" :left="16px">
-      Users Management 
-    </vaadin-button>
-    <vaadin-label caption="System Database Status" width="150px" height="25px" plain-text _id="label" :top="451px" :left="36px">
-      Active 
-    </vaadin-label>
-    <vaadin-button plain-text _id="button1" :top="16px" :left="216px">
-      Devices Management 
-    </vaadin-button>
-    <vaadin-label caption="User Database Status" width="142px" plain-text _id="label1" :top="450px" :left="268px">
-      Active 
-    </vaadin-label>
-    <vaadin-label caption="Redis Database Status" width="138px" plain-text _id="label2" :top="451px" :left="504px">
-      Active 
-    </vaadin-label>
-    <vaadin-label caption="System Overall Status" width="152px" plain-text _id="label3" :top="450px" :left="768px">
-      Active 
-    </vaadin-label>
-    <com_vaadin_addon_charts-chart width="986px" height="310px" _id="chart" :top="509px" :left="16px"></com_vaadin_addon_charts-chart>
-    <vaadin-combo-box caption="Change Image" text-input-allowed="false" width="167px" data-item-type="java.lang.String" _id="comboBox" :top="16px" :left="433px">
-     <option item="Option1">Option 1</option>
-     <option item="Option2">Option 2</option>
-     <option item="Option3">Option 3</option>
-    </vaadin-combo-box>
-    <vaadin-accordion width="986px" height="289px" _id="accordion" :top="69px" :left="16px">
-     <tab caption="Neon IoT Platform Dashboard" selected>
-      <vaadin-image caption="Neon IoT Platform Dashboard" style-name="align-center" responsive width-full height="239px" _id="image"></vaadin-image>
-     </tab>
-    </vaadin-accordion>
-    <vaadin-button plain-text _id="butLogout" :top="16px" :left="912px">
-      Logout 
-    </vaadin-button>
-   </vaadin-absolute-layout>
-  </vaadin-vertical-layout>
+  <vaadin-css-layout responsive width="900px" height="968px">
+   <vaadin-css-layout width-full height="100px">
+    <vaadin-horizontal-layout width="901px" height="89px" margin-left margin-right margin-top>
+     <vaadin-button width="85.02%" plain-text _id="butUserManagement" :expand>
+       Users Management 
+     </vaadin-button>
+     <vaadin-button width="79.03%" plain-text _id="butDeviceManagement" :expand>
+       Devices Management 
+     </vaadin-button>
+     <vaadin-button width="97.38%" plain-text _id="butLogout" :expand>
+       Logout 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+   </vaadin-css-layout>
+   <vaadin-css-layout width-full height="90px">
+    <vaadin-horizontal-layout width-full height="70px" margin-left margin-right>
+     <vaadin-slider caption="Change image size" style-name="icon-align-top" responsive width="361px" _id="slider"></vaadin-slider>
+     <vaadin-combo-box caption="Change Image" text-input-allowed="false" width="167px" data-item-type="java.lang.String" _id="comboBox">
+      <option item="Option1">Option 1</option>
+      <option item="Option2">Option 2</option>
+      <option item="Option3">Option 3</option>
+     </vaadin-combo-box>
+    </vaadin-horizontal-layout>
+   </vaadin-css-layout>
+   <vaadin-css-layout width-full height="300px">
+    <vaadin-vertical-layout spacing="false" height="255px" margin-top="false" margin-bottom="false">
+     <vaadin-accordion responsive height="94.68%" _id="accordion" :middle :center :expand>
+      <tab caption="Neon IoT Platform Dashboard" selected>
+       <vaadin-image caption="Neon IoT Platform Dashboard" style-name="align-center" responsive size-full _id="image"></vaadin-image>
+      </tab>
+     </vaadin-accordion>
+    </vaadin-vertical-layout>
+   </vaadin-css-layout>
+   <vaadin-css-layout width-full height="100px">
+    <vaadin-horizontal-layout width-full height="70px" margin-left margin-right>
+     <vaadin-label caption="System Overall Status" width="205px" plain-text _id="label3">
+       Active 
+     </vaadin-label>
+     <vaadin-label caption="Redis Database Status" width="138px" plain-text _id="label2">
+       Active 
+     </vaadin-label>
+     <vaadin-label caption="User Database Status" width="136px" plain-text _id="label1">
+       Active 
+     </vaadin-label>
+     <vaadin-label caption="System Database Status" width="91px" height="25px" plain-text _id="label">
+       Active 
+     </vaadin-label>
+    </vaadin-horizontal-layout>
+   </vaadin-css-layout>
+   <vaadin-css-layout width-full height="380px">
+    <vaadin-vertical-layout height="336px" margin-top="false">
+     <com_vaadin_addon_charts-chart width="100.24%" height="300px" _id="chart" :expand></com_vaadin_addon_charts-chart>
+    </vaadin-vertical-layout>
+   </vaadin-css-layout>
+  </vaadin-css-layout>
  </body>
 </html>
