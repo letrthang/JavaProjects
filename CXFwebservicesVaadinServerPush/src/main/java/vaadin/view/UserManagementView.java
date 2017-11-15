@@ -34,7 +34,7 @@ public class UserManagementView extends VerticalLayout {
 	protected ComboBox<java.lang.String> comboBox;
 	protected Button button3;
 	protected Button button4;
-	protected Grid<com.lecompany.nnc.dto.UserViewDTO> grid;
+	protected Grid<?> grid;
 
 	public UserManagementView() {
 		Design.read(this);
