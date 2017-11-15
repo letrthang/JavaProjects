@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Students>
+   <Student Id="456" name="Thang Le">
+      <University Code="123" name="Sai Gon">
+         <UniProperty Address="Sai Gon" Homepage="www.letrungthang.blogspot.com" Phone="1234567890"/>
+      </University>
+   </Student>
+</Students>

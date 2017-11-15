@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Students">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Student"/>
+      </xs:sequence>
+      <xs:attribute name="targetNamespace" use="required" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Student">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="University"/>
+      </xs:sequence>
+      <xs:attribute name="Id" use="required" type="xs:integer"/>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="University">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="UniProperty"/>
+      </xs:sequence>
+      <xs:attribute name="Code" use="required" type="xs:integer"/>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UniProperty">
+    <xs:complexType>
+      <xs:attribute name="Address"/>
+      <xs:attribute name="Homepage" type="xs:NCName"/>
+      <xs:attribute name="Phone" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

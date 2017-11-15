@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Students targetNamespace="https://letrthang.blogspot.com/schemas">
+	<Student name="ThangLe" Id="123456">
+		<University name="SaiGon" Code="1234">
+			<UniProperty Address="Sai Gon city" />
+			<UniProperty Phone="123456789" />
+			<UniProperty Homepage="www.saigon.com" />
+		</University>
+	</Student>
+</Students>
