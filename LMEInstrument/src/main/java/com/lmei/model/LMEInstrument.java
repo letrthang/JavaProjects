@@ -4,7 +4,7 @@
 package com.lmei.model;
 
 /**
- * @author ThangLe
+ * @author Thang Le
  *
  */
 public class LMEInstrument extends BaseInstrument {
