@@ -4,7 +4,7 @@
 package com.lmei.presenter;
 
 import com.lmei.model.LMEInstrument;
-import com.lmei.model.LMERule;
+import com.lmei.rule.LMERule;
 
 /**
  * @author Thang Le

@@ -1,4 +1,4 @@
-package com.lmei.model;
+package com.lmei.rule;
 
 /**
  * put some common necessary variables or methods here because we cannot put

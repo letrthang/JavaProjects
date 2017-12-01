@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.lmei.model;
+package com.lmei.rule;
 
 /**
  * all base mapping/merge rules to put here

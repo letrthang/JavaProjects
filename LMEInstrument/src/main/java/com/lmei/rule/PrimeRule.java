@@ -1,12 +1,12 @@
-package com.lmei.model;
+package com.lmei.rule;
 
 /**
- * specific rules of LME
+ * specific rules of Primes
  * 
  * @author Thang Le
  *
  */
-public class LMERule extends BaseRule {
+public class PrimeRule extends BaseRule {
 
 	public void test() {
 		// TODO Auto-generated method stub
