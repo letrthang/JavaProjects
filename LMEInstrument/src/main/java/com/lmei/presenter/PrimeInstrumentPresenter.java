@@ -5,10 +5,6 @@ import com.lmei.rule.PrimeRule;
 
 public class PrimeInstrumentPresenter extends InstrumentPresenter<PrimeInstrument, PrimeRule> {
 
-	public PrimeInstrumentPresenter(PrimeInstrument instrument, PrimeRule rule) {
-		super(instrument, rule);
-	}
-
 	public interface View {
 		void setLMEMappingRule();
 	}

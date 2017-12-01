@@ -13,11 +13,24 @@ import com.lmei.rule.BaseRule;
  */
 public abstract class InstrumentPresenter<I extends BaseInstrument, R extends BaseRule> {
 
-	I instrument;
-	R rule;
+	private I instrument;
+	private R rule;
 
-	public InstrumentPresenter(I instrument, R rule) {
+	
+	public I getInstrument() {
+		return instrument;
+	}
+
+	public void setInstrument(I instrument) {
 		this.instrument = instrument;
+	}
+
+	public R getRule() {
+		return rule;
+	}
+
+	public void setRule(R rule) {
 		this.rule = rule;
 	}
+	
 }
