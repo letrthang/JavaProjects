@@ -9,7 +9,6 @@ package com.lmei.rule;
 public class PrimeRule extends BaseRule {
 
 	public void test() {
-		// TODO Auto-generated method stub
 
 	}
 

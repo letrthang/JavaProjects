@@ -2,7 +2,7 @@ package com.lmei.rule;
 
 /**
  * put some common necessary variables or methods here because we cannot put
- * variables to the interface.
+ * common variables to the interface.
  * 
  * @author Thang Le
  *
