@@ -9,4 +9,7 @@ public class PrimeInstrumentPresenter extends InstrumentPresenter<PrimeInstrumen
 		super(instrument, rule);
 	}
 
+	public interface View {
+		void setLMEMappingRule();
+	}
 }
