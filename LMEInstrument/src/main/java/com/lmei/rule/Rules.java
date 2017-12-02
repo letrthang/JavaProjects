@@ -11,11 +11,11 @@ package com.lmei.rule;
  */
 public interface Rules {
 
-	void ruleForLastTradingDateField();
+	void ruleForLastTradingDateField(RuleForField rule);
 
-	void ruleForDeliveryDateField();
+	void ruleForDeliveryDateField(RuleForField rule);
 
-	void ruleForMarketField();
+	void ruleForMarketField(RuleForField rule);
 
-	void ruleForLabelField();
+	void ruleForLabelField(RuleForField rule);
 }

@@ -8,7 +8,7 @@ package com.lmei.rule;
  */
 public class LMERule extends BaseRule {
 
-	public void ruleForTradableField() {
+	public void ruleForTradableField(RuleForField rule) {
 
 	}
 }

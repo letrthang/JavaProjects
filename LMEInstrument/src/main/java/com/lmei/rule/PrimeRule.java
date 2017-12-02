@@ -8,11 +8,11 @@ package com.lmei.rule;
  */
 public class PrimeRule extends BaseRule {
 
-	public void ruleForTradableField() {
+	public void ruleForTradableField(RuleForField rule) {
 
 	}
 
-	public void ruleForExchangeCodeField() {
+	public void ruleForExchangeCodeField(RuleForField rule) {
 
 	}
 
