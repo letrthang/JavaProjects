@@ -8,11 +8,22 @@ package com.lmei.model;
  *
  */
 public class LMEInstrument extends BaseInstrument {
-	/**
-	 * 
-	 */
+
+	private boolean tradable;
+	
+	
 	public LMEInstrument() {
-		// TODO Auto-generated constructor stub
+		
+	}
+
+
+	public boolean isTradable() {
+		return tradable;
+	}
+
+
+	public void setTradable(boolean tradable) {
+		this.tradable = tradable;
 	}
 
 }

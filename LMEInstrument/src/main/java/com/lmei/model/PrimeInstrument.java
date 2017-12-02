@@ -3,6 +3,7 @@ package com.lmei.model;
 public class PrimeInstrument extends BaseInstrument {
 
 	private boolean tradable;
+	private String exchangeCode;
 
 	public PrimeInstrument() {
 
@@ -14,6 +15,14 @@ public class PrimeInstrument extends BaseInstrument {
 
 	public void setTradable(boolean tradable) {
 		this.tradable = tradable;
+	}
+
+	public String getExchangeCode() {
+		return exchangeCode;
+	}
+
+	public void setExchangeCode(String exchangeCode) {
+		this.exchangeCode = exchangeCode;
 	}
 
 }

@@ -13,7 +13,6 @@ public class InternalInstrument extends BaseInstrument {
 
 	private boolean tradable;
 
-	
 	public boolean isTradable() {
 		return tradable;
 	}
