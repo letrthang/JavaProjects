@@ -10,5 +10,12 @@ package com.lmei.rule;
  *
  */
 public interface Rules {
-	void test();
+
+	void ruleForLastTradingDateField();
+
+	void ruleForDeliveryDateField();
+
+	void ruleForMarketField();
+
+	void ruleForLabelField();
 }

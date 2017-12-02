@@ -1,14 +1,18 @@
 package com.lmei.rule;
 
 /**
- * specific rules of Primes
+ * extra rules of Primes
  * 
  * @author Thang Le
  *
  */
 public class PrimeRule extends BaseRule {
 
-	public void test() {
+	public void ruleForTradableField() {
+
+	}
+
+	public void ruleForExchangeCodeField() {
 
 	}
 

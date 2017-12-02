@@ -1,14 +1,38 @@
 package com.lmei.rule;
 
 /**
- * put some common necessary variables or methods here because we cannot put
- * common variables to the interface.
+ * put all common necessary variables or methods here. We need an abstract class
+ * because we cannot put non-static variables to the interface.
  * 
  * @author Thang Le
  *
  */
 
 public abstract class BaseRule implements Rules {
-	private int testFlag = 0;
+	private String referencedInstrument;
+
+	public void ruleForLastTradingDateField() {
+
+	}
+
+	public void ruleForDeliveryDateField() {
+
+	}
+
+	public void ruleForMarketField() {
+
+	}
+
+	public void ruleForLabelField() {
+
+	}
+
+	public String getReferencedInstrument() {
+		return referencedInstrument;
+	}
+
+	public void setReferencedInstrument(String referencedInstrument) {
+		this.referencedInstrument = referencedInstrument;
+	}
 
 }

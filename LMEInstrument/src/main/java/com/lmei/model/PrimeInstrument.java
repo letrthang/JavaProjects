@@ -3,6 +3,7 @@ package com.lmei.model;
 public class PrimeInstrument extends BaseInstrument {
 
 	private boolean tradable;
+	// reference to the instrument ID
 	private String exchangeCode;
 
 	public PrimeInstrument() {
