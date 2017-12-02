@@ -2,7 +2,7 @@ package com.lmei.model;
 
 public class PrimeInstrument extends BaseInstrument {
 
-	boolean tradable;
+	private boolean tradable;
 
 	public PrimeInstrument() {
 
