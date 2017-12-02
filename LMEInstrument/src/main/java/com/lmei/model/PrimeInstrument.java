@@ -2,8 +2,18 @@ package com.lmei.model;
 
 public class PrimeInstrument extends BaseInstrument {
 
+	boolean tradable;
+
 	public PrimeInstrument() {
-		// TODO Auto-generated constructor stub
+
+	}
+
+	public boolean isTradable() {
+		return tradable;
+	}
+
+	public void setTradable(boolean tradable) {
+		this.tradable = tradable;
 	}
 
 }

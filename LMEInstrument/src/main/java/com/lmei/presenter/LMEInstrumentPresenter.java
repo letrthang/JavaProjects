@@ -7,7 +7,7 @@ import com.lmei.model.LMEInstrument;
 import com.lmei.rule.LMERule;
 
 /**
- * @author Thang Le
+ * @author Thang Le.
  *
  */
 public class LMEInstrumentPresenter extends InstrumentPresenter<LMEInstrument, LMERule> {
