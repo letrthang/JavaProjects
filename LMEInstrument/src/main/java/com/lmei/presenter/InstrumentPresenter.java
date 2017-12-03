@@ -1,5 +1,8 @@
 package com.lmei.presenter;
 
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+
 import com.lmei.model.BaseInstrument;
 import com.lmei.rule.BaseRule;
 
@@ -15,6 +18,8 @@ public abstract class InstrumentPresenter<I extends BaseInstrument, R extends Ba
 
 	private I instrument;
 	private R rule;
+	private Thread thread;
+	private BlockingQueue<String> viewRequestUpdateDeviceQueue = new LinkedBlockingDeque<>(50);
 
 	
 	public I getInstrument() {
