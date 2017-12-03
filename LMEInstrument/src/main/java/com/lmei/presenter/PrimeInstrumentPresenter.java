@@ -4,6 +4,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
 import com.lmei.model.BaseInstrument;
+import com.lmei.model.InternalInstrument;
 import com.lmei.model.PrimeInstrument;
 import com.lmei.rule.BaseRule;
 import com.lmei.rule.PrimeRule;
@@ -17,7 +18,7 @@ public class PrimeInstrumentPresenter extends InstrumentPresenter<PrimeInstrumen
 
 	public interface View {
 
-		void printInternalInstrument();
+		void printInternalInstrument(InternalInstrument internalInstrument);
 	}
 
 	public PrimeInstrumentPresenter(View view) {
@@ -73,8 +74,8 @@ public class PrimeInstrumentPresenter extends InstrumentPresenter<PrimeInstrumen
 	}
 
 	private void generateInternalInstrument(PrimeInstrument instrument, PrimeRule rule) {
-
-		view.printInternalInstrument();
+		InternalInstrument internalInstrument = new InternalInstrument();
+		view.printInternalInstrument(internalInstrument);
 	}
 
 }

@@ -21,17 +21,19 @@ public class Main {
 	private static final Logger LOG = LogManager.getLogger(Main.class);
 
 	public static void main(String[] args) {
-		LMEView lmeView = new LMEView();
-		LMEInstrumentPresenter lmeInstrumentPresenter = new LMEInstrumentPresenter(lmeView);
-
-		PrimeView primeView = new PrimeView();
-		PrimeInstrumentPresenter primeInstrumentPresenter = new PrimeInstrumentPresenter(primeView);
-
-		LOG.debug("hello world!");
 		try {
+			LMEView lmeView = new LMEView();
+			LMEInstrumentPresenter lmeInstrumentPresenter = new LMEInstrumentPresenter(lmeView);
+
+			PrimeView primeView = new PrimeView();
+			PrimeInstrumentPresenter primeInstrumentPresenter = new PrimeInstrumentPresenter(primeView);
+
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+			System.out.println("Enter your instrument source: 1 = LME, 2 = Prime. 0 = Quit program");
+
 			while (true) {
-				System.out.println("Enter your instrument source: 1 = LME, 2 = Prime. 0 = Quit program");
+
 				String instrumentSource = br.readLine();
 				if (instrumentSource.equals("1")) {
 					// For testing, we create sample data for LME instrument and LME rule
@@ -48,16 +50,19 @@ public class Main {
 					lmeRule.ruleForDeliveryDateField(RuleForField.USED);
 					lmeRule.ruleForMarketField(RuleForField.USED);
 					lmeRule.ruleForLabelField(RuleForField.USED);
-					lmeRule.ruleForTradableField(RuleForField.USED);
+					lmeRule.setTradableField(true);
 
-					// set instrument to presenter
-					lmeInstrumentPresenter.setInstrumentsQueue(lmeInstrument);
 					// set rule to presenter
 					lmeInstrumentPresenter.setRule(lmeRule);
+					// set instrument to presenter
+					lmeInstrumentPresenter.setInstrumentsQueue(lmeInstrument);
+
 				} else if (instrumentSource.equals("2")) {
+					// just do the same style for Prime instrument
 
 				} else if (instrumentSource.equals("0")) {
-					// to quit program
+					// to quit program by sending poison object to BlockingQueues to terminate
+					// threads
 					LMEInstrument lmePoison = new LMEInstrument();
 					PrimeInstrument primePoison = new PrimeInstrument();
 

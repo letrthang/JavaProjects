@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Built-By: letrt
-Class-Path: lib/log4j-api-2.10.0.jar lib/log4j-core-2.10.0.jar
-Build-Jdk: 1.8.0_152
-Created-By: Maven Integration for Eclipse
-Main-Class: com.lmei.main.Main
-

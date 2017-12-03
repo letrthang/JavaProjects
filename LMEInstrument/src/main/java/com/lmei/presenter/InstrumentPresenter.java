@@ -20,7 +20,7 @@ import com.lmei.rule.BaseRule;
  */
 public abstract class InstrumentPresenter<I extends BaseInstrument, R extends BaseRule> {
 
-	private R rule;
+	private R gRule;
 	private Thread thread;
 
 	// this queue stores all instruments from all sources
@@ -56,7 +56,7 @@ public abstract class InstrumentPresenter<I extends BaseInstrument, R extends Ba
 	}
 
 	public void setRule(R rule) {
-		this.rule = rule;
+		gRule = rule;
 	}
 
 	private void startInstrumentThread() {
@@ -80,17 +80,19 @@ public abstract class InstrumentPresenter<I extends BaseInstrument, R extends Ba
 					if (instrument instanceof LMEInstrument) {
 						LMEInstrumentPresenter lmePresenter = (LMEInstrumentPresenter) instrumentPresentersMap
 								.get(LMEInstrumentPresenter.class.getSimpleName());
+						// pass rule to LMEInstrumentPresenter
+						lmePresenter.addRuleToPresenter(gRule);
 						// pass instrument to LMEInstrumentPresenter
 						lmePresenter.addInstrumentToPresenterQueue(instrument);
-						// pass rule to LMEInstrumentPresenter
-						lmePresenter.addRuleToPresenter(rule);
+
 					} else if (instrument instanceof PrimeInstrument) {
 						PrimeInstrumentPresenter primePresenter = (PrimeInstrumentPresenter) instrumentPresentersMap
 								.get(PrimeInstrumentPresenter.class.getSimpleName());
+						// pass rule to PrimeInstrumentPresenter
+						primePresenter.addRuleToPresenter(gRule);
 						// pass instrument to PrimeInstrumentPresenter
 						primePresenter.addInstrumentToPresenterQueue(instrument);
-						// pass rule to PrimeInstrumentPresenter
-						primePresenter.addRuleToPresenter(rule);
+
 					}
 				} catch (Exception e) {
 					e.printStackTrace();

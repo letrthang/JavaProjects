@@ -7,8 +7,16 @@ package com.lmei.rule;
  *
  */
 public class LMERule extends BaseRule {
+	private boolean TradableField;
 
-	public void ruleForTradableField(RuleForField rule) {
-
+	public boolean isTradableField() {
+		return TradableField;
 	}
+
+	public void setTradableField(boolean tradableField) {
+		TradableField = tradableField;
+	}
+
+	
+	
 }

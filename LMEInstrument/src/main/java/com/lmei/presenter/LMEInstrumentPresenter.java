@@ -7,8 +7,8 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
 import com.lmei.model.BaseInstrument;
+import com.lmei.model.InternalInstrument;
 import com.lmei.model.LMEInstrument;
-import com.lmei.model.PrimeInstrument;
 import com.lmei.rule.BaseRule;
 import com.lmei.rule.LMERule;
 
@@ -28,7 +28,7 @@ public class LMEInstrumentPresenter extends InstrumentPresenter<LMEInstrument, L
 	}
 
 	public interface View {
-		void printInternalInstrument();
+		void printInternalInstrument(InternalInstrument internalInstrument);
 	}
 
 	protected void init() {
@@ -45,6 +45,10 @@ public class LMEInstrumentPresenter extends InstrumentPresenter<LMEInstrument, L
 
 	@Override
 	public void addRuleToPresenter(BaseRule rule) {
+		if (rule == null) {
+			// maybe there is a bug in JDK.
+			return;
+		}
 		this.lmeRule = (LMERule) rule;
 	}
 
@@ -75,9 +79,26 @@ public class LMEInstrumentPresenter extends InstrumentPresenter<LMEInstrument, L
 		}
 	}
 
+	/**
+	 * Based on the input instrument and rule, we can implement the Internal
+	 * Instrument
+	 * 
+	 * @param instrument
+	 * @param rule
+	 */
 	private void generateInternalInstrument(LMEInstrument instrument, LMERule rule) {
 
-		view.printInternalInstrument();
+		InternalInstrument internalInstrument = new InternalInstrument();
+
+		internalInstrument.setId(instrument.getId());
+		internalInstrument.setLastTradingDate(instrument.getLastTradingDate());
+		internalInstrument.setDeliveryDate(instrument.getDeliveryDate());
+		internalInstrument.setMarket(instrument.getMarket());
+		internalInstrument.setLabel(instrument.getLabel());
+
+		internalInstrument.setTradable(rule.isTradableField());
+
+		view.printInternalInstrument(internalInstrument);
 	}
 
 }

@@ -10,30 +10,50 @@ package com.lmei.rule;
 
 public abstract class BaseRule implements Rules {
 	// ID of referenced instrument if have
-	private String referencedInstrumentId;
+	private int referencedInstrumentId = -1;
+	private RuleForField LastTradingDateField;
+	private RuleForField DeliveryDateField;
+	private RuleForField MarketField;
+	private RuleForField LabelField;
 
 	public void ruleForLastTradingDateField(RuleForField rule) {
-
+		LastTradingDateField = rule;
 	}
 
 	public void ruleForDeliveryDateField(RuleForField rule) {
-
+		DeliveryDateField = rule;
 	}
 
 	public void ruleForMarketField(RuleForField rule) {
-
+		MarketField = rule;
 	}
 
 	public void ruleForLabelField(RuleForField rule) {
-
+		LabelField = rule;
 	}
 
-	public String getReferencedInstrumentId() {
+	public int getReferencedInstrumentId() {
 		return referencedInstrumentId;
 	}
 
-	public void setReferencedInstrumentId(String referencedInstrumentId) {
+	public void setReferencedInstrumentId(int referencedInstrumentId) {
 		this.referencedInstrumentId = referencedInstrumentId;
+	}
+
+	public RuleForField getLastTradingDateField() {
+		return LastTradingDateField;
+	}
+
+	public RuleForField getDeliveryDateField() {
+		return DeliveryDateField;
+	}
+
+	public RuleForField getMarketField() {
+		return MarketField;
+	}
+
+	public RuleForField getLabelField() {
+		return LabelField;
 	}
 
 }
