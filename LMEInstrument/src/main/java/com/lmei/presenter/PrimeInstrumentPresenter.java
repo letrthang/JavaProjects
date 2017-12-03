@@ -21,8 +21,13 @@ public class PrimeInstrumentPresenter extends InstrumentPresenter<PrimeInstrumen
 
 		void printInternalInstrument();
 	}
+	
+	public void init() {
+		super.init();
+		startPrimeThread();
+	}
 
-	public void startThread() {
+	public void startPrimeThread() {
 		if (thread == null) {
 			thread = new PrimeInstrumentThread();
 			thread.start();

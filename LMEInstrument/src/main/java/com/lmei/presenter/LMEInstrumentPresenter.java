@@ -29,7 +29,12 @@ public class LMEInstrumentPresenter extends InstrumentPresenter<LMEInstrument, L
 		void printInternalInstrument();
 	}
 
-	public void startThread() {
+	public void init() {
+		super.init();
+		startLMEThread();
+	}
+
+	public void startLMEThread() {
 		if (thread == null) {
 			thread = new LMEInstrumentThread();
 			thread.start();

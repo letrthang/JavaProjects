@@ -32,6 +32,10 @@ public abstract class InstrumentPresenter<I extends BaseInstrument, R extends Ba
 
 	abstract public void addRuleToPresenter(BaseRule rule);
 
+	protected void init() {
+		startInstrumentThread();
+	}
+
 	@SuppressWarnings("rawtypes")
 	public void addPresenter(InstrumentPresenter presenter) {
 		if (instrumentPresentersMap == null) {
@@ -54,14 +58,14 @@ public abstract class InstrumentPresenter<I extends BaseInstrument, R extends Ba
 		this.rule = rule;
 	}
 
-	protected void startQueryInstrumentThread() {
+	protected void startInstrumentThread() {
 		if (thread == null) {
-			thread = new queryInputInstrumentThread();
+			thread = new InstrumentThread();
 			thread.start();
 		}
 	}
 
-	private class queryInputInstrumentThread extends Thread {
+	private class InstrumentThread extends Thread {
 		@Override
 		public void run() {
 			while (true) {
