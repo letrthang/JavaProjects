@@ -8,6 +8,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 import com.lmei.model.BaseInstrument;
 import com.lmei.model.LMEInstrument;
+import com.lmei.model.PrimeInstrument;
 import com.lmei.rule.BaseRule;
 import com.lmei.rule.LMERule;
 
@@ -21,15 +22,16 @@ public class LMEInstrumentPresenter extends InstrumentPresenter<LMEInstrument, L
 	private LMERule lmeRule;
 	private Thread thread;
 
+	public LMEInstrumentPresenter(View view) {
+		this.view = view;
+		init();
+	}
+
 	public interface View {
-		void setLMEMappingRule();
-
-		void setLMEInstrument();
-
 		void printInternalInstrument();
 	}
 
-	public void init() {
+	protected void init() {
 		super.init();
 		startLMEThread();
 	}
@@ -61,6 +63,10 @@ public class LMEInstrumentPresenter extends InstrumentPresenter<LMEInstrument, L
 			while (true) {
 				try {
 					LMEInstrument instrument = lmeInstrumentsQueue.take();
+					if (instrument.getId() < 0) {
+						// terminal thread
+						break;
+					}
 					generateInternalInstrument(instrument, lmeRule);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -71,6 +77,7 @@ public class LMEInstrumentPresenter extends InstrumentPresenter<LMEInstrument, L
 
 	private void generateInternalInstrument(LMEInstrument instrument, LMERule rule) {
 
+		view.printInternalInstrument();
 	}
 
 }

@@ -33,6 +33,7 @@ public abstract class InstrumentPresenter<I extends BaseInstrument, R extends Ba
 	abstract public void addRuleToPresenter(BaseRule rule);
 
 	protected void init() {
+		addPresenter(this);
 		startInstrumentThread();
 	}
 
@@ -71,6 +72,10 @@ public abstract class InstrumentPresenter<I extends BaseInstrument, R extends Ba
 			while (true) {
 				try {
 					BaseInstrument instrument = instrumentsQueue.take();
+					if (instrument.getId() < 0) {
+						// terminal thread when receive a poison signal
+						break;
+					}
 
 					if (instrument instanceof LMEInstrument) {
 						LMEInstrumentPresenter lmePresenter = (LMEInstrumentPresenter) instrumentPresentersMap

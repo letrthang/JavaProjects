@@ -1,7 +1,7 @@
 package com.lmei.model;
 
 public abstract class BaseInstrument {
-	String id;
+	int id;
 	String lastTradingDate;
 	String deliveryDate;
 	String market;
@@ -10,7 +10,7 @@ public abstract class BaseInstrument {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -18,7 +18,7 @@ public abstract class BaseInstrument {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

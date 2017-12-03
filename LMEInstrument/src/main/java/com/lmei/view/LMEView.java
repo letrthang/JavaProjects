@@ -3,6 +3,9 @@
  */
 package com.lmei.view;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.lmei.presenter.LMEInstrumentPresenter.View;
 
 /**
@@ -10,25 +13,13 @@ import com.lmei.presenter.LMEInstrumentPresenter.View;
  *
  */
 public class LMEView implements View {
-
-	/* (non-Javadoc)
-	 * @see com.lmei.presenter.LMEInstrumentPresenter.View#setLMEMappingRule()
-	 */
-	public void setLMEMappingRule() {
-
-
-	}
-
-	@Override
-	public void setLMEInstrument() {
-		// TODO Auto-generated method stub
-		
-	}
+	/** logger. */
+	private static final Logger LOG = LogManager.getLogger(LMEView.class);
 
 	@Override
 	public void printInternalInstrument() {
-		// TODO Auto-generated method stub
-		
+		LOG.debug("printInternalInstrument");
+
 	}
 
 }

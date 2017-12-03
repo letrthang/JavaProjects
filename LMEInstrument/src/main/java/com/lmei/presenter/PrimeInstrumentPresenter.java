@@ -13,16 +13,19 @@ public class PrimeInstrumentPresenter extends InstrumentPresenter<PrimeInstrumen
 	private BlockingQueue<PrimeInstrument> primeInstrumentsQueue = new LinkedBlockingDeque<>(50);
 	private PrimeRule primeRule;
 	private Thread thread;
+	private View view;
 
 	public interface View {
-		void setPrimeMappingRule();
-
-		void setPrimeInstrument();
 
 		void printInternalInstrument();
 	}
-	
-	public void init() {
+
+	public PrimeInstrumentPresenter(View view) {
+		this.view = view;
+		init();
+	}
+
+	protected void init() {
 		super.init();
 		startPrimeThread();
 	}
@@ -44,6 +47,7 @@ public class PrimeInstrumentPresenter extends InstrumentPresenter<PrimeInstrumen
 	public void addInstrumentToPresenterQueue(BaseInstrument instrument) {
 		try {
 			primeInstrumentsQueue.put((PrimeInstrument) instrument);
+
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -56,6 +60,10 @@ public class PrimeInstrumentPresenter extends InstrumentPresenter<PrimeInstrumen
 			while (true) {
 				try {
 					PrimeInstrument instrument = primeInstrumentsQueue.take();
+					if (instrument.getId() < 0) {
+						// terminal thread
+						break;
+					}
 					generateInternalInstrument(instrument, primeRule);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -66,6 +74,7 @@ public class PrimeInstrumentPresenter extends InstrumentPresenter<PrimeInstrumen
 
 	private void generateInternalInstrument(PrimeInstrument instrument, PrimeRule rule) {
 
+		view.printInternalInstrument();
 	}
 
 }
