@@ -7,13 +7,11 @@ public class Main {
 	/** logger. */
 	private static final Logger LOG = LogManager.getLogger(Main.class);
 
-	public Main() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public static void main(String[] args) {
 		LOG.debug("hello world!");
-
+		System.out.print("Enter something:");
+		String input = System.console().readLine();
+		System.out.print(input);
 	}
 
 }

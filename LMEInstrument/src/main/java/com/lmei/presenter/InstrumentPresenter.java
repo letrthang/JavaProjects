@@ -58,7 +58,7 @@ public abstract class InstrumentPresenter<I extends BaseInstrument, R extends Ba
 		this.rule = rule;
 	}
 
-	protected void startInstrumentThread() {
+	private void startInstrumentThread() {
 		if (thread == null) {
 			thread = new InstrumentThread();
 			thread.start();
