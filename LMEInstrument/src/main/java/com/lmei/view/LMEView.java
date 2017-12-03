@@ -19,4 +19,16 @@ public class LMEView implements View {
 
 	}
 
+	@Override
+	public void setLMEInstrument() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void printInternalInstrument() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

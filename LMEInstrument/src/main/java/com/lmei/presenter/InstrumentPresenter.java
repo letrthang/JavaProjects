@@ -1,9 +1,13 @@
 package com.lmei.presenter;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
 import com.lmei.model.BaseInstrument;
+import com.lmei.model.LMEInstrument;
+import com.lmei.model.PrimeInstrument;
 import com.lmei.rule.BaseRule;
 
 /**
@@ -16,26 +20,74 @@ import com.lmei.rule.BaseRule;
  */
 public abstract class InstrumentPresenter<I extends BaseInstrument, R extends BaseRule> {
 
-	private I instrument;
 	private R rule;
 	private Thread thread;
-	private BlockingQueue<String> viewRequestUpdateDeviceQueue = new LinkedBlockingDeque<>(50);
 
-	
-	public I getInstrument() {
-		return instrument;
+	// this queue stores all instruments from all sources
+	private static BlockingQueue<BaseInstrument> instrumentsQueue = new LinkedBlockingDeque<>(50);
+	@SuppressWarnings("rawtypes")
+	private static Map<String, InstrumentPresenter> instrumentPresentersMap;
+
+	abstract public void addInstrumentToPresenterQueue(BaseInstrument instrument);
+
+	abstract public void addRuleToPresenter(BaseRule rule);
+
+	@SuppressWarnings("rawtypes")
+	public void addPresenter(InstrumentPresenter presenter) {
+		if (instrumentPresentersMap == null) {
+			instrumentPresentersMap = new HashMap<>();
+		}
+
+		instrumentPresentersMap.put(presenter.getClass().getSimpleName(), presenter);
+
 	}
 
-	public void setInstrument(I instrument) {
-		this.instrument = instrument;
-	}
-
-	public R getRule() {
-		return rule;
+	public void setInstrumentsQueue(I instrument) {
+		try {
+			instrumentsQueue.put(instrument);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void setRule(R rule) {
 		this.rule = rule;
 	}
-	
+
+	protected void startQueryInstrumentThread() {
+		if (thread == null) {
+			thread = new queryInputInstrumentThread();
+			thread.start();
+		}
+	}
+
+	private class queryInputInstrumentThread extends Thread {
+		@Override
+		public void run() {
+			while (true) {
+				try {
+					BaseInstrument instrument = instrumentsQueue.take();
+
+					if (instrument instanceof LMEInstrument) {
+						LMEInstrumentPresenter lmePresenter = (LMEInstrumentPresenter) instrumentPresentersMap
+								.get(LMEInstrumentPresenter.class.getSimpleName());
+						// pass instrument to LMEInstrumentPresenter
+						lmePresenter.addInstrumentToPresenterQueue(instrument);
+						// pass rule to LMEInstrumentPresenter
+						lmePresenter.addRuleToPresenter(rule);
+					} else if (instrument instanceof PrimeInstrument) {
+						PrimeInstrumentPresenter primePresenter = (PrimeInstrumentPresenter) instrumentPresentersMap
+								.get(PrimeInstrumentPresenter.class.getSimpleName());
+						// pass instrument to PrimeInstrumentPresenter
+						primePresenter.addInstrumentToPresenterQueue(instrument);
+						// pass rule to PrimeInstrumentPresenter
+						primePresenter.addRuleToPresenter(rule);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
 }
