@@ -76,13 +76,20 @@ public class PrimeInstrumentPresenter extends InstrumentPresenter<PrimeInstrumen
 		}
 	}
 
+	/**
+	 * implement logic for internal prime instrument.
+	 * 
+	 * @param instrument
+	 * @param rule
+	 */
 	private void generateInternalInstrument(PrimeInstrument instrument, PrimeRule rule) {
-		// if we design a database, then it is easy to get referenced instrument. Here
+		// if we design a database, then it is easy to get a referenced instrument. Here
 		// for simple, we not implement that DB.
 		InternalInstrument internalInstrument = new InternalInstrument();
 		internalInstrument.setId(instrument.getId());
 		// By right we use "rule.getReferencedInstrumentId()" to get LME instrument for
-		// 2 fields of PrimeInstrument: LastTradingDate and DeliveryDate.
+		// the 2 fields of PrimeInstrument: "LastTradingDate" and "DeliveryDate".
+		// however this implement not done this part yet.
 		internalInstrument.setLastTradingDate(instrument.getLastTradingDate());
 		internalInstrument.setDeliveryDate(instrument.getDeliveryDate());
 		internalInstrument.setMarket(instrument.getMarket());

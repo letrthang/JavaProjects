@@ -18,3 +18,11 @@ For example, class "LMEInstrumentPresenter" has a queue "lmeInstrumentsQueue" to
 7. run the program with command: java -jar LMEInstrument-0.0.1.jar
 
 8. requirement at: /resource/docs.txt
+
+===============
+
+What we have to do to add a new instrument type with new rule:
+
+1. Create a new presenter class for new instrument
+2. Create a new model and a new rule class for new instrument.
+3. Create a new View for new instrument.

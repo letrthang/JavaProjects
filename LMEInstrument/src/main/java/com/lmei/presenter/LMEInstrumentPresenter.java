@@ -80,8 +80,8 @@ public class LMEInstrumentPresenter extends InstrumentPresenter<LMEInstrument, L
 	}
 
 	/**
-	 * Based on the input instrument and rule, we can implement the Internal
-	 * Instrument
+	 * Based on the input instrument and rule, we can implement logic for the
+	 * Internal Instrument
 	 * 
 	 * @param instrument
 	 * @param rule
