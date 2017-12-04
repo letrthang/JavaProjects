@@ -40,8 +40,9 @@ public class PrimeInstrumentPresenter extends InstrumentPresenter<PrimeInstrumen
 
 	@Override
 	public void addRuleToPresenter(BaseRule rule) {
-		if (rule == null)
+		if (rule == null) {
 			return;
+		}
 		this.primeRule = (PrimeRule) rule;
 
 	}

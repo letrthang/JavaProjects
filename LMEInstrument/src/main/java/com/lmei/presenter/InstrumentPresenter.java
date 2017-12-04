@@ -20,12 +20,13 @@ import com.lmei.rule.BaseRule;
  */
 public abstract class InstrumentPresenter<I extends BaseInstrument, R extends BaseRule> {
 
-	private R gRule;
-	private Thread thread;
+	// this thread acts as a dispatcher to deliver different instruments to
+	// respective presenters.
+	private static Thread thread;
 
 	// this queue stores all instruments from all sources
 	private static BlockingQueue<BaseInstrument> instrumentsQueue = new LinkedBlockingDeque<>(50);
-	// all presenters want to subscribe to get different instruments 
+	// all presenters want to subscribe to get different instruments
 	@SuppressWarnings("rawtypes")
 	private static Map<String, InstrumentPresenter> instrumentPresentersMap;
 
@@ -57,7 +58,7 @@ public abstract class InstrumentPresenter<I extends BaseInstrument, R extends Ba
 	}
 
 	public void setRule(R rule) {
-		gRule = rule;
+		addRuleToPresenter(rule);
 	}
 
 	private void startInstrumentThread() {
@@ -74,23 +75,21 @@ public abstract class InstrumentPresenter<I extends BaseInstrument, R extends Ba
 				try {
 					BaseInstrument instrument = instrumentsQueue.take();
 					if (instrument.getId() < 0) {
-						// terminal thread when receive a poison signal
+						// terminate thread when receive a poison signal
 						break;
 					}
 
 					if (instrument instanceof LMEInstrument) {
-						LMEInstrumentPresenter lmePresenter = (LMEInstrumentPresenter) instrumentPresentersMap
-								.get(LMEInstrumentPresenter.class.getSimpleName());
-						// pass rule to LMEInstrumentPresenter
-						lmePresenter.addRuleToPresenter(gRule);
+						LMEInstrumentPresenter lmePresenter = (LMEInstrumentPresenter) (instrumentPresentersMap
+								.get(LMEInstrumentPresenter.class.getSimpleName()));
+
 						// pass instrument to LMEInstrumentPresenter
 						lmePresenter.addInstrumentToPresenterQueue(instrument);
 
 					} else if (instrument instanceof PrimeInstrument) {
-						PrimeInstrumentPresenter primePresenter = (PrimeInstrumentPresenter) instrumentPresentersMap
-								.get(PrimeInstrumentPresenter.class.getSimpleName());
-						// pass rule to PrimeInstrumentPresenter
-						primePresenter.addRuleToPresenter(gRule);
+						PrimeInstrumentPresenter primePresenter = (PrimeInstrumentPresenter) (instrumentPresentersMap
+								.get(PrimeInstrumentPresenter.class.getSimpleName()));
+
 						// pass instrument to PrimeInstrumentPresenter
 						primePresenter.addInstrumentToPresenterQueue(instrument);
 

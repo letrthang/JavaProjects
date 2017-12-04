@@ -25,15 +25,11 @@ public class Main {
 		try {
 			LMEView lmeView = new LMEView();
 			LMEInstrumentPresenter lmeInstrumentPresenter = new LMEInstrumentPresenter(lmeView);
+			LMEInstrument lmeInstrument = null;
 
 			PrimeView primeView = new PrimeView();
 			PrimeInstrumentPresenter primeInstrumentPresenter = new PrimeInstrumentPresenter(primeView);
-
-			LMEInstrument lmeInstrument = new LMEInstrument();
-			LMERule lmeRule = new LMERule();
-			
-			PrimeInstrument primeInstrument = new PrimeInstrument();
-			PrimeRule primeRule = new PrimeRule();
+			PrimeInstrument primeInstrument = null;
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -47,6 +43,7 @@ public class Main {
 					// By right, all instruments and rules should store in a database for reference.
 
 					// 1. LME instrument
+					lmeInstrument = new LMEInstrument();
 					lmeInstrument.setId(1);
 					lmeInstrument.setLastTradingDate("15-03-2018");
 					lmeInstrument.setDeliveryDate("17-03-2018");
@@ -54,6 +51,7 @@ public class Main {
 					lmeInstrument.setLabel("Lead 13 March 2018");
 
 					// 2. LME Rule
+					LMERule lmeRule = new LMERule();
 					lmeRule.ruleForLastTradingDateField(RuleForField.USED);
 					lmeRule.ruleForDeliveryDateField(RuleForField.USED);
 					lmeRule.ruleForMarketField(RuleForField.USED);
@@ -67,7 +65,7 @@ public class Main {
 
 				} else if (instrumentSource.equals("2")) {
 					// for Prime
-
+					primeInstrument = new PrimeInstrument();
 					primeInstrument.setId(2);
 					primeInstrument.setLastTradingDate("14-03-2018");
 					primeInstrument.setDeliveryDate("18-03-2018");
@@ -76,6 +74,7 @@ public class Main {
 					primeInstrument.setExchangeCode("PB_03_2018");
 					primeInstrument.setTradable(false);
 
+					PrimeRule primeRule = new PrimeRule();
 					primeRule.ruleForLastTradingDateField(RuleForField.REFERENCED);
 					primeRule.ruleForDeliveryDateField(RuleForField.REFERENCED);
 					primeRule.ruleForMarketField(RuleForField.USED);
@@ -83,7 +82,9 @@ public class Main {
 					primeRule.ruleForTradableField(false);
 					primeRule.ruleForExchangeCodeField(RuleForField.UNUSED);
 					// this instrument will get some fields from other instrument via an ID
-					primeRule.setReferencedInstrumentId(lmeInstrument.getId());
+					if (lmeInstrument != null) {
+						primeRule.setReferencedInstrumentId(lmeInstrument.getId());
+					}
 
 					// set rule to presenter
 					primeInstrumentPresenter.setRule(primeRule);

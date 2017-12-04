@@ -68,7 +68,7 @@ public class LMEInstrumentPresenter extends InstrumentPresenter<LMEInstrument, L
 				try {
 					LMEInstrument instrument = lmeInstrumentsQueue.take();
 					if (instrument.getId() < 0) {
-						// terminal thread
+						// terminate thread
 						break;
 					}
 					generateInternalInstrument(instrument, lmeRule);
