@@ -1,14 +1,15 @@
 
 Some notes:
 
-1. entry point: com.lmei.main.Main
+1. The program is designed using MVP pattern (Model-View-Presenter).
 
-2. There is a queue (instrumentsQueue) in class "InstrumentPresenter.java" to store all instruments from all different sources.
+2. entry point: com.lmei.main.Main
 
-3. Each type of instrument also has a queue to store its instruments respectively. 
-For example, class "LMEInstrumentPresenter" has a queue "lmeInstrumentsQueue" to support for LME instrument.
+3. There is a queue (instrumentsQueue) in class "InstrumentPresenter.java" to store all instruments from all different sources.
+A thread in this class works as a dispatcher to dispatch all incoming instruments to respective presenters.
 
-4. The program is designed using MVP pattern (Model-View-Presenter).
+4. Also each presenter which takes care for each type of instrument also has a queue to store its instruments respectively. 
+For example, class "LMEInstrumentPresenter" has a queue "lmeInstrumentsQueue" to process LME instruments.
 
 5. For simple, no Database is implemented (no DAO).
 
