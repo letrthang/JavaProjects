@@ -6,7 +6,7 @@ Some notes:
 2. Each type of instrument also has a queue to store its instruments respectively. 
 For example, class "LMEInstrumentPresenter" has a queue "lmeInstrumentsQueue" to support for LME instrument.
 
-3. The program is design using MVP pattern (Model-View-Presenter).
+3. The program is designed using MVP pattern (Model-View-Presenter).
 
 4. For simple, no Database is implemented.
 
