@@ -107,6 +107,8 @@ public class Main {
 
 					LOG.debug("Quit program.....");
 					break;
+				} else {
+					LOG.debug("Not support input data. Only 1 = LME, 2 = Prime. 0 = Quit program");
 				}
 			}
 
