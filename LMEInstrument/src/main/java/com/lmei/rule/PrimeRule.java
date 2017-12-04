@@ -7,13 +7,23 @@ package com.lmei.rule;
  *
  */
 public class PrimeRule extends BaseRule {
+	private boolean TradableField;
+	private RuleForField ExchangeCodeField;
 
-	public void ruleForTradableField(RuleForField rule) {
-
+	public boolean isTradableField() {
+		return TradableField;
 	}
 
-	public void ruleForExchangeCodeField(RuleForField rule) {
+	public void ruleForTradableField(boolean tradableField) {
+		TradableField = tradableField;
+	}
 
+	public RuleForField getExchangeCodeField() {
+		return ExchangeCodeField;
+	}
+
+	public void ruleForExchangeCodeField(RuleForField exchangeCodeField) {
+		ExchangeCodeField = exchangeCodeField;
 	}
 
 }

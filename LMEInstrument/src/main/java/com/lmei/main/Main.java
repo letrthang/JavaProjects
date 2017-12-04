@@ -12,6 +12,7 @@ import com.lmei.model.PrimeInstrument;
 import com.lmei.presenter.LMEInstrumentPresenter;
 import com.lmei.presenter.PrimeInstrumentPresenter;
 import com.lmei.rule.LMERule;
+import com.lmei.rule.PrimeRule;
 import com.lmei.rule.RuleForField;
 import com.lmei.view.LMEView;
 import com.lmei.view.PrimeView;
@@ -28,6 +29,12 @@ public class Main {
 			PrimeView primeView = new PrimeView();
 			PrimeInstrumentPresenter primeInstrumentPresenter = new PrimeInstrumentPresenter(primeView);
 
+			LMEInstrument lmeInstrument = new LMEInstrument();
+			LMERule lmeRule = new LMERule();
+			
+			PrimeInstrument primeInstrument = new PrimeInstrument();
+			PrimeRule primeRule = new PrimeRule();
+
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 			System.out.println("Enter your instrument source: 1 = LME, 2 = Prime. 0 = Quit program");
@@ -36,16 +43,17 @@ public class Main {
 
 				String instrumentSource = br.readLine();
 				if (instrumentSource.equals("1")) {
-					// For testing, we create sample data for LME instrument and LME rule
+					// For testing, we create sample data for LME instrument and LME rule.
+					// By right, all instruments and rules should store in a database for reference.
+
 					// 1. LME instrument
-					LMEInstrument lmeInstrument = new LMEInstrument();
 					lmeInstrument.setId(1);
 					lmeInstrument.setLastTradingDate("15-03-2018");
 					lmeInstrument.setDeliveryDate("17-03-2018");
 					lmeInstrument.setMarket("PB");
 					lmeInstrument.setLabel("Lead 13 March 2018");
+
 					// 2. LME Rule
-					LMERule lmeRule = new LMERule();
 					lmeRule.ruleForLastTradingDateField(RuleForField.USED);
 					lmeRule.ruleForDeliveryDateField(RuleForField.USED);
 					lmeRule.ruleForMarketField(RuleForField.USED);
@@ -58,7 +66,29 @@ public class Main {
 					lmeInstrumentPresenter.setInstrumentsQueue(lmeInstrument);
 
 				} else if (instrumentSource.equals("2")) {
-					// just do the same style for Prime instrument
+					// for Prime
+
+					primeInstrument.setId(2);
+					primeInstrument.setLastTradingDate("14-03-2018");
+					primeInstrument.setDeliveryDate("18-03-2018");
+					primeInstrument.setMarket("LME_PB");
+					primeInstrument.setLabel("Lead 13 March 2018");
+					primeInstrument.setExchangeCode("PB_03_2018");
+					primeInstrument.setTradable(false);
+
+					primeRule.ruleForLastTradingDateField(RuleForField.REFERENCED);
+					primeRule.ruleForDeliveryDateField(RuleForField.REFERENCED);
+					primeRule.ruleForMarketField(RuleForField.USED);
+					primeRule.ruleForLabelField(RuleForField.USED);
+					primeRule.ruleForTradableField(false);
+					primeRule.ruleForExchangeCodeField(RuleForField.UNUSED);
+					// this instrument will get some fields from other instrument via an ID
+					primeRule.setReferencedInstrumentId(lmeInstrument.getId());
+
+					// set rule to presenter
+					primeInstrumentPresenter.setRule(primeRule);
+					// set instrument to presenter
+					primeInstrumentPresenter.setInstrumentsQueue(primeInstrument);
 
 				} else if (instrumentSource.equals("0")) {
 					// to quit program by sending poison object to BlockingQueues to terminate

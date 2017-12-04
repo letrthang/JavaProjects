@@ -25,6 +25,7 @@ public abstract class InstrumentPresenter<I extends BaseInstrument, R extends Ba
 
 	// this queue stores all instruments from all sources
 	private static BlockingQueue<BaseInstrument> instrumentsQueue = new LinkedBlockingDeque<>(50);
+	// all presenters want to subscribe to get different instruments 
 	@SuppressWarnings("rawtypes")
 	private static Map<String, InstrumentPresenter> instrumentPresentersMap;
 
