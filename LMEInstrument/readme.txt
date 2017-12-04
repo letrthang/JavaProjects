@@ -12,6 +12,8 @@ For example, class "LMEInstrumentPresenter" has a queue "lmeInstrumentsQueue" to
 
 5. For simple, no Database is implemented (no DAO).
 
-6. build program with Maven command as: mvn package,...
+6. build the program with Maven command as: mvn package,...
 
-7. requirement at: /resource/docs.txt
+7. run the program with command: java -jar LMEInstrument-0.0.1.jar
+
+8. requirement at: /resource/docs.txt
