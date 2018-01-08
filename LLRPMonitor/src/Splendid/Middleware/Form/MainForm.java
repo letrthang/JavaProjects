@@ -10,7 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
@@ -22,6 +25,7 @@ import javax.swing.ScrollPaneConstants;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.Component;
 
 public class MainForm {
 
@@ -33,6 +37,8 @@ public class MainForm {
 	private JTable table;
 	private JTextField txtLocalhost;
 	private JLabel lblOnOff;
+
+	static int count = 0;
 
 	/**
 	 * Launch the application.
@@ -237,19 +243,51 @@ public class MainForm {
 		// }
 		String status = "";
 		for (final ReaderStatus readerStat : readerList) {
-			if (readerStat.status) status = "OK";
-			else status = "FAIL";
+			if (readerStat.status)
+				status = "OK";
+			else
+				status = "FAIL";
 
 			final String messStatus = status;
 			SwingUtilities.invokeLater(new Runnable() {
 				public void run() {
+					count++;
+					if (count % 2 == 0) {
+						table.getColumnModel().getColumn(0).setCellRenderer(new StatusColumnCellRenderer(0, 0));
+					}
 					// Update the model here
 					model.addRow(new Object[] { readerStat.controllerName, readerStat.ip, messStatus });
+
 				}
 			});
 
 		}
 		table.revalidate();
 
+	}
+
+	public class StatusColumnCellRenderer extends DefaultTableCellRenderer {
+		private static final long serialVersionUID = 1L;
+		int row, col;
+
+		public StatusColumnCellRenderer(int row, int col) {
+			this.row = row;
+			this.col = col;
+		}
+
+		@Override
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+				int row, int col) {
+
+			// Cells are by default rendered as a JLabel.
+			JLabel l = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, this.row,
+					this.col);
+
+			l.setBackground(Color.GREEN);
+
+			// Return the JLabel which renders the cell.
+			return l;
+
+		}
 	}
 }
