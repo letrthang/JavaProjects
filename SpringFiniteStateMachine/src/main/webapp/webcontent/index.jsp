@@ -30,17 +30,15 @@
 		</form>
 	</body>
 
-	New State: <font color="blue" >
-	<c:out value=" ${currentState}" />
-	<br> <font color="black" > Event:<font color="blue" >
-	<c:out value=" ${currentEvent}" />
-	<br> <font color="black" > Action: <font color="blue" >
-	<c:out value=" ${currentAction}" />
+	New State: <font color="blue"> <c:out value=" ${currentState}" />
+		<br> <font color="black"> Event:<font color="red">
+				<c:out value=" ${currentEvent}" /> <br> <font color="black">
+					Action: <font color="blue"> <c:out
+							value=" ${currentAction}" /> <br> <br> <a
+						href="https://letrungthang.blogspot.com">https://letrungthang.blogspot.com</a>
 
-	<br> <br> <a href="https://letrungthang.blogspot.com">https://letrungthang.blogspot.com</a>
-
-	<br> <br> <img alt="images"
-		src="<c:url value='/resources/FSM.PNG'/>" width="600" height="300">
-	<br>
+						<br> <br> <img alt="images"
+						src="<c:url value='/resources/FSM.PNG'/>" width="600" height="300">
+						<br>
 </div>
 </html>
