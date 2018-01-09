@@ -56,6 +56,8 @@ public class MainController {
 
 		// for user-login process
 		if (urlAction != null && urlAction.equals("EventTrigger")) {
+			curAction = "";
+
 			if ((selectedEvent == null) || (selectedEvent == null) || (submitEventButton == null)) {
 				return "index";
 			} else if (selectedEvent.equals("event1")) {

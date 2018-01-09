@@ -14,7 +14,7 @@ public class FSMExternalActions {
 	public void toState1() {
 
 		MainController.curState = States.STATE1;
-		MainController.curAction = "toState1";
+		MainController.curAction = MainController.curAction + ". " + "toState1";
 		System.out.println("toState1");
 	}
 
@@ -22,7 +22,7 @@ public class FSMExternalActions {
 	public void toState2() {
 
 		MainController.curState = States.STATE2;
-		MainController.curAction = "toState2";
+		MainController.curAction = MainController.curAction + ". " + "toState2";
 		System.out.println("toState2");
 	}
 
@@ -30,7 +30,7 @@ public class FSMExternalActions {
 	public void state1Entry() {
 
 		MainController.curState = States.STATE1;
-		MainController.curAction = "state1Entry";
+		MainController.curAction = MainController.curAction + ". " + "state1Entry";
 		System.out.println("state1Entry");
 	}
 
@@ -38,19 +38,19 @@ public class FSMExternalActions {
 	public void state2Entry() {
 
 		MainController.curState = States.STATE2;
-		MainController.curAction = "state2Entry";
+		MainController.curAction = MainController.curAction + ". " + "state2Entry";
 		System.out.println("state2Entry");
 	}
 
 	@OnStateExit(source = "STATE1")
 	public void state1Exit() {
-		MainController.curAction = "state1Exit";
+		MainController.curAction = MainController.curAction + ". " + "state1Exit";
 		System.out.println("state1Exit");
 	}
 
 	@OnStateExit(source = "STATE2")
 	public void state2Exit() {
-		MainController.curAction = "state2Exit";
+		MainController.curAction = MainController.curAction + ". " + "state2Exit";
 		System.out.println("state2Exit");
 	}
 

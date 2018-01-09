@@ -25,7 +25,7 @@ public class FSMInternalActions {
 		@Override
 		public void execute(StateContext<States, Events> arg0) {
 			MainController.curState = States.STATE1;
-			MainController.curAction = "State1Action";
+			MainController.curAction = MainController.curAction + ". " + "State1Action";
 			System.out.println("State1Action");
 		}
 
@@ -36,7 +36,7 @@ public class FSMInternalActions {
 		@Override
 		public void execute(StateContext<States, Events> arg0) {
 			MainController.curState = States.STATE2;
-			MainController.curAction = "State2Action";
+			MainController.curAction = MainController.curAction + ". " + "State2Action";
 			System.out.println("State2Action");
 		}
 
