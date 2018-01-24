@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="javascripts/index.js">
+
+</script>
+<title>Websocket Test</title>
+</head>
+
+<body onload="initButtonListeners()">
+	<button id="butOpenConnection" type="button">Open Connection</button>
+	<button id="butCloseConnection" type="button">Close Connection</button>
+	<button id="butStartTimer" type="button">Start send message</button>
+	<button id="butStopTimer" type="button">Stop send message</button>
+	<button id="butClearLog" type="button">Clear Log</button>
+	<br>
+	<br> URL 1:
+	<input id="url1" type="text" name="url1adress" style="width: 1000px;">
+	<br>
+	<br> URL 2:
+	<input id="url2" type="text" name="url2address" style="width: 1000px;">
+	<br>
+	<br>
+	<b>Message 1 to Send: </b>
+	<br>
+	<textarea id="msg1" value="" style="width: 1000px; color: green;"
+		cols="" rows=""></textarea>
+	<br>
+	<br>
+	<b>Message 2 to Send: </b>
+	<br>
+	<textarea id="msg2" value="" style="width: 1000px; color: green;"
+		cols="" rows=""></textarea>
+	<br>
+	<br>
+	<b>Message 1 to response: </b>
+	<br>
+	<textarea id="msg1res" value="" style="width: 1000px; color: blue;"
+		cols="" rows=""></textarea>
+	<br>
+	<br>
+	<b>Message 2 to response: </b>
+	<br>
+	<textarea id="msg2res" value="" style="width: 1000px; color: blue;"
+		cols="" rows=""></textarea>
+	<br>
+
+	<h2>Output Log</h2>
+
+	<div id="outputMsg"></div>
+</body>
+
+</html>
