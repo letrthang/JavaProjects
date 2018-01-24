@@ -133,17 +133,77 @@ function onClose2(evt) {
 }
 
 function onMessage1(evt) {
-	var inboundMsg = JSON.parse(evt.data);
+	var inboundJsonMsg = JSON.parse(evt.data);
 	var controlMsgType;
 
-	if (inboundMsg.protocolID == "UHES2@1.0@RES") {
+	if (inboundJsonMsg.protocolID == "UHES2@1.0@RES") {
 		writeToScreen('<span style="color: blue;">RESPONSE from sockets 1: ' + evt.data
 			+ '</span>');
 	} else {
+
 		// request Transport message 0x314 from NNC
-		if (inboundMsg.functionID == "0x314") {
-			controlMsgType = parseUHESControlMsgType(inboundMsg);
-			writeToScreen(controlMsgType);
+		if (inboundJsonMsg.functionID == "0x314") {
+			controlMsgType = parseUHESControlMsgType(inboundJsonMsg);
+			if (controlMsgType == "0x5001" && msg1Res != "") {
+				var response2ServerJsonMsg = JSON.parse(msg1Res);
+				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
+				response2ServerJsonMsg.sessionID = inboundJsonMsg.sessionID;
+				response2ServerJsonMsg.desID = inboundJsonMsg.sourceID;
+				response2ServerJsonMsg.sourceID = inboundJsonMsg.desID;
+				var finalMsg1Res = JSON.stringify(response2ServerJsonMsg);
+				writeToScreen("SENT Response UHES CONTROL 0x5001 MESSAGE to websockets server 1");
+				websocket1.send(finalMsg1Res);
+			} else if (controlMsgType == "0x5002" && msg2Res != "") {
+				var response2ServerJsonMsg = JSON.parse(msg2Res);
+				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
+				response2ServerJsonMsg.sessionID = inboundJsonMsg.sessionID;
+				response2ServerJsonMsg.desID = inboundJsonMsg.sourceID;
+				response2ServerJsonMsg.sourceID = inboundJsonMsg.desID;
+				var finalMsg2Res = JSON.stringify(response2ServerJsonMsg);
+				writeToScreen("SENT Response UHES CONTROL 0x5002 MESSAGE to websockets server 1");
+				websocket1.send(finalMsg2Res);
+			} else {
+				writeToScreen("Message type: " + controlMsgType);
+			}
+
+		}
+	}
+}
+
+function onMessage2(evt) {
+	var inboundJsonMsg = JSON.parse(evt.data);
+	var controlMsgType;
+
+	if (inboundJsonMsg.protocolID == "UHES2@1.0@RES") {
+		writeToScreen('<span style="color: blue;">RESPONSE from sockets 2: ' + evt.data
+			+ '</span>');
+	} else {
+
+		// request Transport message 0x314 from NNC
+		if (inboundJsonMsg.functionID == "0x314") {
+			controlMsgType = parseUHESControlMsgType(inboundJsonMsg);
+			if (controlMsgType == "0x5001" && msg1Res != "") {
+				var response2ServerJsonMsg = JSON.parse(msg1Res);
+				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
+				response2ServerJsonMsg.sessionID = inboundJsonMsg.sessionID;
+				response2ServerJsonMsg.desID = inboundJsonMsg.sourceID;
+				response2ServerJsonMsg.sourceID = inboundJsonMsg.desID;
+				var finalMsg1Res = JSON.stringify(response2ServerJsonMsg);
+				writeToScreen("SENT Response UHES CONTROL 0x5001 MESSAGE to websockets server 2");
+				websocket1.send(finalMsg1Res);
+			} else if (controlMsgType == "0x5002" && msg2Res != "") {
+				var response2ServerJsonMsg = JSON.parse(msg2Res);
+				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
+				response2ServerJsonMsg.sessionID = inboundJsonMsg.sessionID;
+				response2ServerJsonMsg.desID = inboundJsonMsg.sourceID;
+				response2ServerJsonMsg.sourceID = inboundJsonMsg.desID;
+				var finalMsg2Res = JSON.stringify(response2ServerJsonMsg);
+				writeToScreen("SENT Response UHES CONTROL 0x5002 MESSAGE to websockets server 2");
+				websocket2.send(finalMsg2Res);
+			} else {
+				writeToScreen("Message type: " + controlMsgType);
+			}
+
 		}
 	}
 }
@@ -157,11 +217,6 @@ function parseUHESControlMsgType(UHESmsg) {
 	xmlDoc = parser.parseFromString(argValueXML, "text/xml");
 	var msgType = xmlDoc.getElementsByTagName("UHES_Message")[0].getAttribute("MessageType");
 	return msgType;
-}
-
-function onMessage2(evt) {
-	writeToScreen('<span style="color: green;">RESPONSE from sockets 2: ' + evt.data
-		+ '</span>');
 }
 
 function onError1(evt) {
