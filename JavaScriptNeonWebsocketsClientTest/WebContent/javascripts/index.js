@@ -134,15 +134,29 @@ function onClose2(evt) {
 
 function onMessage1(evt) {
 	var inboundMsg = JSON.parse(evt.data);
+	var controlMsgType;
+
 	if (inboundMsg.protocolID == "UHES2@1.0@RES") {
 		writeToScreen('<span style="color: blue;">RESPONSE from sockets 1: ' + evt.data
 			+ '</span>');
 	} else {
 		// request Transport message 0x314 from NNC
 		if (inboundMsg.functionID == "0x314") {
-
+			controlMsgType = parseUHESControlMsgType(inboundMsg);
+			writeToScreen(controlMsgType);
 		}
 	}
+}
+
+function parseUHESControlMsgType(UHESmsg) {
+	var base64String = UHESmsg.functionArgument[0].argumentValue;
+	base64String = base64String.substring(7, base64String.length - 9);
+	var argValueXML = window.atob(base64String);
+
+	var parser = new DOMParser();
+	xmlDoc = parser.parseFromString(argValueXML, "text/xml");
+	var msgType = xmlDoc.getElementsByTagName("UHES_Message")[0].getAttribute("MessageType");
+	return msgType;
 }
 
 function onMessage2(evt) {
