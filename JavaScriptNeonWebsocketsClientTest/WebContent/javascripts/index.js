@@ -42,7 +42,7 @@ function closeConnection() {
 
 function startTimer() {
 	writeToScreen("Start all timers");
-	startTimer1Var = window.setInterval(doSend1, 2000);
+	startTimer1Var = window.setInterval(doSend1, 4000);
 	startTimer2Var = window.setInterval(doSend2, 5000);
 }
 
@@ -114,23 +114,27 @@ function connectWebSocket2(url) {
 
 function onOpen1(evt) {
 	writeToScreen("CONNECTED TO Endpoint 1");
-//doSend1("WebSocket rocks 1");
+
 }
 
 function onOpen2(evt) {
 	writeToScreen("CONNECTED TO Endpoint 2");
-//doSend2("WebSocket rocks 2");
+
 }
 
 function onClose1(evt) {
-	websocket1.close();
-	websocket1 = null;
+	if (websocket1 != null) {
+		websocket1.close();
+		websocket1 = null;
+	}
 	writeToScreen("DISCONNECTED from Endpoint 1");
 }
 
 function onClose2(evt) {
-	websocket2.close();
-	websocket2 = null;
+	if (websocket2 != null) {
+		websocket2.close();
+		websocket2 = null;
+	}
 	writeToScreen("DISCONNECTED from Endpoint 2");
 }
 
