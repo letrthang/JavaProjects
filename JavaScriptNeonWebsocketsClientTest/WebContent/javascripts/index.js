@@ -19,7 +19,8 @@ var counter2 = 0;
 var logsize = 0;
 var device1ID;
 var device2ID;
-var nodeID;
+var node1ID;
+var node2ID;
 
 function openConnection() {
 	initSocket1();
@@ -145,9 +146,9 @@ function onMessage1(evt) {
 	if (inboundJsonMsg.protocolID == "UHES2@1.0@RES") {
 		if (inboundJsonMsg.functionID == "N.A") {
 			device1ID = inboundJsonMsg.desID;
-			nodeID = inboundJsonMsg.sourceID;
+			node1ID = inboundJsonMsg.sourceID;
 			writeToScreen("Device1ID= " + device1ID);
-			writeToScreen("NodeID= " + nodeID);
+			writeToScreen("node1ID= " + node1ID);
 			writeToScreen('<span style="color: blue;">RESPONSE from sockets endpoint 1: ' + evt.data
 				+ '</span>');
 		} else {
@@ -163,7 +164,7 @@ function onMessage1(evt) {
 				var response2ServerJsonMsg = JSON.parse(msg1Res);
 				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
 				response2ServerJsonMsg.sessionID = inboundJsonMsg.sessionID;
-				response2ServerJsonMsg.desID = nodeID;
+				response2ServerJsonMsg.desID = node1ID;
 				response2ServerJsonMsg.sourceID = device1ID;
 				var finalMsg1Res = JSON.stringify(response2ServerJsonMsg);
 				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5001 MESSAGE to websockets endpoint 1. MessageID = ' + response2ServerJsonMsg.messageID + '</span>');
@@ -172,7 +173,7 @@ function onMessage1(evt) {
 				var response2ServerJsonMsg = JSON.parse(msg2Res);
 				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
 				response2ServerJsonMsg.sessionID = inboundJsonMsg.sessionID;
-				response2ServerJsonMsg.desID = nodeID;
+				response2ServerJsonMsg.desID = node1ID;
 				response2ServerJsonMsg.sourceID = device1ID;
 				var finalMsg2Res = JSON.stringify(response2ServerJsonMsg);
 				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5002 MESSAGE to websockets endpoint 1. MessageID = ' + response2ServerJsonMsg.messageID + '</span>');
@@ -192,9 +193,9 @@ function onMessage2(evt) {
 	if (inboundJsonMsg.protocolID == "UHES2@1.0@RES") {
 		if (inboundJsonMsg.functionID == "N.A") {
 			device2ID = inboundJsonMsg.desID;
-			nodeID = inboundJsonMsg.sourceID;
+			node2ID = inboundJsonMsg.sourceID;
 			writeToScreen("Device2ID= " + device2ID);
-			writeToScreen("NodeID= " + nodeID);
+			writeToScreen("Node2ID= " + node2ID);
 			writeToScreen('<span style="color: deeppink;">RESPONSE from sockets endpoint 2: ' + evt.data
 				+ '</span>');
 		} else {
@@ -209,7 +210,7 @@ function onMessage2(evt) {
 				var response2ServerJsonMsg = JSON.parse(msg1Res);
 				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
 				response2ServerJsonMsg.sessionID = inboundJsonMsg.sessionID;
-				response2ServerJsonMsg.desID = nodeID;
+				response2ServerJsonMsg.desID = node2ID;
 				response2ServerJsonMsg.sourceID = device2ID;
 				var finalMsg1Res = JSON.stringify(response2ServerJsonMsg);
 				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5001 MESSAGE to websockets endpoint 2. MessageID = ' + response2ServerJsonMsg.messageID + '</span>');
@@ -218,7 +219,7 @@ function onMessage2(evt) {
 				var response2ServerJsonMsg = JSON.parse(msg2Res);
 				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
 				response2ServerJsonMsg.sessionID = inboundJsonMsg.sessionID;
-				response2ServerJsonMsg.desID = nodeID;
+				response2ServerJsonMsg.desID = node2ID;
 				response2ServerJsonMsg.sourceID = device2ID;
 				var finalMsg2Res = JSON.stringify(response2ServerJsonMsg);
 				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5002 MESSAGE to websockets endpoint 2. MessageID = ' + response2ServerJsonMsg.messageID + '</span>');
@@ -262,7 +263,7 @@ function doSend1() {
 	if (counter1 == 1 && msg1Send != "") {
 		var outboundMsg1 = JSON.parse(msg1Send);
 		outboundMsg1.messageID = ++sendMessageID;
-		outboundMsg1.desID = nodeID;
+		outboundMsg1.desID = node1ID;
 		outboundMsg1.sourceID = device1ID;
 		msg1Send = JSON.stringify(outboundMsg1);
 		writeToScreen("SENT UHES MESSAGE1 to websockets endpoint 1. MessageID = " + outboundMsg1.messageID);
@@ -270,7 +271,7 @@ function doSend1() {
 	} else if (counter1 > 1 && msg2Send != "") {
 		var outboundMsg2 = JSON.parse(msg2Send);
 		outboundMsg2.messageID = ++sendMessageID;
-		outboundMsg2.desID = nodeID;
+		outboundMsg2.desID = node1ID;
 		outboundMsg2.sourceID = device1ID;
 		msg2Send = JSON.stringify(outboundMsg2);
 		writeToScreen("SENT UHES MESSAGE2 to websockets endpoint 1. MessageID = " + outboundMsg2.messageID);
@@ -291,7 +292,7 @@ function doSend2() {
 	if (counter2 == 1 && msg1Send != "") {
 		var outboundMsg1 = JSON.parse(msg1Send);
 		outboundMsg1.messageID = ++sendMessageID;
-		outboundMsg1.desID = nodeID;
+		outboundMsg1.desID = node2ID;
 		outboundMsg1.sourceID = device2ID;
 		msg1Send = JSON.stringify(outboundMsg1);
 		writeToScreen("SENT UHES MESSAGE1 to websockets endpoint 2. MessageID = " + outboundMsg1.messageID);
@@ -299,7 +300,7 @@ function doSend2() {
 	} else if (counter2 > 1 && msg2Send != "") {
 		var outboundMsg2 = JSON.parse(msg2Send);
 		outboundMsg2.messageID = ++sendMessageID;
-		outboundMsg2.desID = nodeID;
+		outboundMsg2.desID = node2ID;
 		outboundMsg2.sourceID = device2ID;
 		msg2Send = JSON.stringify(outboundMsg2);
 		writeToScreen("SENT UHES MESSAGE2 to websockets endpoint 2. MessageID = " + outboundMsg2.messageID);
