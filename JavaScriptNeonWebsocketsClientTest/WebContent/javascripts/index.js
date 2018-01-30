@@ -11,6 +11,7 @@ var msg1Send;
 var msg2Send;
 var msg1Res;
 var msg2Res;
+var msgTransport311;
 var sendMessageID = 0;
 var websocket1;
 var websocket2;
@@ -41,6 +42,41 @@ function closeConnection() {
 	writeToScreen("Closed connections");
 }
 
+function sendUHESTransport311(){
+	
+	var msg2SendTransport311 = JSON.parse(msgTransport311);
+	
+	if((msgTransport311 != "") && (address_1 != "")){
+		var msg1SendTransport311 = JSON.parse(msgTransport311);
+		msg1SendTransport311.messageID = ++sendMessageID;
+		msg1SendTransport311.desID = node1ID;
+		msg1SendTransport311.sourceID = device1ID;
+		msg1SendTransport311.functionArgument[0].argumentValue = "000058@"+ node1ID + "@NON@NONE";
+		msg1SendTransport311.functionArgument[1].argumentValue = "000058@"+ device1ID + "@NON@NONE";	
+		var finalMsg1Send311 = JSON.stringify(msg1SendTransport311);
+		
+		websocket1.send(finalMsg1Send311);
+		
+		writeToScreen("Device sent UHES Transport 0x311 to endpoint 1");
+	}
+	
+	if((msgTransport311 != "") && (address_2 != "")){
+		var msg2SendTransport311 = JSON.parse(msgTransport311);
+		msg2SendTransport311.messageID = ++sendMessageID;
+		msg2SendTransport311.desID = node21ID;
+		msg2SendTransport311.sourceID = device2ID;
+		msg2SendTransport311.functionArgument[0].argumentValue = "000058@"+ node2ID + "@NON@NONE";
+		msg2SendTransport311.functionArgument[1].argumentValue = "000058@"+ device2ID + "@NON@NONE";	
+		var finalMsg2Send311 = JSON.stringify(msg2SendTransport311);
+		
+		websocket2.send(finalMsg2Send311);
+		
+		writeToScreen("Device sent UHES Transport 0x311 to endpoint 2");
+	}
+	
+	
+}
+
 function startTimer() {
 	writeToScreen("Start all timers");
 	startTimer1Var = window.setInterval(doSend1, 4000);
@@ -61,6 +97,7 @@ function initSocket1() {
 	address_1 = document.getElementById("url1").value;
 	msg1Send = document.getElementById("msg1").value;
 	msg1Res = document.getElementById("msg1res").value;
+	msgTransport311 =  document.getElementById("msgUhesTransport311").value;
 
 	if (address_1 != "") {
 		writeToScreen("open websocket endpoint 1 ...");
@@ -73,6 +110,7 @@ function initSocket2() {
 	address_2 = document.getElementById("url2").value;
 	msg2Send = document.getElementById("msg2").value;
 	msg2Res = document.getElementById("msg2res").value;
+	msgTransport311 =  document.getElementById("msgUhesTransport311").value;
 
 	if (address_2 != "") {
 		writeToScreen("open websocket endpoint 2...");
@@ -152,7 +190,7 @@ function onMessage1(evt) {
 			writeToScreen('<span style="color: blue;">RESPONSE from sockets endpoint 1: ' + evt.data
 				+ '</span>');
 		} else {
-			writeToScreen('<span style="color: deeppink;">Endpoint 1 sent back RESPONSE UHES message. MessageID = ' + inboundJsonMsg.messageID + '</span>');
+			writeToScreen('<span style="color: deeppink;">Endpoint 1 sent back RESPONSE UHES message. MessageID = ' + inboundJsonMsg.messageID + '. Return code: ' + inboundJsonMsg.functionArgument[0].argumentValue + '</span>');
 		}
 
 	} else {
@@ -163,20 +201,20 @@ function onMessage1(evt) {
 			if (controlMsgType == "0x5001" && msg1Res != "") {
 				var response2ServerJsonMsg = JSON.parse(msg1Res);
 				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
-				response2ServerJsonMsg.sessionID = inboundJsonMsg.sessionID;
+				response2ServerJsonMsg.sessionID = "123EF";
 				response2ServerJsonMsg.desID = node1ID;
 				response2ServerJsonMsg.sourceID = device1ID;
 				var finalMsg1Res = JSON.stringify(response2ServerJsonMsg);
-				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5001 MESSAGE to websockets endpoint 1. MessageID = ' + response2ServerJsonMsg.messageID + '</span>');
+				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5001 MESSAGE to websockets endpoint 1. MessageID = ' + response2ServerJsonMsg.messageID + '. SessionID: ' + response2ServerJsonMsg.sessionID +'</span>');
 				websocket1.send(finalMsg1Res);
 			} else if (controlMsgType == "0x5002" && msg2Res != "") {
 				var response2ServerJsonMsg = JSON.parse(msg2Res);
 				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
-				response2ServerJsonMsg.sessionID = inboundJsonMsg.sessionID;
+				response2ServerJsonMsg.sessionID = "123EF";
 				response2ServerJsonMsg.desID = node1ID;
 				response2ServerJsonMsg.sourceID = device1ID;
 				var finalMsg2Res = JSON.stringify(response2ServerJsonMsg);
-				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5002 MESSAGE to websockets endpoint 1. MessageID = ' + response2ServerJsonMsg.messageID + '</span>');
+				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5002 MESSAGE to websockets endpoint 1. MessageID = ' + response2ServerJsonMsg.messageID + '. SessionID: ' + response2ServerJsonMsg.sessionID + '</span>');
 				websocket1.send(finalMsg2Res);
 			} else {
 				writeToScreen("Message type: " + controlMsgType);
@@ -199,7 +237,7 @@ function onMessage2(evt) {
 			writeToScreen('<span style="color: deeppink;">RESPONSE from sockets endpoint 2: ' + evt.data
 				+ '</span>');
 		} else {
-			writeToScreen('<span style="color: GoldenRod;">Endpoint 2 sent back RESPONSE UHES message. MessageID = ' + inboundJsonMsg.messageID + '</span>');
+			writeToScreen('<span style="color: GoldenRod;">Endpoint 2 sent back RESPONSE UHES message. MessageID = ' + inboundJsonMsg.messageID + '. Return code: ' + inboundJsonMsg.functionArgument[0].argumentValue + '</span>');
 		}
 	} else {
 
@@ -209,20 +247,20 @@ function onMessage2(evt) {
 			if (controlMsgType == "0x5001" && msg1Res != "") {
 				var response2ServerJsonMsg = JSON.parse(msg1Res);
 				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
-				response2ServerJsonMsg.sessionID = inboundJsonMsg.sessionID;
+				response2ServerJsonMsg.sessionID = "123EF";
 				response2ServerJsonMsg.desID = node2ID;
 				response2ServerJsonMsg.sourceID = device2ID;
 				var finalMsg1Res = JSON.stringify(response2ServerJsonMsg);
-				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5001 MESSAGE to websockets endpoint 2. MessageID = ' + response2ServerJsonMsg.messageID + '</span>');
+				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5001 MESSAGE to websockets endpoint 2. MessageID = ' + response2ServerJsonMsg.messageID + '. SessionID: ' + response2ServerJsonMsg.sessionID + '</span>');
 				websocket1.send(finalMsg1Res);
 			} else if (controlMsgType == "0x5002" && msg2Res != "") {
 				var response2ServerJsonMsg = JSON.parse(msg2Res);
 				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
-				response2ServerJsonMsg.sessionID = inboundJsonMsg.sessionID;
+				response2ServerJsonMsg.sessionID = "123EF";
 				response2ServerJsonMsg.desID = node2ID;
 				response2ServerJsonMsg.sourceID = device2ID;
 				var finalMsg2Res = JSON.stringify(response2ServerJsonMsg);
-				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5002 MESSAGE to websockets endpoint 2. MessageID = ' + response2ServerJsonMsg.messageID + '</span>');
+				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5002 MESSAGE to websockets endpoint 2. MessageID = ' + response2ServerJsonMsg.messageID + '. SessionID: ' + response2ServerJsonMsg.sessionID + '</span>');
 				websocket2.send(finalMsg2Res);
 			} else {
 				writeToScreen("Message type: " + controlMsgType);
@@ -333,6 +371,9 @@ function initButtonListeners() {
 	document.getElementById("butCloseConnection").onclick = function() {
 		closeConnection();
 	};
+	document.getElementById("butSendUHES311").onclick = function() {
+		sendUHESTransport311();
+	};		
 	document.getElementById("butStartTimer").onclick = function() {
 		startTimer();
 	};
