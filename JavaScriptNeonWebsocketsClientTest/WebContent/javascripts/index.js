@@ -257,7 +257,7 @@ function onMessage2(evt) {
 				response2ServerJsonMsg.sourceID = device2ID;
 				var finalMsg1Res = JSON.stringify(response2ServerJsonMsg);
 				writeToScreen('<span style="color: blue;">SENT Response UHES CONTROL 0x5001 MESSAGE to websockets endpoint 2. MessageID = ' + response2ServerJsonMsg.messageID + '. SessionID: ' + response2ServerJsonMsg.sessionID + '</span>');
-				websocket1.send(finalMsg1Res);
+				websocket2.send(finalMsg1Res);
 			} else if (controlMsgType == "0x5002" && msg2Res != "") {
 				var response2ServerJsonMsg = JSON.parse(msg2Res);
 				response2ServerJsonMsg.messageID = inboundJsonMsg.messageID;
