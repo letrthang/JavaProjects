@@ -41,7 +41,7 @@ public class MyUI extends UI {
 		Navigator navigator = new Navigator(UI.getCurrent(), this);
 		navigator.addView(MyNewUI.VIEW_NAME, myNewUI);
 		navigator.addView(MyNewUI2.VIEW_NAME, myNewUI2);
-		navigator.addView(MyNewUI3.VIEW_NAME, myNewUI3);
+
 		navigator.addView("", myNewUI);
 
 		// Start the data feed thread

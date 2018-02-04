@@ -89,12 +89,7 @@
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-push</artifactId>
 			<version>8.0.6</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-charts</artifactId>
-			<version>4.0.0</version>
-		</dependency>
+		</dependency>		
 		<!-- Vaadin ON/OFF button for vaadin 8 -->
 		<dependency>
 			<groupId>org.vaadin.teemu</groupId>

@@ -9,7 +9,7 @@ import com.vaadin.spring.server.SpringVaadinServlet;
 //all requests to /webservices/ will be handled by CXF
 @WebServlet(urlPatterns = {"/vaadin/*","/VAADIN/*"}, asyncSupported = true)
 @VaadinServletConfiguration(productionMode = false, ui = MyUI.class)
-public class MyUIServlet extends SpringVaadinServlet {
+public class SpringServletConfig extends SpringVaadinServlet {
 
 	/**
 	 * 
