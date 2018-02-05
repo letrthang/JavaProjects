@@ -16,7 +16,7 @@ import com.vaadin.spring.server.SpringVaadinServlet;
  * http://localhost:8080/$(projectname)/webservices
  */
 @WebServlet(urlPatterns = { "/vaadin/*", "/VAADIN/*" }, asyncSupported = true)
-@VaadinServletConfiguration(productionMode = false, ui = MyUI.class)
+@VaadinServletConfiguration(productionMode = true, ui = MyUI.class)
 public class SpringServletConfig extends SpringVaadinServlet {
 
 	/**
