@@ -114,7 +114,7 @@
 				</configuration>
 			</plugin>
 
-			<!-- Enable to build add-ons form Theme and widgetset. Command: mvn vaadin:compile. 
+			<!-- Enable to build add-ons Theme and widgetset. Command: mvn vaadin:compile. 
 				After build, copy directory "widgetsets" in $(project)/target/classes/vaadin/ 
 				to directory $(project)\src\main\webapp\VAADIN. -->
 
