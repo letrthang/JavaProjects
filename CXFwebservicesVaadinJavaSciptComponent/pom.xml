@@ -113,22 +113,26 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			<!-- To build add-ons form Theme and widgetset. Command: mvn vaadin:compile -->
-			<plugin>
-				<groupId>com.vaadin</groupId>
-				<artifactId>vaadin-maven-plugin</artifactId>
-				<version>8.2.0</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>update-theme</goal>
-							<goal>update-widgetset</goal>
-							<goal>compile</goal>
-							<goal>compile-theme</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+
+			<!-- Enable to build add-ons form Theme and widgetset. Command: mvn vaadin:compile. 
+				After build, copy directory "widgetsets" in $(project)/target/classes/vaadin/ 
+				to directory $(project)\src\main\webapp\VAADIN. -->
+
+			<!-- <plugin> -->
+			<!-- <groupId>com.vaadin</groupId> -->
+			<!-- <artifactId>vaadin-maven-plugin</artifactId> -->
+			<!-- <version>8.2.0</version> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <goals> -->
+			<!-- <goal>update-theme</goal> -->
+			<!-- <goal>update-widgetset</goal> -->
+			<!-- <goal>compile</goal> -->
+			<!-- <goal>compile-theme</goal> -->
+			<!-- </goals> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
 
 			<plugin>
 				<groupId>com.heroku.sdk</groupId>
