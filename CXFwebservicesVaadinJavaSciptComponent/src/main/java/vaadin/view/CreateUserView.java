@@ -31,9 +31,10 @@ public class CreateUserView extends VerticalLayout {
 	protected TextField textUserName;
 	protected PasswordField textRetypePassword;
 	protected TextField textPhoneNumber;
-	protected TextField textPassword;
+	protected PasswordField textPassword;
 	protected ComboBox<java.lang.String> cbCountry;
 	protected Button butTermsConditions;
+	protected TextField accountType;
 
 	public CreateUserView() {
 		Design.read(this);

@@ -44,6 +44,7 @@ public class Producer {
 			producer.send(message);
 
 			// Clean up
+			producer.close();
 			session.close();
 			connection.close();
 
