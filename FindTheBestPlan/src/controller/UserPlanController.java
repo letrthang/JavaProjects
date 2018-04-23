@@ -30,6 +30,12 @@ public class UserPlanController<V extends View> {
 		this.view = view;
 	}
 
+	/**
+	 * Get View
+	 * 
+	 * @param view
+	 * @return
+	 */
 	public V getView(V view) {
 		return this.view;
 	}
@@ -99,22 +105,29 @@ public class UserPlanController<V extends View> {
 				matchedUserCombinatoryPlansLst.clear();
 			}
 		}
-		// sort all level Combinatory list
+		// 6. sort all level Combinatory list
 		bestCodeAllLevelCombinatory.sort((cp1, cp2) -> {
 			return (int) (cp1.getTotalCost() - cp2.getTotalCost());
 		});
 
+		// 7. take the lowest cost combinatory.
 		if (bestCodeAllLevelCombinatory.size() > 0) {
 			bestPlans = bestCodeAllLevelCombinatory.get(0).getPlans();
 		}
 
 		if (bestPlans != null) {
+			// 8. update result on the View
 			viewBestPlans(bestPlans);
 		}
 
 		return bestPlans;
 	}
 
+	/**
+	 * View best plans
+	 * 
+	 * @param bestPlans
+	 */
 	private void viewBestPlans(List<Plan> bestPlans) {
 		((PlanView) this.view).setPlans(bestPlans);
 		view.viewResult();
