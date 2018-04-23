@@ -181,4 +181,33 @@ public class UserPlanControllerTest {
 
 		Assert.assertArrayEquals(Arrays.asList(p3).toArray(), plans.toArray());
 	}
+
+	@Test
+	public void test6() {
+		// Plans
+		p1.setCost(10);
+		List<Feature> p1Features = Arrays.asList(F1);
+		p1.setFeatures(p1Features);
+		allPlans.add(p1);
+
+		p2.setCost(15);
+		List<Feature> p2Features = Arrays.asList(F2);
+		p2.setFeatures(p2Features);
+		allPlans.add(p2);
+
+		p3.setCost(25);
+		List<Feature> p3Features = Arrays.asList(F3);
+		p3.setFeatures(p3Features);
+		allPlans.add(p3);
+
+		// User
+		User user = new User();
+		List<Feature> userFeatures = Arrays.asList(F1, F2, F3);
+		user.setSelectedFeatures(userFeatures);
+
+		// test
+		List<Plan> plans = userPlanController.findBestPlan(user, allPlans);
+
+		Assert.assertArrayEquals(Arrays.asList(p1, p2, p3).toArray(), plans.toArray());
+	}
 }
