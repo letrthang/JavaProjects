@@ -18,6 +18,7 @@ import view.View;
 public class UserPlanControllerTest {
 
 	List<Plan> allPlans = new ArrayList<>(); // this is the list of plans available instantiated as
+
 	// Features
 	Feature F1 = new Feature("F1");
 	Feature F2 = new Feature("F2");
