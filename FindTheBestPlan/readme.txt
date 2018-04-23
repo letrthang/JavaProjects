@@ -1,10 +1,11 @@
 Please use Eclipse IDE or similar tool to import project.
+Run Junit to test program.
 
-Entry program:
+1. Entry program:
 /main/Entry.Java
 
-Libs are using:
+2. Libs are using:
 /lib/
 
-unit test:
+3. unit test:
 /test/UserPlanControllerTest.java
