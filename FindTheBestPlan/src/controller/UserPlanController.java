@@ -100,7 +100,7 @@ public class UserPlanController<V extends View> {
 				CombinatoryPlans bestCodeLevelCombinatory = matchedUserCombinatoryPlansLst.get(0);
 				bestCodeAllLevelCombinatory.add(bestCodeLevelCombinatory);
 			} else {
-				// 5. not found, continue with Combinatory more plans
+				// 5. not found, continue with Combinatory of more plans
 				combinatoryPlansLst.clear();
 				matchedUserCombinatoryPlansLst.clear();
 			}
