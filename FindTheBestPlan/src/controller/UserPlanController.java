@@ -38,7 +38,8 @@ public class UserPlanController<V extends View> {
 	/**
 	 * Find best cost plan: 1. we exclude all Plans not having any user requested
 	 * feature. 2. start build combinatory of plans that have all user requested
-	 * features. 3. do comparision all possible combinatories of plans above to get best cost.
+	 * features. 3. do comparision all possible combinatories of plans above to get
+	 * best cost.
 	 * 
 	 * @param user
 	 * @param plan
@@ -83,7 +84,7 @@ public class UserPlanController<V extends View> {
 			}
 
 			// 3. get best cost for each Combinatory level. For example, best cost from 2
-			// plans Combinatory, best code from 3 plans Combinatory.
+			// plans Combinatory, best code from 3 plans Combinatory...
 			matchedUserCombinatoryPlansLst.sort((cp1, cp2) -> {
 				return (int) (cp1.getTotalCost() - cp2.getTotalCost());
 			});
@@ -98,7 +99,7 @@ public class UserPlanController<V extends View> {
 				matchedUserCombinatoryPlansLst.clear();
 			}
 		}
-		// sort
+		// sort all level Combinatory list
 		bestCodeAllLevelCombinatory.sort((cp1, cp2) -> {
 			return (int) (cp1.getTotalCost() - cp2.getTotalCost());
 		});
