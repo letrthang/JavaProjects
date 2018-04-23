@@ -20,29 +20,28 @@ import view.View;
 public class Entry {
 
 	public static void main(String[] args) {
+		//
 		Feature F1 = new Feature("F1");
 		Feature F2 = new Feature("F2");
 		Feature F3 = new Feature("F3");
 
 		List<Plan> allPlans = new ArrayList<>(); // this is the list of plans available instantiated as per the above
-		Plan p1 = new Plan();
-		p1.setName("P1");
+
+		Plan p1 = new Plan("P1");
 		p1.setCost(10);
 		List<Feature> p1Features = Arrays.asList(F1);
 		p1.setFeatures(p1Features);
 		allPlans.add(p1);
 
-		Plan p2 = new Plan();
-		p2.setName("P2");
+		Plan p2 = new Plan("P2");
 		p2.setCost(15);
-		List<Feature> p2Features = Arrays.asList(F1);
+		List<Feature> p2Features = Arrays.asList(F2);
 		p2.setFeatures(p2Features);
 		allPlans.add(p2);
 
-		Plan p3 = new Plan();
-		p3.setName("P3");
+		Plan p3 = new Plan("P3");
 		p3.setCost(20);
-		List<Feature> p3Features = Arrays.asList( F3);
+		List<Feature> p3Features = Arrays.asList(F3);
 		p3.setFeatures(p3Features);
 		allPlans.add(p3);
 
@@ -51,14 +50,14 @@ public class Entry {
 		List<Feature> userFeatures = Arrays.asList(F1);
 		user.setSelectedFeatures(userFeatures);
 
-		// controller
-		UserPlanController<View> userPlanController = new UserPlanController<View>();
 		// view
 		PlanView planView = new PlanView();
-		userPlanController.addView(planView);
+		// controller
+		UserPlanController<View> userPlanController = new UserPlanController<View>(planView);
+
 		// test
 		userPlanController.findBestPlan(user, allPlans);
-		userPlanController.viewBestPlans();
+		// go to unit test for more test case
 	}
 
 }

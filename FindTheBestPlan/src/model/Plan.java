@@ -9,6 +9,10 @@ public class Plan {
 	private double Cost;
 	private List<Feature> Features;
 
+	public Plan(String name) {
+		this.Name = name;
+	}
+
 	/**
 	 * @return the id
 	 */
@@ -69,7 +73,7 @@ public class Plan {
 		if (this.Features == null) {
 			this.Features = new ArrayList<>();
 		}
-		
+
 		if (features != null) {
 			this.Features.addAll(features);
 		}

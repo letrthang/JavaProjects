@@ -27,8 +27,12 @@ public class UserPlanController<V extends View> {
 	V view;
 	List<Plan> bestPlans = null;
 
-	public void addView(V view) {
+	public UserPlanController(V view) {
 		this.view = view;
+	}
+
+	public V getView(V view) {
+		return this.view;
 	}
 
 	/**
@@ -40,7 +44,7 @@ public class UserPlanController<V extends View> {
 	 * @param plan
 	 * @return
 	 */
-	public void findBestPlan(User user, List<Plan> avaiPlans) {
+	public List<Plan> findBestPlan(User user, List<Plan> avaiPlans) {
 
 		// 1. we exclude all Plans not having any user requested feature.
 		List<Plan> matchedPlans = new ArrayList<Plan>();
@@ -94,9 +98,14 @@ public class UserPlanController<V extends View> {
 
 		}
 
+		if (this.bestPlans != null) {
+			viewBestPlans();
+		}
+
+		return this.bestPlans;
 	}
 
-	public void viewBestPlans() {
+	private void viewBestPlans() {
 		((PlanView) this.view).setPlans(bestPlans);
 		((PlanView) this.view).viewResult();
 	}
