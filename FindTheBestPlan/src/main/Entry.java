@@ -25,7 +25,8 @@ public class Entry {
 		Feature F2 = new Feature("F2");
 		Feature F3 = new Feature("F3");
 
-		List<Plan> allPlans = new ArrayList<>(); // this is the list of plans available instantiated as per the above
+		// this is the list of plans available instantiated as per the above
+		List<Plan> allPlans = new ArrayList<>();
 
 		Plan p1 = new Plan("P1");
 		p1.setCost(10);
@@ -57,7 +58,8 @@ public class Entry {
 
 		// test
 		userPlanController.findBestPlan(user, allPlans);
-		// go to unit test for more test case
+
+		// go to unit test (UserPlanControllerTest.java) for more test cases.
 	}
 
 }

@@ -1,5 +1,8 @@
 Entry program:
 /main/Entry.Java
 
-Lib using:
-https://github.com/dpaukov/combinatoricslib
+Libs are using:
+/lib/
+
+unit test:
+/test/UserPlanControllerTest.java
