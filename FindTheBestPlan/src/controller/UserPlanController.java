@@ -117,6 +117,6 @@ public class UserPlanController<V extends View> {
 
 	private void viewBestPlans(List<Plan> bestPlans) {
 		((PlanView) this.view).setPlans(bestPlans);
-		((PlanView) this.view).viewResult();
+		view.viewResult();
 	}
 }
