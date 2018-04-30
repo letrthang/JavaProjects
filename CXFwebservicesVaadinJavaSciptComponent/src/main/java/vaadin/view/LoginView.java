@@ -29,6 +29,7 @@ public class LoginView extends VerticalLayout {
 	protected Label lbNoticeMessage;
 	protected Label lbWelcome;
 	protected Link linkLecompany;
+	protected Button butResetPassword;
 
 	public LoginView() {
 		Design.read(this);
