@@ -1,9 +1,9 @@
 Please use Eclipse IDE or similar tool to import project.
 Run Junit to test the program.
 
-1. Please read comments in code and see image in /docs/test_tree.PNG to easy understand program.
+1. Please read comments in code and see image in /docs/test_tree.PNG for easy understanding the program.
 
-2. Libs are using:
+2. Libs are used:
 /lib/
 
 3. unit test:
