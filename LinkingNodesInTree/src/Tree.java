@@ -107,7 +107,7 @@ public class Tree {
 	}
 
 	/**
-	 * set right node for given list of children.
+	 * set right node for given list of children of a node.
 	 * 
 	 * @param nodes
 	 */
@@ -118,6 +118,8 @@ public class Tree {
 	}
 
 	/**
+	 * set right node for a given node that its right is not same parent.
+	 * 
 	 * @param currentNode
 	 */
 	private void setRightNodeForNotSameParent(Node currentNode) {
