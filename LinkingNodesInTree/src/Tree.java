@@ -71,11 +71,13 @@ public class Tree {
 			if (children == null || children.size() == 1) {
 				// 1. mark current node as completed.
 				currentNode.setCompleted(true);
-				// 2. move back to its parent.
+				// 2. set right for this current node which is not same parent with it.
+				setRightNodeForNotSameParent(currentNode);
+				// 3. move back to its parent.
 				currentNode = currentNode.getParent();
 			} else {
 				// 1. set right node for children list of the current node.
-				setRightNode(children);
+				setRightNodeForSameParent(children);
 				// 2. update current node to new node which is not completed status.
 				for (Node child : children) {
 					if (child.isCompleted() == false) {
@@ -90,7 +92,9 @@ public class Tree {
 				if (isAllChildrenCompleted == true) {
 					// 4. mark current node as completed.
 					currentNode.setCompleted(true);
-					// 5. move back to its parent
+					// 5. set right for this current node which is not same parent with it.
+					setRightNodeForNotSameParent(currentNode);
+					// 6. move back to its parent
 					currentNode = currentNode.getParent();
 				}
 			}
@@ -107,9 +111,26 @@ public class Tree {
 	 * 
 	 * @param nodes
 	 */
-	private void setRightNode(List<Node> nodes) {
+	private void setRightNodeForSameParent(List<Node> nodes) {
 		for (int i = 0; i < nodes.size() - 1; i++) {
 			nodes.get(i).setRight(nodes.get(i + 1));
+		}
+	}
+
+	/**
+	 * @param currentNode
+	 */
+	private void setRightNodeForNotSameParent(Node currentNode) {
+		Node parentNode = currentNode.getParent();
+		if (parentNode != null) {
+			Node parentRightNode = parentNode.getRight();
+			if (parentRightNode != null) {
+				List<Node> childrenNeighbour = parentRightNode.getChildren();
+				if (childrenNeighbour != null && childrenNeighbour.size() > 0) {
+					// to set the right of current node that is not same parent with it.
+					currentNode.setRight(childrenNeighbour.get(0));
+				}
+			}
 		}
 	}
 
@@ -187,6 +208,8 @@ public class Tree {
 		tree.getRightNode(node5);
 		tree.getRightNode(node6);
 		tree.getRightNode(node10);
+		tree.getRightNode(node11);
+		tree.getRightNode(node12);
 	}
 
 	// test tree with 2 nodes.
