@@ -74,7 +74,9 @@ public class Tree {
 		Node nextCurrentNode = null;
 		boolean isAllChildrenCompleted = true;
 
-		// 1. set right for children having same parent.
+		/*
+		 * step 1. set right for children having same parent.
+		 */
 		while (true) {
 			List<Node> children = currentNode.getChildren();
 
@@ -111,8 +113,10 @@ public class Tree {
 			}
 		}
 
-		// 2. set right for children having no same parent.
-		// reset current node to root.
+		/*
+		 * step 2. set right for children having no same parent.
+		 */
+		// reset current node and most left node to root.
 		mostLeftNode = rootNode;
 		currentNode = mostLeftNode;
 		nextCurrentNode = currentNode.getRight();
