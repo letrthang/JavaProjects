@@ -53,10 +53,17 @@ public class Tree {
 	/**
 	 * Set right node for tree without recursive call/ queue or stack.
 	 * 
-	 * Idea is similar with Depth-first search (DFS). We start from root, set right
-	 * for its children and then move to any node (not completed status) of its
-	 * children. repeat same thing until the leaf. When we reach the leaf, we move
-	 * back to the parent and repeat set right again until all node were set right.
+	 * This consists 2 steps: set right for all nodes having same parent node and
+	 * set right for all nodes having no same parent node.
+	 * 
+	 * For nodes have same parent, the idea is similar with Depth-first search
+	 * (DFS). We start from root and moving on vertical, set right for its children
+	 * and then move to any node (not completed status) of its children. repeat same
+	 * thing until the leaf. When we reach the leaf, we move back to the parent and
+	 * repeat set right again until all node were set right.
+	 * 
+	 * For nodes have not same parent, we move horizontal, the idea is similar
+	 * Breadth-first search (BFS).
 	 * 
 	 * @param rootNode
 	 */
@@ -182,7 +189,6 @@ public class Tree {
 			nodes.get(i).setRight(nodes.get(i + 1));
 		}
 	}
-
 
 	/**
 	 * print all nodes of tree.
