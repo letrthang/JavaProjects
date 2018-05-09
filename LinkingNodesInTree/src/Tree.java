@@ -58,9 +58,10 @@ public class Tree {
 	 * 
 	 * For nodes have same parent, the idea is similar with Depth-first search
 	 * (DFS). We start from root and moving on vertical, set right for its children
-	 * and then move to any node (not completed status) of its children. repeat same
-	 * thing until the leaf. When we reach the leaf, we move back to the parent and
-	 * repeat set right again until all node were set right.
+	 * and then move to any node (that is not completed status) of its children. To
+	 * repeat same thing until the leaf. When we reach the leaf node, we move back
+	 * to the parent and repeating set right again until all nodes having same
+	 * parent are set right.
 	 * 
 	 * For nodes have not same parent, we move horizontal, the idea is similar
 	 * Breadth-first search (BFS).
