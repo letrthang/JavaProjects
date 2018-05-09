@@ -61,24 +61,24 @@ public class Tree {
 	 * @param rootNode
 	 */
 	private void setRightNodeForTree(Node rootNode) {
+		Node mostLeftNode = rootNode;
 		Node currentNode = rootNode;
+		Node nextCurrentNode = null;
 		boolean isAllChildrenCompleted = true;
 
+		// 1. set right for children having same parent.
 		while (true) {
-			// Load children list of current node
 			List<Node> children = currentNode.getChildren();
 
 			if (children == null || children.size() == 1) {
-				// 1. mark current node as completed.
+				// a. mark current node as completed.
 				currentNode.setCompleted(true);
-				// 2. set right for this current node which is not same parent with it.
-				setRightNodeForNotSameParent(currentNode);
-				// 3. move back to its parent.
+				// b. move back to its parent.
 				currentNode = currentNode.getParent();
 			} else {
-				// 1. set right node for children list of the current node.
+				// a. set right node for children list of the current node.
 				setRightNodeForSameParent(children);
-				// 2. update current node to new node which is not completed status.
+				// b. update current node to new node which is not completed status.
 				for (Node child : children) {
 					if (child.isCompleted() == false) {
 						currentNode = child;
@@ -88,21 +88,87 @@ public class Tree {
 						isAllChildrenCompleted = true;
 					}
 				}
-				// 3. if all children were completed to set right.
+				// c. if all children were completed to set right.
 				if (isAllChildrenCompleted == true) {
-					// 4. mark current node as completed.
+					// d. mark current node as completed.
 					currentNode.setCompleted(true);
-					// 5. set right for this current node which is not same parent with it.
-					setRightNodeForNotSameParent(currentNode);
-					// 6. move back to its parent
+					// e. move back to its parent
 					currentNode = currentNode.getParent();
 				}
 			}
 
-			// We already traversed whole tree when root node is completed status.
+			// f. We already traversed whole tree when root node is completed status.
 			if (rootNode.isCompleted() == true) {
 				break;
 			}
+		}
+
+		// 2. set right for children having no same parent.
+		// reset current node to root.
+		mostLeftNode = rootNode;
+		currentNode = mostLeftNode;
+		nextCurrentNode = currentNode.getRight();
+		while (true) {
+			// a. we start from most left node of tree.
+			currentNode = mostLeftNode;
+			for (;;) {
+				Node fromChildNode = null, toChildNode = null;
+
+				if (currentNode != null && currentNode.getChildren() != null) {
+					fromChildNode = currentNode.getChildren().get(currentNode.getChildren().size() - 1);
+				}
+
+				if (nextCurrentNode != null && nextCurrentNode.getChildren() != null) {
+					toChildNode = nextCurrentNode.getChildren().get(0);
+				}
+
+				if (fromChildNode != null && toChildNode != null) {
+					// b. set right
+					fromChildNode.setRight(toChildNode);
+
+					// c. current node jumps to its next node.
+					currentNode = nextCurrentNode;
+					nextCurrentNode = currentNode.getRight();
+					continue;
+				}
+				// d. move current node on horizontal direction
+				while (currentNode != null && currentNode.getChildren() == null) {
+					currentNode = currentNode.getRight();
+				}
+
+				if (currentNode != null) {
+					nextCurrentNode = currentNode.getRight();
+				}
+				// e. move next of current node on horizontal direction
+				while (nextCurrentNode != null && nextCurrentNode.getChildren() == null) {
+					nextCurrentNode = nextCurrentNode.getRight();
+				}
+
+				if (nextCurrentNode == null) {
+					break;
+				}
+			}
+
+			// f. now, to move the most left node on vertical direction to next level
+			for (;;) {
+
+				if (mostLeftNode != null && mostLeftNode.getChildren() != null) {
+					mostLeftNode = mostLeftNode.getChildren().get(0);
+					break;
+				} else {
+					mostLeftNode = mostLeftNode.getRight();
+				}
+
+				if (mostLeftNode == null) {
+					break;
+				}
+			}
+
+			// g. completed set right all children that are not same parent.
+			if (mostLeftNode == null) {
+				break;
+			}
+
 		}
 	}
 
@@ -117,24 +183,6 @@ public class Tree {
 		}
 	}
 
-	/**
-	 * set right node for a given node that its right is not same parent.
-	 * 
-	 * @param currentNode
-	 */
-	private void setRightNodeForNotSameParent(Node currentNode) {
-		Node parentNode = currentNode.getParent();
-		if (parentNode != null) {
-			Node parentRightNode = parentNode.getRight();
-			if (parentRightNode != null) {
-				List<Node> childrenNeighbour = parentRightNode.getChildren();
-				if (childrenNeighbour != null && childrenNeighbour.size() > 0) {
-					// to set the right of current node that is not same parent with it.
-					currentNode.setRight(childrenNeighbour.get(0));
-				}
-			}
-		}
-	}
 
 	/**
 	 * print all nodes of tree.
@@ -209,6 +257,7 @@ public class Tree {
 		tree.getRightNode(node2);
 		tree.getRightNode(node5);
 		tree.getRightNode(node6);
+		tree.getRightNode(node8);
 		tree.getRightNode(node10);
 		tree.getRightNode(node11);
 		tree.getRightNode(node12);

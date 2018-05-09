@@ -5,10 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * To see testing tree visualization in /docs/test_tree.PNG
+ * To see testing tree visualization in /docs/test_tree_2.PNG
  *
  */
-public class TreeTest {
+public class TreeTest2 {
 
 	Node node0;
 	Node node1;
@@ -23,6 +23,7 @@ public class TreeTest {
 	Node node10;
 	Node node11;
 	Node node12;
+	Node node13;
 	Tree tree;
 
 	@Before
@@ -41,13 +42,14 @@ public class TreeTest {
 		node10 = new Node(10);
 		node11 = new Node(11);
 		node12 = new Node(12);
+		node13 = new Node(13);
 		// set children
 		node0.addChildren(Arrays.asList(node1, node2, node3));
-		node1.addChildren(Arrays.asList(node4, node5, node6));
-		node2.addChildren(Arrays.asList(node7, node8));
-		node3.addChildren(Arrays.asList(node9));
-		node4.addChildren(Arrays.asList(node10, node11));
-		node5.addChildren(Arrays.asList(node12));
+		node1.addChildren(Arrays.asList(node4, node5, node6, node7));
+		node3.addChildren(Arrays.asList(node8, node9));
+		node9.addChildren(Arrays.asList(node10, node11));
+		node11.addChildren(Arrays.asList(node12));
+		node12.addChildren(Arrays.asList(node13));
 		// set parent
 		node1.setParent(node0);
 		node2.setParent(node0);
@@ -55,12 +57,13 @@ public class TreeTest {
 		node4.setParent(node1);
 		node5.setParent(node1);
 		node6.setParent(node1);
-		node7.setParent(node2);
-		node8.setParent(node2);
+		node7.setParent(node1);
+		node8.setParent(node3);
 		node9.setParent(node3);
-		node10.setParent(node4);
-		node11.setParent(node4);
-		node12.setParent(node5);
+		node10.setParent(node9);
+		node11.setParent(node9);
+		node12.setParent(node11);
+		node13.setParent(node12);
 		// create tree.
 		tree = new Tree();
 		// set root node for tree is node0
@@ -116,30 +119,30 @@ public class TreeTest {
 	@Test
 	public void test5() {
 		// before set right
-		Assert.assertEquals(null, tree.getRightNode(node11));
+		Assert.assertEquals(null, tree.getRightNode(node7));
 		// set right node for tree
 		tree.setRightNodeForTree();
 		// after set right
-		Assert.assertEquals(node12, tree.getRightNode(node11));
+		Assert.assertEquals(node8, tree.getRightNode(node7));
 	}
-	
+
 	@Test
 	public void test6() {
 		// before set right
-		Assert.assertEquals(null, tree.getRightNode(node6));
+		Assert.assertEquals(null, tree.getRightNode(node12));
 		// set right node for tree
 		tree.setRightNodeForTree();
 		// after set right
-		Assert.assertEquals(node7, tree.getRightNode(node6));
+		Assert.assertEquals(null, tree.getRightNode(node12));
 	}
 
 	@Test
 	public void test7() {
 		// before set right
-		Assert.assertEquals(null, tree.getRightNode(node12));
+		Assert.assertEquals(null, tree.getRightNode(node13));
 		// set right node for tree
 		tree.setRightNodeForTree();
 		// after set right
-		Assert.assertEquals(null, tree.getRightNode(node12));
+		Assert.assertEquals(null, tree.getRightNode(node13));
 	}
 }
