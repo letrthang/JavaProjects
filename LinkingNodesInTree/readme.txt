@@ -7,8 +7,8 @@ Run Junit to test the program.
 /lib/
 
 3. unit test:
-TreeTest1.java (for tree test_tree_1.PNG)
-TreeTest2.java (for tree test_tree_2.PNG).
+TreeTest1.java (for tree \docs\test_tree_1.PNG)
+TreeTest2.java (for tree \docs\test_tree_2.PNG).
 
 4. It is easy for you to add more test cases in unit test. 
 This is just more about algorithm than design pattern so i skipped source code structure design.
