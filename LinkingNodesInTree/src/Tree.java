@@ -69,12 +69,12 @@ public class Tree {
 		Node currentNode = rootNode;
 		Node nextCurrentNode = null;
 
-		// set current node and most left node to root.
+		// 1. set current node and most left node to root.
 		mostLeftNode = rootNode;
 		currentNode = mostLeftNode;
 		nextCurrentNode = currentNode.getRight();
 		while (true) {
-			// a. we start from most left node of tree.
+			// 2. we start from most left node of tree.
 			currentNode = mostLeftNode;
 			for (;;) {
 				Node fromChildNode = null, toChildNode = null;
@@ -88,20 +88,20 @@ public class Tree {
 				}
 
 				if (fromChildNode != null && toChildNode != null) {
-					// b. set right for 2 node having different parent.
+					// 3. set right for 2 node having different parent.
 					fromChildNode.setRight(toChildNode);
-					// c. current node jumps to its next node.
+					// 4. current node jumps to its next node.
 					currentNode = nextCurrentNode;
 					nextCurrentNode = currentNode.getRight();
 					continue;
 				}
 
-				// d. keep moving current node on horizontal direction
+				// 5. keep moving current node on horizontal direction
 				while (currentNode != null && currentNode.getChildren() == null) {
 					// until we find a node having children
 					currentNode = currentNode.getRight();
 				}
-				// e. we set right all children of this current node except most right child.
+				// 6. we set right all children of this current node except most right child.
 				if (currentNode != null && currentNode.isCompleted() == false) {
 					setRightNodeForChildren2(currentNode);
 				}
@@ -109,12 +109,12 @@ public class Tree {
 				if (currentNode != null) {
 					nextCurrentNode = currentNode.getRight();
 				}
-				// e. keep moving next of current node on horizontal direction
+				// 7. keep moving next of current node on horizontal direction
 				while (nextCurrentNode != null && nextCurrentNode.getChildren() == null) {
 					// until we find a node having children
 					nextCurrentNode = nextCurrentNode.getRight();
 				}
-				// f. we set right all children of this next node except most right child.
+				// 8. we set right all children of this next node except most right child.
 				if (nextCurrentNode != null && nextCurrentNode.isCompleted() == false) {
 					setRightNodeForChildren2(nextCurrentNode);
 				}
@@ -124,7 +124,7 @@ public class Tree {
 				}
 			}
 
-			// f. now, to move the most left node on vertical direction to next level
+			// 9. now, to move the most left node on vertical direction to next level
 			for (;;) {
 
 				if (mostLeftNode != null && mostLeftNode.getChildren() != null) {
@@ -139,7 +139,7 @@ public class Tree {
 				}
 			}
 
-			// g. completed set right all children that are not same parent.
+			// 10. completed set right all children that are not same parent.
 			if (mostLeftNode == null) {
 				break;
 			}
