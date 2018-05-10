@@ -154,7 +154,7 @@ public class Tree {
 	 * In this implementation, if all children of a node (except most right child
 	 * node) are set right, then this node is in completed status. if a node only
 	 * have one child or no child then we treat it as a completed status also. This
-	 * definition is different in method "setRightNodeForChildren", it is depending
+	 * definition is different with method "setRightNodeForChildren". It is depending
 	 * on your implementation.
 	 * 
 	 * @param node:
