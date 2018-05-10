@@ -88,7 +88,7 @@ public class Tree {
 				}
 
 				if (fromChildNode != null && toChildNode != null) {
-					// 3. set right for 2 nodes having different parent.
+					// 3. set right for 2 nodes same level but having different parent.
 					fromChildNode.setRight(toChildNode);
 					// 4. then current node jumps to its next node.
 					currentNode = nextCurrentNode;
