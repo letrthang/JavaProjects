@@ -109,6 +109,16 @@ public class TreeTest2 {
 	@Test
 	public void test4() {
 		// before set right
+		Assert.assertEquals(null, tree.getRightNode(node8));
+		// set right node for tree
+		tree.setRightNodeForTree();
+		// after set right
+		Assert.assertEquals(node9, tree.getRightNode(node8));
+	}
+
+	@Test
+	public void test5() {
+		// before set right
 		Assert.assertEquals(null, tree.getRightNode(node10));
 		// set right node for tree
 		tree.setRightNodeForTree();
@@ -117,7 +127,7 @@ public class TreeTest2 {
 	}
 
 	@Test
-	public void test5() {
+	public void test6() {
 		// before set right
 		Assert.assertEquals(null, tree.getRightNode(node7));
 		// set right node for tree
@@ -127,7 +137,7 @@ public class TreeTest2 {
 	}
 
 	@Test
-	public void test6() {
+	public void test7() {
 		// before set right
 		Assert.assertEquals(null, tree.getRightNode(node12));
 		// set right node for tree
@@ -137,7 +147,7 @@ public class TreeTest2 {
 	}
 
 	@Test
-	public void test7() {
+	public void test8() {
 		// before set right
 		Assert.assertEquals(null, tree.getRightNode(node13));
 		// set right node for tree

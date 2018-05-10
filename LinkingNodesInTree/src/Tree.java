@@ -24,7 +24,7 @@ public class Tree {
 	 * Wrapper to set right node
 	 */
 	public void setRightNodeForTree() {
-		setRightNodeForTree(this.rootNode);
+		setRightNodeForTree2(this.rootNode);
 	}
 
 	/**
@@ -48,6 +48,89 @@ public class Tree {
 				"Right node of: " + node.getId() + " is -> " + ((rightNode == null) ? "NULL" : rightNode.getId()));
 
 		return rightNode;
+	}
+
+	/**
+	 * @param rootNode
+	 */
+	private void setRightNodeForTree2(Node rootNode) {
+		Node mostLeftNode = rootNode;
+		Node currentNode = rootNode;
+		Node nextCurrentNode = null;
+
+		// set current node and most left node to root.
+		mostLeftNode = rootNode;
+		currentNode = mostLeftNode;
+		nextCurrentNode = currentNode.getRight();
+		while (true) {
+			// a. we start from most left node of tree.
+			currentNode = mostLeftNode;
+			for (;;) {
+				Node fromChildNode = null, toChildNode = null;
+
+				if (currentNode != null && currentNode.getChildren() != null) {
+					fromChildNode = currentNode.getChildren().get(currentNode.getChildren().size() - 1);
+				}
+
+				if (nextCurrentNode != null && nextCurrentNode.getChildren() != null) {
+					toChildNode = nextCurrentNode.getChildren().get(0);
+				}
+
+				if (fromChildNode != null && toChildNode != null) {
+					// b. set right
+					fromChildNode.setRight(toChildNode);
+					// c. current node jumps to its next node.
+					currentNode = nextCurrentNode;
+					nextCurrentNode = currentNode.getRight();
+					continue;
+				}
+
+				// d. move current node on horizontal direction
+				while (currentNode != null && currentNode.getChildren() == null) {
+					currentNode = currentNode.getRight();
+				}
+				// b. we set right all children of the current node.
+				if (currentNode != null && currentNode.isCompleted() == false) {
+					setRightNodeForChildrenSameParent(currentNode.getChildren());
+				}
+
+				if (currentNode != null) {
+					nextCurrentNode = currentNode.getRight();
+				}
+				// e. move next of current node on horizontal direction
+				while (nextCurrentNode != null && nextCurrentNode.getChildren() == null) {
+					nextCurrentNode = nextCurrentNode.getRight();
+				}
+				if (nextCurrentNode != null && nextCurrentNode.isCompleted() == false) {
+					setRightNodeForChildrenSameParent(nextCurrentNode.getChildren());
+				}
+
+				if (nextCurrentNode == null) {
+					break;
+				}
+			}
+
+			// f. now, to move the most left node on vertical direction to next level
+			for (;;) {
+
+				if (mostLeftNode != null && mostLeftNode.getChildren() != null) {
+					mostLeftNode = mostLeftNode.getChildren().get(0);
+					break;
+				} else {
+					mostLeftNode = mostLeftNode.getRight();
+				}
+
+				if (mostLeftNode == null) {
+					break;
+				}
+			}
+
+			// g. completed set right all children that are not same parent.
+			if (mostLeftNode == null) {
+				break;
+			}
+
+		}
 	}
 
 	/**
@@ -87,7 +170,7 @@ public class Tree {
 				currentNode = currentNode.getParent();
 			} else {
 				// a. set right node for children list of the current node.
-				setRightNodeForSameParent(children);
+				setRightNodeForChildrenSameParent(children);
 				// b. update current node to new node which is not completed status.
 				for (Node child : children) {
 					if (child.isCompleted() == false) {
@@ -189,10 +272,16 @@ public class Tree {
 	 * 
 	 * @param nodes
 	 */
-	private void setRightNodeForSameParent(List<Node> nodes) {
+	private void setRightNodeForChildrenSameParent(List<Node> nodes) {
+		if (nodes == null || nodes.size() == 0) {
+			return;
+		}
+
 		for (int i = 0; i < nodes.size() - 1; i++) {
 			nodes.get(i).setRight(nodes.get(i + 1));
 		}
+		// if all children are set right, then parent node is in completed status.
+		nodes.get(0).getParent().setCompleted(true);
 	}
 
 	/**

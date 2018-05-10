@@ -10,7 +10,9 @@ public class Node {
 	private Node Right;
 	// we need link this node to its parent node for tracking back.
 	private Node parent;
-	// a flag to mark whether this node was completed set right or not.
+	// The flag to mark whether this node was completed set right or not.
+	// A Node is in completed status if all its children (except the most right
+	// child node) were set right.
 	private boolean isCompleted;
 
 	public Node(int id) {
