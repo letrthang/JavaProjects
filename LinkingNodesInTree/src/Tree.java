@@ -173,7 +173,7 @@ public class Tree {
 			}
 		}
 		// after all children (except most right child node) are set right, then this
-		// node is in completed status.
+		// node is marked as completed status.
 		node.setCompleted(true);
 	}
 
