@@ -12,3 +12,4 @@ TreeTest2.java (for tree \docs\test_tree_2.PNG).
 
 4. It is easy for you to add more test cases in unit test. 
 This is just more about algorithm than design pattern so i skipped source code structure design.
+There are two different implementations but same functional: setRightNodeForTree and setRightNodeForTree2.
