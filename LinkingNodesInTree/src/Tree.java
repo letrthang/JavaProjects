@@ -21,14 +21,18 @@ public class Tree {
 	}
 
 	/**
-	 * Wrapper to set right node
+	 * Wrapper to set right node.
+	 * 
+	 * Both methods "setRightNodeForTree" and "setRightNodeForTree2" are same
+	 * functional, just different way of implementation.
 	 */
 	public void setRightNodeForTree() {
 		setRightNodeForTree2(this.rootNode);
+		// setRightNodeForTree(this.rootNode);
 	}
 
 	/**
-	 * Wrapper to print tree
+	 * Wrapper to print tree.
 	 */
 	public void printTree() {
 		printTree(this.rootNode);
@@ -51,6 +55,13 @@ public class Tree {
 	}
 
 	/**
+	 * Set right node for tree without recursive call/ queue or stack.
+	 * 
+	 * The idea is similar Breadth-first search (BFS). We traverse tree from most
+	 * left node of the tree and moving horizontal to completed set right all
+	 * children node (children with same and not same parent) at same level before
+	 * shifting down to next level until completed whole the tree.
+	 * 
 	 * @param rootNode
 	 */
 	private void setRightNodeForTree2(Node rootNode) {
@@ -77,7 +88,7 @@ public class Tree {
 				}
 
 				if (fromChildNode != null && toChildNode != null) {
-					// b. set right
+					// b. set right for 2 node having different parent.
 					fromChildNode.setRight(toChildNode);
 					// c. current node jumps to its next node.
 					currentNode = nextCurrentNode;
@@ -85,24 +96,27 @@ public class Tree {
 					continue;
 				}
 
-				// d. move current node on horizontal direction
+				// d. keep moving current node on horizontal direction
 				while (currentNode != null && currentNode.getChildren() == null) {
+					// until we find a node having children
 					currentNode = currentNode.getRight();
 				}
-				// b. we set right all children of the current node.
+				// e. we set right all children of this current node except most right child.
 				if (currentNode != null && currentNode.isCompleted() == false) {
-					setRightNodeForChildrenSameParent(currentNode.getChildren());
+					setRightNodeForChildren2(currentNode);
 				}
 
 				if (currentNode != null) {
 					nextCurrentNode = currentNode.getRight();
 				}
-				// e. move next of current node on horizontal direction
+				// e. keep moving next of current node on horizontal direction
 				while (nextCurrentNode != null && nextCurrentNode.getChildren() == null) {
+					// until we find a node having children
 					nextCurrentNode = nextCurrentNode.getRight();
 				}
+				// f. we set right all children of this next node except most right child.
 				if (nextCurrentNode != null && nextCurrentNode.isCompleted() == false) {
-					setRightNodeForChildrenSameParent(nextCurrentNode.getChildren());
+					setRightNodeForChildren2(nextCurrentNode);
 				}
 
 				if (nextCurrentNode == null) {
@@ -131,6 +145,36 @@ public class Tree {
 			}
 
 		}
+	}
+
+	/**
+	 * Set right node for given list of children of a node. The most right node will
+	 * not be set right.
+	 * 
+	 * In this implementation, if all children of a node (except most right child
+	 * node) are set right, then this node is in completed status. if a node only
+	 * have one child or no child then we treat it as a completed status also. This
+	 * definition is different in method "setRightNodeForChildren", it is depending
+	 * on your implementation.
+	 * 
+	 * @param node:
+	 *            node that its children to be set right.
+	 */
+	private void setRightNodeForChildren2(Node node) {
+		if (node == null) {
+			return;
+		}
+
+		List<Node> nodes = node.getChildren();
+
+		if (nodes != null) {
+			for (int i = 0; i < nodes.size() - 1; i++) {
+				nodes.get(i).setRight(nodes.get(i + 1));
+			}
+		}
+		// after all children (except most right child node) are set right, then this
+		// node is in completed status.
+		node.setCompleted(true);
 	}
 
 	/**
@@ -170,10 +214,11 @@ public class Tree {
 				currentNode = currentNode.getParent();
 			} else {
 				// a. set right node for children list of the current node.
-				setRightNodeForChildrenSameParent(children);
+				setRightNodeForChildren(children);
 				// b. update current node to new node which is not completed status.
 				for (Node child : children) {
 					if (child.isCompleted() == false) {
+						// move down current node to its child
 						currentNode = child;
 						isAllChildrenCompleted = false;
 						break;
@@ -268,20 +313,22 @@ public class Tree {
 	}
 
 	/**
-	 * set right node for given list of children of a node.
+	 * Set right node for given list of children of a node.
+	 * 
+	 * In this implementation, a node is in completed status if it has only one
+	 * child OR no child OR all its children are in completed status.
 	 * 
 	 * @param nodes
 	 */
-	private void setRightNodeForChildrenSameParent(List<Node> nodes) {
-		if (nodes == null || nodes.size() == 0) {
+	private void setRightNodeForChildren(List<Node> nodes) {
+		if (nodes == null) {
 			return;
 		}
 
 		for (int i = 0; i < nodes.size() - 1; i++) {
 			nodes.get(i).setRight(nodes.get(i + 1));
 		}
-		// if all children are set right, then parent node is in completed status.
-		nodes.get(0).getParent().setCompleted(true);
+
 	}
 
 	/**
