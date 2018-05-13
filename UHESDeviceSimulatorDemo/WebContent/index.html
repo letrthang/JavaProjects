@@ -13,7 +13,7 @@
 	&nbsp;
 	<button id="butCloseConnection" type="button">Close Connection</button>
 	&nbsp;
-	<button id="butStartTimer" type="button">Start Timer</button>
+	<button id="butStartTimer" type="button" disabled>Start Timer</button>
 	&nbsp;
 	<button id="butStopTimer" type="button">Stop Timer</button>
 	&nbsp;
@@ -26,17 +26,17 @@
 
 	<br> URL 1:
 	<input id="url1" type="text" name="url1adress" style="width: 1000px;"
-		value="ws://localhost:8080/Neon-Node-Controller-1.0.0/services/uhesdevice/20180330660c00ecf38c4060b35ab9740ffa1dbb793ad6b9d3b547b0b071bf3c64202e1e">
+		value="wss://neonplatform-nice-hyrax.cfapps.io:4443/services/uhesdevice/20180513037a23c808914d89b8fc4bbc26ffd1950a229df8fa5549e88d8f30e659fa2997">
 	<br>
 	<br> URL 2:
 	<input id="url2" type="text" name="url2address" style="width: 1000px;"
-		value="wss://neonplatform.herokuapp.com/services/uhesdevice/20180330ff6b457a962d41cc9683dec884237530b684da7ee05543038b99981226ba8492">
+		value="wss://neonplatform-nice-hyrax.cfapps.io:4443/services/uhesdevice/20180513a53845e48d0c45739338a133d4c6c6c645d757e4fd9947aa9c584a8a9e23ac6c">
 	<br>
 	<br>
 	<b>Message device login:</b>
 	<br>
 	<textarea id="msgUhesTransport311" value=""
-		style="width: 1050px; color: black;" cols="" rows="">{"protocolID":"UHES2@1.0@SND","messageID":"12345","priority":"1","desID":"20171120f9bb5670a3bc4f4fbcd2a628046c60c1c6001a85b4ad4cd6927727612ef3bd2a","sourceID":"201711308a49e605b4594a8da64da3088ea12006818eb8445b1b446182e2af533679ea6d","sessionID":"","functionID":"0x311","keyedHashChecksum":"00000000000","functionArgument":[{"argumentID":"ARG01","argumentValue":"000058@20171120f9bb5670a3bc4f4fbcd2a628046c60c1c6001a85b4ad4cd6927727612ef3bd2a@NON@NONE"},{"argumentID":"ARG02","argumentValue":"000058@201711308a49e605b4594a8da64da3088ea12006818eb8445b1b446182e2af533679ea6d@NON@NONE"},{"argumentID":"ARG03","argumentValue":"000018@P@ssw0rd@NON@NONE"}]}</textarea>
+		style="width: 1050px; color: black;" cols="" rows="">{"protocolID":"UHES2@1.0@SND","messageID":"123456789","priority":"1","desID":"20171120f9bb5670a3bc4f4fbcd2a628046c60c1c6001a85b4ad4cd6927727612ef3bd2a","sourceID":"201711308a49e605b4594a8da64da3088ea12006818eb8445b1b446182e2af533679ea6d","sessionID":"","functionID":"0x311","keyedHashChecksum":"00000000000","functionArgument":[{"argumentID":"ARG01","argumentValue":"000058@20171120f9bb5670a3bc4f4fbcd2a628046c60c1c6001a85b4ad4cd6927727612ef3bd2a@NON@NONE"},{"argumentID":"ARG02","argumentValue":"000058@201711308a49e605b4594a8da64da3088ea12006818eb8445b1b446182e2af533679ea6d@NON@NONE"},{"argumentID":"ARG03","argumentValue":"000028@123456781234567812345678@NON@NONE"}]}</textarea>
 	<br>
 	<br>
 	<b>Message 1 to Send: </b>

@@ -16,7 +16,6 @@ var msg2Send;
 var msg1Res;
 var msg2Res;
 var msgTransport311;
-var sendMessageID = 0;
 var sessionIDEndpoint1;
 var sessionIDEndpoint2;
 var websocket1;
@@ -48,41 +47,48 @@ function closeConnection() {
 	writeToScreen("Closed connections");
 }
 
-function sendUHESTransport311() {
+function sendUHESTransport311Endpoint01() {
 	if ((msgTransport311 != "") && (address_1 != "")) {
 		var msg1SendTransport311 = JSON.parse(msgTransport311);
-		msg1SendTransport311.messageID = ++sendMessageID;
+		msg1SendTransport311.messageID = Math.floor((Math.random() * 99999999) + 1);
 		msg1SendTransport311.desID = node1ID;
 		msg1SendTransport311.sourceID = device1ID;
 		msg1SendTransport311.functionArgument[0].argumentValue = "000058@" + node1ID + "@NON@NONE";
 		msg1SendTransport311.functionArgument[1].argumentValue = "000058@" + device1ID + "@NON@NONE";
+		msg1SendTransport311.functionArgument[2].argumentValue = "000028@" + "yxCJo2ehT7bRjS4gV5WyQpxC" + "@NON@NONE";
 		var finalMsg1Send311 = JSON.stringify(msg1SendTransport311);
 
 		websocket1.send(finalMsg1Send311);
 
 		writeToScreen("Device sent UHES Transport 0x311 to endpoint 1");
+		// enable start timer button
+		document.getElementById("butStartTimer").disabled = false;
 	}
+}
 
+
+function sendUHESTransport311Endpoint02() {
 	if ((msgTransport311 != "") && (address_2 != "")) {
 		var msg2SendTransport311 = JSON.parse(msgTransport311);
-		msg2SendTransport311.messageID = ++sendMessageID;
+		msg2SendTransport311.messageID = Math.floor((Math.random() * 99999999) + 1);
 		msg2SendTransport311.desID = node2ID;
 		msg2SendTransport311.sourceID = device2ID;
 		msg2SendTransport311.functionArgument[0].argumentValue = "000058@" + node2ID + "@NON@NONE";
 		msg2SendTransport311.functionArgument[1].argumentValue = "000058@" + device2ID + "@NON@NONE";
+		msg2SendTransport311.functionArgument[2].argumentValue = "000028@" + "51hWG4glx5MfbSY3sbTzzL7o" + "@NON@NONE";
 		var finalMsg2Send311 = JSON.stringify(msg2SendTransport311);
 
 		websocket2.send(finalMsg2Send311);
 
 		writeToScreen("Device sent UHES Transport 0x311 to endpoint 2");
+		// enable start timer button
+		document.getElementById("butStartTimer").disabled = false;
 	}
-
-
 }
 
 function startTimer() {
 	writeToScreen("Start all timers");
-	startTimer1Var = window.setInterval(doSend1, 4000);
+	startTimer1Var = window.setInterval(doSend1, 5000);
 	startTimer2Var = window.setInterval(doSend2, 5000);
 }
 
@@ -156,12 +162,12 @@ function connectWebSocket2(url) {
 
 function onOpen1(evt) {
 	writeToScreen("CONNECTED TO Endpoint 1");
-
+	window.setTimeout(sendUHESTransport311Endpoint01, 5000) ;
 }
 
 function onOpen2(evt) {
 	writeToScreen("CONNECTED TO Endpoint 2");
-
+	window.setTimeout(sendUHESTransport311Endpoint02, 5000) ;
 }
 
 function onClose1(evt) {
@@ -234,6 +240,7 @@ function onMessage2(evt) {
 	var inboundJsonMsg = JSON.parse(evt.data);
 	var controlMsgType;
 
+	// response message from NNC.
 	if (inboundJsonMsg.protocolID == "UHES2@1.0@RES") {
 		if (inboundJsonMsg.functionID == "N.A") {
 			device2ID = inboundJsonMsg.desID;
@@ -249,7 +256,6 @@ function onMessage2(evt) {
 			writeToScreen('<span style="color: GoldenRod;">Endpoint 2 sent back RESPONSE UHES message. MessageID = ' + inboundJsonMsg.messageID + '. Return code: ' + inboundJsonMsg.functionArgument[0].argumentValue + '</span>');
 		}
 	} else {
-
 		// request Transport message 0x314 from NNC
 		if (inboundJsonMsg.functionID == "0x314") {
 			controlMsgType = parseUHESControlMsgType(inboundJsonMsg);
@@ -309,7 +315,7 @@ function doSend1() {
 
 	if (counter1 == 1 && msg1Send != "") {
 		var outboundMsg1 = JSON.parse(msg1Send);
-		outboundMsg1.messageID = ++sendMessageID;
+		outboundMsg1.messageID = Math.floor((Math.random() * 99999999) + 1);
 		outboundMsg1.desID = node1ID;
 		outboundMsg1.sourceID = device1ID;
 		outboundMsg1.sessionID = sessionIDEndpoint1;
@@ -318,7 +324,7 @@ function doSend1() {
 		websocket1.send(msg1Send);
 	} else if (counter1 > 1 && msg2Send != "") {
 		var outboundMsg2 = JSON.parse(msg2Send);
-		outboundMsg2.messageID = ++sendMessageID;
+		outboundMsg2.messageID = Math.floor((Math.random() * 99999999) + 1);
 		outboundMsg2.desID = node1ID;
 		outboundMsg2.sourceID = device1ID;
 		outboundMsg2.sessionID = sessionIDEndpoint1;
@@ -340,7 +346,7 @@ function doSend2() {
 
 	if (counter2 == 1 && msg1Send != "") {
 		var outboundMsg1 = JSON.parse(msg1Send);
-		outboundMsg1.messageID = ++sendMessageID;
+		outboundMsg1.messageID = Math.floor((Math.random() * 99999999) + 1);
 		outboundMsg1.desID = node2ID;
 		outboundMsg1.sourceID = device2ID;
 		outboundMsg1.sessionID = sessionIDEndpoint2;
@@ -349,7 +355,7 @@ function doSend2() {
 		websocket2.send(msg1Send);
 	} else if (counter2 > 1 && msg2Send != "") {
 		var outboundMsg2 = JSON.parse(msg2Send);
-		outboundMsg2.messageID = ++sendMessageID;
+		outboundMsg2.messageID = Math.floor((Math.random() * 99999999) + 1);
 		outboundMsg2.desID = node2ID;
 		outboundMsg2.sourceID = device2ID;
 		outboundMsg2.sessionID = sessionIDEndpoint2;
@@ -383,9 +389,6 @@ function initButtonListeners() {
 	};
 	document.getElementById("butCloseConnection").onclick = function() {
 		closeConnection();
-	};
-	document.getElementById("butSendUHES311").onclick = function() {
-		sendUHESTransport311();
 	};
 	document.getElementById("butStartTimer").onclick = function() {
 		startTimer();
