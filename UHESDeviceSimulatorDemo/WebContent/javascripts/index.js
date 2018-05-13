@@ -1,5 +1,9 @@
 /**
- * @author Thang Le. https://lecompany.co/
+ * Simulator for an UHES device.
+ * 
+ * @author Thang Le. 
+ * 
+ * https://lecompany.co/
  * 
  */
 var output;
