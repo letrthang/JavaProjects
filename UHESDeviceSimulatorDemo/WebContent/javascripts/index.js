@@ -1,9 +1,9 @@
 /**
  * Simulator for an UHES device.
  * 
- * @author Thang Le. 
+ * @author Thang Le.
  * 
- * https://lecompany.co/
+ * copyright 2018, https://lecompany.co
  * 
  */
 var output;
@@ -61,8 +61,9 @@ function sendUHESTransport311Endpoint01() {
 		websocket1.send(finalMsg1Send311);
 
 		writeToScreen("Device sent UHES Transport 0x311 to endpoint 1");
-		// enable start timer button
+		// enable start/stop timer button
 		document.getElementById("butStartTimer").disabled = false;
+		document.getElementById("butStopTimer").disabled = false;
 	}
 }
 
@@ -81,8 +82,9 @@ function sendUHESTransport311Endpoint02() {
 		websocket2.send(finalMsg2Send311);
 
 		writeToScreen("Device sent UHES Transport 0x311 to endpoint 2");
-		// enable start timer button
+		// enable start/stop timer button
 		document.getElementById("butStartTimer").disabled = false;
+		document.getElementById("butStopTimer").disabled = false;
 	}
 }
 
@@ -162,12 +164,12 @@ function connectWebSocket2(url) {
 
 function onOpen1(evt) {
 	writeToScreen("CONNECTED TO Endpoint 1");
-	window.setTimeout(sendUHESTransport311Endpoint01, 5000) ;
+	window.setTimeout(sendUHESTransport311Endpoint01, 6000) ;
 }
 
 function onOpen2(evt) {
 	writeToScreen("CONNECTED TO Endpoint 2");
-	window.setTimeout(sendUHESTransport311Endpoint02, 5000) ;
+	window.setTimeout(sendUHESTransport311Endpoint02, 6000) ;
 }
 
 function onClose1(evt) {
