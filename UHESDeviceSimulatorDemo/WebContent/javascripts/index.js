@@ -169,7 +169,7 @@ function onOpen1(evt) {
 
 function onOpen2(evt) {
 	writeToScreen("CONNECTED TO Endpoint 2");
-	window.setTimeout(sendUHESTransport311Endpoint02, 7000) ;
+	window.setTimeout(sendUHESTransport311Endpoint02, 7500) ;
 }
 
 function onClose1(evt) {
