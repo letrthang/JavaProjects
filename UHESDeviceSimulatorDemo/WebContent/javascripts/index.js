@@ -254,7 +254,7 @@ function onMessage2(evt) {
 			writeToScreen('<span style="color: GoldenRod;">Endpoint 2 sent back RESPONSE UHES message. MessageID = ' + inboundJsonMsg.messageID + '. Return code: ' + inboundJsonMsg.functionArgument[0].argumentValue + '</span>');
 		}
 	} else {
-		// request Transport message 0x314 from NNC
+		// request Transport message 0x314 from NNC.
 		if (inboundJsonMsg.functionID == "0x314") {
 			controlMsgType = parseUHESControlMsgType(inboundJsonMsg);
 			if (controlMsgType == "0x5001" && msg1Res != "") {
