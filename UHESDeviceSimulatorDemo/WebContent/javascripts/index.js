@@ -61,9 +61,6 @@ function sendUHESTransport311Endpoint01() {
 		websocket1.send(finalMsg1Send311);
 
 		writeToScreen("Device sent UHES Transport 0x311 to endpoint 1");
-		// enable start/stop timer button
-		document.getElementById("butStartTimer").disabled = false;
-		document.getElementById("butStopTimer").disabled = false;
 	}
 }
 
@@ -82,9 +79,6 @@ function sendUHESTransport311Endpoint02() {
 		websocket2.send(finalMsg2Send311);
 
 		writeToScreen("Device sent UHES Transport 0x311 to endpoint 2");
-		// enable start/stop timer button
-		document.getElementById("butStartTimer").disabled = false;
-		document.getElementById("butStopTimer").disabled = false;
 	}
 }
 
@@ -198,7 +192,7 @@ function onMessage1(evt) {
 			node1ID = inboundJsonMsg.sourceID;
 			writeToScreen("Device1ID= " + device1ID);
 			writeToScreen("node1ID= " + node1ID);
-			writeToScreen('<span style="color: blue;">RESPONSE from sockets endpoint 1: ' + evt.data
+			writeToScreen('<span style="color: blue;">RESPONSE from server socket endpoint 1: ' + evt.data
 				+ '</span>');
 		} else if (inboundJsonMsg.functionID == "0x311") {
 			sessionIDEndpoint1 = inboundJsonMsg.sessionID;
@@ -249,11 +243,13 @@ function onMessage2(evt) {
 			node2ID = inboundJsonMsg.sourceID;
 			writeToScreen("Device2ID= " + device2ID);
 			writeToScreen("Node2ID= " + node2ID);
-			writeToScreen('<span style="color: deeppink;">RESPONSE from sockets endpoint 2: ' + evt.data
+			writeToScreen('<span style="color: deeppink;">RESPONSE from server socket endpoint 2: ' + evt.data
 				+ '</span>');
 		} else if (inboundJsonMsg.functionID == "0x311") {
 			sessionIDEndpoint2 = inboundJsonMsg.sessionID;
 			writeToScreen("UHES Transport SessionID for endpoint 2: " + sessionIDEndpoint2);
+			// enable Timer buttons
+			enableTimerButtons();
 		} else {
 			writeToScreen('<span style="color: GoldenRod;">Endpoint 2 sent back RESPONSE UHES message. MessageID = ' + inboundJsonMsg.messageID + '. Return code: ' + inboundJsonMsg.functionArgument[0].argumentValue + '</span>');
 		}
@@ -366,6 +362,12 @@ function doSend2() {
 		websocket2.send(msg2Send);
 		counter2 = 0;
 	}
+}
+
+function enableTimerButtons() {
+	// enable start/stop timer button
+	document.getElementById("butStartTimer").disabled = false;
+	document.getElementById("butStopTimer").disabled = false;
 }
 
 function writeToScreen(message) {
