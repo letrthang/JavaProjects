@@ -365,7 +365,7 @@ function doSend2() {
 }
 
 function enableTimerButtons() {
-	// enable start/stop timer button
+	// enable start/stop timer button.
 	document.getElementById("butStartTimer").disabled = false;
 	document.getElementById("butStopTimer").disabled = false;
 }
