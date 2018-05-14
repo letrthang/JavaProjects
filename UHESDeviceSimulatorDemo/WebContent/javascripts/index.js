@@ -50,7 +50,7 @@ function closeConnection() {
 function sendUHESTransport311Endpoint01() {
 	if ((msgTransport311 != "") && (address_1 != "")) {
 		var msg1SendTransport311 = JSON.parse(msgTransport311);
-		msg1SendTransport311.messageID = Math.floor((Math.random() * 99999999) + 1);
+		msg1SendTransport311.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		msg1SendTransport311.desID = node1ID;
 		msg1SendTransport311.sourceID = device1ID;
 		msg1SendTransport311.functionArgument[0].argumentValue = "000058@" + node1ID + "@NON@NONE";
@@ -71,7 +71,7 @@ function sendUHESTransport311Endpoint01() {
 function sendUHESTransport311Endpoint02() {
 	if ((msgTransport311 != "") && (address_2 != "")) {
 		var msg2SendTransport311 = JSON.parse(msgTransport311);
-		msg2SendTransport311.messageID = Math.floor((Math.random() * 99999999) + 1);
+		msg2SendTransport311.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		msg2SendTransport311.desID = node2ID;
 		msg2SendTransport311.sourceID = device2ID;
 		msg2SendTransport311.functionArgument[0].argumentValue = "000058@" + node2ID + "@NON@NONE";
@@ -91,7 +91,7 @@ function sendUHESTransport311Endpoint02() {
 function startTimer() {
 	writeToScreen("Start all timers");
 	startTimer1Var = window.setInterval(doSend1, 5000);
-	startTimer2Var = window.setInterval(doSend2, 5000);
+	startTimer2Var = window.setInterval(doSend2, 5500);
 }
 
 function stopTimer() {
@@ -164,12 +164,12 @@ function connectWebSocket2(url) {
 
 function onOpen1(evt) {
 	writeToScreen("CONNECTED TO Endpoint 1");
-	window.setTimeout(sendUHESTransport311Endpoint01, 6000) ;
+	window.setTimeout(sendUHESTransport311Endpoint01, 7000) ;
 }
 
 function onOpen2(evt) {
 	writeToScreen("CONNECTED TO Endpoint 2");
-	window.setTimeout(sendUHESTransport311Endpoint02, 6000) ;
+	window.setTimeout(sendUHESTransport311Endpoint02, 7000) ;
 }
 
 function onClose1(evt) {
@@ -317,7 +317,7 @@ function doSend1() {
 
 	if (counter1 == 1 && msg1Send != "") {
 		var outboundMsg1 = JSON.parse(msg1Send);
-		outboundMsg1.messageID = Math.floor((Math.random() * 99999999) + 1);
+		outboundMsg1.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		outboundMsg1.desID = node1ID;
 		outboundMsg1.sourceID = device1ID;
 		outboundMsg1.sessionID = sessionIDEndpoint1;
@@ -326,7 +326,7 @@ function doSend1() {
 		websocket1.send(msg1Send);
 	} else if (counter1 > 1 && msg2Send != "") {
 		var outboundMsg2 = JSON.parse(msg2Send);
-		outboundMsg2.messageID = Math.floor((Math.random() * 99999999) + 1);
+		outboundMsg2.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		outboundMsg2.desID = node1ID;
 		outboundMsg2.sourceID = device1ID;
 		outboundMsg2.sessionID = sessionIDEndpoint1;
@@ -348,7 +348,7 @@ function doSend2() {
 
 	if (counter2 == 1 && msg1Send != "") {
 		var outboundMsg1 = JSON.parse(msg1Send);
-		outboundMsg1.messageID = Math.floor((Math.random() * 99999999) + 1);
+		outboundMsg1.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		outboundMsg1.desID = node2ID;
 		outboundMsg1.sourceID = device2ID;
 		outboundMsg1.sessionID = sessionIDEndpoint2;
@@ -357,7 +357,7 @@ function doSend2() {
 		websocket2.send(msg1Send);
 	} else if (counter2 > 1 && msg2Send != "") {
 		var outboundMsg2 = JSON.parse(msg2Send);
-		outboundMsg2.messageID = Math.floor((Math.random() * 99999999) + 1);
+		outboundMsg2.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		outboundMsg2.desID = node2ID;
 		outboundMsg2.sourceID = device2ID;
 		outboundMsg2.sessionID = sessionIDEndpoint2;
