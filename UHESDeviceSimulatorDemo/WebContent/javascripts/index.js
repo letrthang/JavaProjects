@@ -55,7 +55,7 @@ function sendUHESTransport311Endpoint01() {
 		msg1SendTransport311.sourceID = device1ID;
 		msg1SendTransport311.functionArgument[0].argumentValue = "000058@" + node1ID + "@NON@NONE";
 		msg1SendTransport311.functionArgument[1].argumentValue = "000058@" + device1ID + "@NON@NONE";
-		msg1SendTransport311.functionArgument[2].argumentValue = "000028@" + "yxCJo2ehT7bRjS4gV5WyQpxC" + "@NON@NONE";
+		msg1SendTransport311.functionArgument[2].argumentValue = "000028@" + "yhxiDxJv5ZCyfzypv8NcEc5d" + "@NON@NONE";
 		var finalMsg1Send311 = JSON.stringify(msg1SendTransport311);
 
 		websocket1.send(finalMsg1Send311);
@@ -73,7 +73,7 @@ function sendUHESTransport311Endpoint02() {
 		msg2SendTransport311.sourceID = device2ID;
 		msg2SendTransport311.functionArgument[0].argumentValue = "000058@" + node2ID + "@NON@NONE";
 		msg2SendTransport311.functionArgument[1].argumentValue = "000058@" + device2ID + "@NON@NONE";
-		msg2SendTransport311.functionArgument[2].argumentValue = "000028@" + "51hWG4glx5MfbSY3sbTzzL7o" + "@NON@NONE";
+		msg2SendTransport311.functionArgument[2].argumentValue = "000028@" + "XQ7YbabdGTQoIUQLBTPExM0v" + "@NON@NONE";
 		var finalMsg2Send311 = JSON.stringify(msg2SendTransport311);
 
 		websocket2.send(finalMsg2Send311);
