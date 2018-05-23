@@ -12,7 +12,6 @@ var msg2Send;
 var msg1Res;
 var msg2Res;
 var msgTransport311;
-var sendMessageID = 0;
 var sessionIDEndpoint1;
 var sessionIDEndpoint2;
 var websocket1;
@@ -47,7 +46,7 @@ function closeConnection() {
 function sendUHESTransport311() {
 	if ((msgTransport311 != "") && (address_1 != "")) {
 		var msg1SendTransport311 = JSON.parse(msgTransport311);
-		msg1SendTransport311.messageID = ++sendMessageID;
+		msg1SendTransport311.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		msg1SendTransport311.desID = node1ID;
 		msg1SendTransport311.sourceID = device1ID;
 		msg1SendTransport311.functionArgument[0].argumentValue = "000058@" + node1ID + "@NON@NONE";
@@ -61,7 +60,7 @@ function sendUHESTransport311() {
 
 	if ((msgTransport311 != "") && (address_2 != "")) {
 		var msg2SendTransport311 = JSON.parse(msgTransport311);
-		msg2SendTransport311.messageID = ++sendMessageID;
+		msg2SendTransport311.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		msg2SendTransport311.desID = node2ID;
 		msg2SendTransport311.sourceID = device2ID;
 		msg2SendTransport311.functionArgument[0].argumentValue = "000058@" + node2ID + "@NON@NONE";
@@ -305,7 +304,7 @@ function doSend1() {
 
 	if (counter1 == 1 && msg1Send != "") {
 		var outboundMsg1 = JSON.parse(msg1Send);
-		outboundMsg1.messageID = ++sendMessageID;
+		outboundMsg1.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		outboundMsg1.desID = node1ID;
 		outboundMsg1.sourceID = device1ID;
 		outboundMsg1.sessionID = sessionIDEndpoint1;
@@ -314,7 +313,7 @@ function doSend1() {
 		websocket1.send(msg1Send);
 	} else if (counter1 > 1 && msg2Send != "") {
 		var outboundMsg2 = JSON.parse(msg2Send);
-		outboundMsg2.messageID = ++sendMessageID;
+		outboundMsg2.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		outboundMsg2.desID = node1ID;
 		outboundMsg2.sourceID = device1ID;
 		outboundMsg2.sessionID = sessionIDEndpoint1;
@@ -336,8 +335,7 @@ function doSend2() {
 
 	if (counter2 == 1 && msg1Send != "") {
 		var outboundMsg1 = JSON.parse(msg1Send);
-		outboundMsg1.messageID = ++sendMessageID;
-		outboundMsg1.desID = node2ID;
+		outboundMsg1.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		outboundMsg1.sourceID = device2ID;
 		outboundMsg1.sessionID = sessionIDEndpoint2;
 		msg1Send = JSON.stringify(outboundMsg1);
@@ -345,7 +343,7 @@ function doSend2() {
 		websocket2.send(msg1Send);
 	} else if (counter2 > 1 && msg2Send != "") {
 		var outboundMsg2 = JSON.parse(msg2Send);
-		outboundMsg2.messageID = ++sendMessageID;
+		outboundMsg2.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		outboundMsg2.desID = node2ID;
 		outboundMsg2.sourceID = device2ID;
 		outboundMsg2.sessionID = sessionIDEndpoint2;
