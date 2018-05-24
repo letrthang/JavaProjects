@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="src/libs/amqp-client-5.2.0.jar"/>
+	<classpathentry kind="lib" path="src/libs/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="src/libs/slf4j-api-1.7.25.jar"/>
+	<classpathentry kind="lib" path="src/libs/slf4j-simple-1.7.25.jar"/>
+	<classpathentry kind="lib" path="src/libs/log4j-1.2.17.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
