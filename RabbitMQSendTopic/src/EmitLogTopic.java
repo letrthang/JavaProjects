@@ -21,9 +21,9 @@ public class EmitLogTopic {
 			ConnectionFactory factory = new ConnectionFactory();
 			
 			// maybe to disable ssl if you test in localhost
-			factory.useSslProtocol();
+			//factory.useSslProtocol();
 			factory.setConnectionTimeout(60 * 1000);
-			factory.setUri("amqp://username:password@emu.rmq.cloudamqp.com/vhost");
+			factory.setUri("amqp://guest:guest@localhost:5672/%2F");
 
 			connection = factory.newConnection();
 			channel = connection.createChannel();
