@@ -1,8 +1,8 @@
-package "model": all model objects.
+package "src/model": all model objects.
 
-package "presenter": do logic code.
+package "src/presenter": do logic code.
 
-package "test": unit test.
+package "src/test": unit test.
 
-package "services": restful services.
+package "src/services": restful services.
  
