@@ -3,7 +3,7 @@
  * 
  * @author Thang Le.
  * 
- * copyright 2018, https://lecompany.co
+ * copyright 2018, www.lecompany.co
  * 
  */
 var output;
