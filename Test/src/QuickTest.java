@@ -185,7 +185,7 @@ public class QuickTest {
 		System.out.println(match);
 
 		List<String> myList = Arrays.asList("a1", "a2", "b1", "c2", "c1");
-		myList.stream().filter(s -> s.startsWith("c")).map(String::toUpperCase).sorted().forEach(System.out::println);
+		myList.stream().filter(s -> s.startsWith("c")).map(String::toUpperCase).sorted().forEach(s->System.out.println(s));
 
 		int[] ints = { 1, 2, 3 };
 		List<Integer> list = Arrays.stream(ints).boxed().collect(Collectors.toList());
@@ -218,7 +218,7 @@ public class QuickTest {
 		// http://www.java2s.com/Tutorials/Java/Java_Regular_Expression/0070__Java_Regex_Groups.htm
 		// https://algorithms.tutorialhorizon.com/find-the-two-repeating-elements-in-a-given-array-6-approaches/
 	
-		Integer.parseInt("");
+		Integer.parseInt("1");
 	}
 	
 	
