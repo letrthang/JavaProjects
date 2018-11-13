@@ -6,6 +6,7 @@
         <wb-resource deploy-path="/" source-path="/appClientModule" tag="defaultRootSource"/>
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <property name="context-root" value="SpringFiniteStateMachine"/>
         <property name="java-output-path" value="/SpringFiniteStateMachine/target/classes"/>
     </wb-module>
