@@ -79,7 +79,7 @@ public class Main {
 	 */
 	static void draw2Screen() {
 
-		System.out.println(screen.length + "#" + screen[0].length);
+		System.out.println("draw canvas: "+ "heigh (Y): "+screen.length + ", width (X):" + screen[0].length);
 
 		for (int n = 0; n < screen.length; n++) {
 
