@@ -102,11 +102,20 @@ public class Main {
 	}
 
 	/**
+	 * @param x
+	 * @param y
+	 * @param color
+	 */
+	static void bucketFill(int x, int y, char color) {
+
+	}
+
+	/**
 	 * actual draw to console
 	 */
 	static void draw2Screen() {
 
-		System.out.println("draw canvas: " + "height (Y): " + screen.length + ", width (X):" + screen[0].length);
+		System.out.println("draw canvas: " + "width (X):" + screen[0].length + ", height (Y): " + screen.length);
 
 		for (int n = 0; n < screen.length; n++) {
 
