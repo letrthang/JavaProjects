@@ -107,6 +107,7 @@ public class Main {
 	 * @param color
 	 */
 	static void bucketFill(int x, int y, char color) {
+//from selected point: move up, down, left, right until you cannot move :))
 
 	}
 
@@ -115,7 +116,7 @@ public class Main {
 	 */
 	static void draw2Screen() {
 
-		System.out.println("draw canvas: " + "width (X):" + screen[0].length + ", height (Y): " + screen.length);
+		System.out.println("Draw canvas: " + "width (X):" + screen[0].length + ", height (Y): " + screen.length);
 
 		for (int n = 0; n < screen.length; n++) {
 
