@@ -3,8 +3,8 @@
  * @author Thang Le
  * 
  *         key idea is to create a 2D array of Pixels for output screen. Fill in
- *         data to that Pixels. Last is to draw all the Pixels to console. With
- *         note: coordinate (x,y) <=> array[y][x]
+ *         data to that Pixels. Last is to draw all the Pixels to console. Note:
+ *         coordinate (x,y) <=> array[y][x]
  *
  */
 public class Main {
@@ -16,8 +16,8 @@ public class Main {
 	public static void main(String[] args) {
 		// Test code
 
-		// 1. draw canvas
-		drawCanvas(10, 30);
+		// 1. draw canvas (width_X, height_Y)
+		drawCanvas(25, 10);
 		// 2. draw vertical line
 		drawLine(2, 3, 2, 8);
 		// 3. draw horizon line
@@ -25,35 +25,38 @@ public class Main {
 		// 4. draw rectangle
 		drawRectangle(10, 2, 20, 6);
 		// 5. fill in bucket
-
+		bucketFill(8, 3, 'c');
+		bucketFill(12, 3, '@');
+		
 		draw2Screen();
 	}
 
 	/**
 	 * draw canvas
 	 * 
-	 * @param x
-	 * @param y
+	 * @param width  (X)
+	 * @param height (Y)
 	 */
-	static void drawCanvas(int x, int y) {
-		screen = new Pixel[x][y];
+	static void drawCanvas(int width, int height) {
+		screen = new Pixel[height][width];
 
 		// init all pixels of screen
-		for (int n = 0; n < x; n++) {
-			for (int m = 0; m < y; m++) {
+		for (int n = 0; n < height; n++) {
+			for (int m = 0; m < width; m++) {
 				screen[n][m] = new Pixel();
 				screen[n][m].setX(m);
 				screen[n][m].setY(n);
+				screen[n][m].setText(' ');
 			}
 		}
 
 		// fill in all pixels of screen
 
-		for (int n = 0; n < x; n++) {
-			for (int m = 0; m < y; m++) {
-				if (n == 0 || n == x - 1) {
+		for (int n = 0; n < height; n++) {
+			for (int m = 0; m < width; m++) {
+				if (n == 0 || n == height - 1) {
 					screen[n][m].setText('-');
-				} else if (m == 0 || m == y - 1) {
+				} else if (m == 0 || m == width - 1) {
 					screen[n][m].setText('|');
 				}
 			}
@@ -107,8 +110,18 @@ public class Main {
 	 * @param color
 	 */
 	static void bucketFill(int x, int y, char color) {
-//from selected point: move up, down, left, right until you cannot move :))
+		// recursive to fill bucket.
+		// Note: coordinate (x,y) <=> array[y][x]
+		
+		if (screen[y][x].getText() == ' ') {
 
+			screen[y][x].setText(color);
+
+			bucketFill(x + 1, y, color);
+			bucketFill(x - 1, y, color);
+			bucketFill(x, y + 1, color);
+			bucketFill(x, y - 1, color);
+		}
 	}
 
 	/**
