@@ -25,9 +25,9 @@ public class Main {
 		// 4. draw rectangle
 		drawRectangle(10, 2, 20, 6);
 		// 5. fill in bucket
-		bucketFill(8, 3, 'c');
+		bucketFill(8, 2, 'c');
 		bucketFill(12, 3, '@');
-		
+
 		draw2Screen();
 	}
 
@@ -72,6 +72,10 @@ public class Main {
 	 * @param y2
 	 */
 	static void drawLine(int x1, int y1, int x2, int y2) {
+		if (x1 > screen[0].length || x2 > screen[0].length || y1 > screen.length || y2 > screen.length) {
+			System.out.println("drawLine: points are out of canvas");
+			return;
+		}
 
 		if (x1 == x2) {
 			for (int i = y1; i <= y2; i++) {
@@ -112,7 +116,12 @@ public class Main {
 	static void bucketFill(int x, int y, char color) {
 		// recursive to fill bucket.
 		// Note: coordinate (x,y) <=> array[y][x]
-		
+
+		if (x > screen[0].length || y > screen.length) {
+			System.out.println("Fill bucket: point is out of canvas");
+			return;
+		}
+
 		if (screen[y][x].getText() == ' ') {
 
 			screen[y][x].setText(color);
