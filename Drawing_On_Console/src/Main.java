@@ -15,6 +15,9 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// Test code
+		// we just do a simple test code here and see results in console.
+		// It is not simple to write unit test here because outputs to draw data to
+		// console.
 
 		// 1. draw canvas (width_X, height_Y)
 		drawCanvas(25, 10);
@@ -24,11 +27,11 @@ public class Main {
 		drawLine(2, 8, 8, 8);
 		// 4. draw rectangle
 		drawRectangle(10, 2, 20, 6);
-		// 5. fill in bucket
-		bucketFill(8, 2, 'c');
-		bucketFill(12, 3, '@');
+		// 5. fill in bucket with color 'c'
+		bucketFillConsole(8, 2, 'c');
+		// 6. fill in bucket with color '@'
+		bucketFillConsole(12, 3, '@');
 
-		draw2Screen();
 	}
 
 	/**
@@ -50,7 +53,7 @@ public class Main {
 			}
 		}
 
-		// fill in all pixels of screen
+		// fill in data for all pixels of screen
 
 		for (int n = 0; n < height; n++) {
 			for (int m = 0; m < width; m++) {
@@ -61,10 +64,16 @@ public class Main {
 				}
 			}
 		}
+
+		System.out.println("Draw canvas: " + "width (X):" + screen[0].length + ", height (Y): " + screen.length);
+
+		// display Pixels to console
+		draw2Screen();
+
 	}
 
 	/**
-	 * Draw line. coordinate (x,y) <=> array[y][x]
+	 * Draw line. Note: coordinate (x,y) <=> array[y][x]
 	 * 
 	 * @param x1
 	 * @param y1
@@ -72,6 +81,7 @@ public class Main {
 	 * @param y2
 	 */
 	static void drawLine(int x1, int y1, int x2, int y2) {
+		// 1. do basic input validation
 		if (x1 > screen[0].length || x2 > screen[0].length || y1 > screen.length || y2 > screen.length) {
 			System.out.println("drawLine: points are out of canvas");
 			return;
@@ -89,6 +99,8 @@ public class Main {
 
 		}
 
+		// display Pixels to console
+		draw2Screen();
 	}
 
 	/**
@@ -98,6 +110,12 @@ public class Main {
 	 * @param y2
 	 */
 	static void drawRectangle(int x1, int y1, int x2, int y2) {
+		// we ignore inputs validation here
+
+		System.out.println("Start Draw Rectangle");
+		// we reuse "drawLine" function which causes rectangle repeat drawing multiple
+		// times, but it is fine :))
+
 		// top edge (x1,y1) to (x2,y1)
 		drawLine(x1, y1, x2, y1);
 		// bottom edge (x1,y2) to (x2,y2)
@@ -106,15 +124,33 @@ public class Main {
 		drawLine(x1, y1, x1, y2);
 		// right edge (x2,y1) to (x2,y2)
 		drawLine(x2, y1, x2, y2);
+
 	}
 
 	/**
+	 * actual fill bucket to console
+	 * 
+	 * @param x
+	 * @param y
+	 * @param color
+	 */
+	static void bucketFillConsole(int x, int y, char color) {
+		System.out.println("Fill Bucket with " + color);
+
+		bucketFill(x, y, color);
+		// display Pixels to console
+		draw2Screen();
+	}
+
+	/**
+	 * only fill color of related Pixels
+	 * 
 	 * @param x
 	 * @param y
 	 * @param color
 	 */
 	static void bucketFill(int x, int y, char color) {
-		// recursive to fill bucket.
+		// using recursive algorithm to fill bucket.
 		// Note: coordinate (x,y) <=> array[y][x]
 
 		if (x > screen[0].length || y > screen.length) {
@@ -131,14 +167,13 @@ public class Main {
 			bucketFill(x, y + 1, color);
 			bucketFill(x, y - 1, color);
 		}
+
 	}
 
 	/**
-	 * actual draw to console
+	 * actual draw Pixels data to console
 	 */
 	static void draw2Screen() {
-
-		System.out.println("Draw canvas: " + "width (X):" + screen[0].length + ", height (Y): " + screen.length);
 
 		for (int n = 0; n < screen.length; n++) {
 
