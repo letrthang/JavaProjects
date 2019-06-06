@@ -1,0 +1,6 @@
+com\lecompany\backend\data\Category.class
+com\lecompany\backend\data\Product.class
+com\lecompany\backend\mock\MockDataService.class
+com\lecompany\backend\DataService.class
+com\lecompany\backend\mock\MockDataGenerator.class
+com\lecompany\backend\data\Availability.class
