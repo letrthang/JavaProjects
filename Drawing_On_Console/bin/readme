@@ -1,4 +1,5 @@
-Design:
+=========================
+I. Design:
 
 1. create a class "Pixel" that represents for one physical Pixel on the screen.
 
@@ -11,5 +12,21 @@ and display them on the screen via function "draw2Screen".
 
 5. to fill color bucket we using recursive with quit condition is "border reaching".
 
+=========================
 II. Run program.
+
+There is jar file "drawing_program.jar". In console, type: java -jar drawing_program.jar
+and input your command like:
+
+C 25 10
+
+L 2 3 2 8
+
+L 2 8 8 8 
+
+R 10 2 20 6
+
+B 8 2 c
+
+Or you can run file "Main.java" in Eclipse. File "drawing.PNG" is a real example.
 

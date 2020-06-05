@@ -3,7 +3,7 @@ Implementation-Title: DemoVaadinFlow12beta
 Implementation-Version: 1.0-SNAPSHOT
 Built-By: letrt
 Implementation-Vendor-Id: com.lecompany
-Build-Jdk: 1.8.0_192
+Build-Jdk: 1.8.0_221
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/demovaadinflow12beta
 Created-By: Maven Integration for Eclipse

@@ -14,8 +14,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import javax.xml.bind.DatatypeConverter;
-
 public class QuickTest {
 	List<String> lst = new ArrayList<>();
 

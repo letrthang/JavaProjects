@@ -1,0 +1,8 @@
+/debug/
+/release/
+/bin/
+*.class
+.*
+~*
+$*
+!/.gitignore
