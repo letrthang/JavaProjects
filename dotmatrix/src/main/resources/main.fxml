@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="508.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ee.ant.dotmatrix.Controller">
+  <children>
+    <MenuBar id="TopMenu" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem fx:id="aboutDialog" mnemonicParsing="false" text="About program" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <Pane id="RootPane" prefHeight="480.0" prefWidth="723.0">
+         <children>
+            <Group layoutX="21.0" layoutY="14.0">
+               <children>
+                  <RadioButton id="Button58" fx:id="rbutton58" layoutY="-3.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="59.0" selected="true" text="5x8">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="DisplaySize" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rbutton68" layoutX="70.0" layoutY="-3.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="59.0" text="6x8" toggleGroup="$DisplaySize" />
+                  <RadioButton fx:id="rbutton78" layoutX="136.0" layoutY="-3.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="51.0" text="7x8" toggleGroup="$DisplaySize" />
+                  <RadioButton fx:id="rbutton88" layoutX="206.0" layoutY="-3.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="53.0" text="8x8" toggleGroup="$DisplaySize" />
+                  <RadioButton fx:id="rbutton1016" layoutX="268.0" layoutY="-3.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="70.0" text="10x16" toggleGroup="$DisplaySize" />
+                  <RadioButton fx:id="rbutton1216" layoutX="340.0" layoutY="-3.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="77.0" text="12x16" toggleGroup="$DisplaySize" />
+                  <RadioButton fx:id="rbutton1416" layoutX="413.0" layoutY="-3.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="76.0" text="14x16" toggleGroup="$DisplaySize" />
+                  <RadioButton fx:id="rbutton1616" layoutX="485.0" layoutY="-3.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="70.0" text="16x16" toggleGroup="$DisplaySize" />
+               </children>
+            </Group>
+            <GridPane id="PixelMatrix" fx:id="dotMatrix" gridLinesVisible="true" layoutX="8.0" layoutY="55.0">
+            </GridPane>
+            <TextField id="HexString" fx:id="hexString" layoutX="8.0" layoutY="442.0" prefHeight="26.0" prefWidth="675.0" />
+            <Button fx:id="drawButton" layoutX="705.0" layoutY="443.0" mnemonicParsing="false" text="Draw" />
+         </children>
+      </Pane>
+  </children>
+</VBox>
