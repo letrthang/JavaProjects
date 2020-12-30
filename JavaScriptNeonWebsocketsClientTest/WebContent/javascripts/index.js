@@ -47,10 +47,13 @@ function sendUHESTransport311() {
 	if ((msgTransport311 != "") && (address_1 != "")) {
 		var msg1SendTransport311 = JSON.parse(msgTransport311);
 		msg1SendTransport311.messageID = Math.floor((Math.random() * 9999999999) + 1);
+
 		msg1SendTransport311.desID = node1ID;
 		msg1SendTransport311.sourceID = device1ID;
-		msg1SendTransport311.functionArgument[0].argumentValue = "000058@" + node1ID + "@NON@NONE";
-		msg1SendTransport311.functionArgument[1].argumentValue = "000058@" + device1ID + "@NON@NONE";
+		// only need reupdate sourceID and DesID
+		msg1SendTransport311.functionArgument[0].argumentValue = node1ID ;
+		msg1SendTransport311.functionArgument[1].argumentValue = device1ID ;
+
 		var finalMsg1Send311 = JSON.stringify(msg1SendTransport311);
 
 		websocket1.send(finalMsg1Send311);
@@ -63,8 +66,9 @@ function sendUHESTransport311() {
 		msg2SendTransport311.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		msg2SendTransport311.desID = node2ID;
 		msg2SendTransport311.sourceID = device2ID;
-		msg2SendTransport311.functionArgument[0].argumentValue = "000058@" + node2ID + "@NON@NONE";
-		msg2SendTransport311.functionArgument[1].argumentValue = "000058@" + device2ID + "@NON@NONE";
+		// only need reupdate sourceID and DesID
+		msg2SendTransport311.functionArgument[0].argumentValue = node2ID ;
+		msg2SendTransport311.functionArgument[1].argumentValue =  device2ID ;
 		var finalMsg2Send311 = JSON.stringify(msg2SendTransport311);
 
 		websocket2.send(finalMsg2Send311);
@@ -179,7 +183,7 @@ function onMessage1(evt) {
 	var inboundJsonMsg = JSON.parse(evt.data);
 	var controlMsgType;
 
-	if (inboundJsonMsg.protocolID == "UHES2@1.0@RES") {
+	if (inboundJsonMsg.protocolID == "RESPONSE@UHESTRANSPORT@1.0") {
 		if (inboundJsonMsg.functionID == "N.A") {
 			device1ID = inboundJsonMsg.desID;
 			node1ID = inboundJsonMsg.sourceID;
@@ -196,7 +200,7 @@ function onMessage1(evt) {
 
 	} else {
 
-		// request Transport message 0x314 from NNC
+		// if is request Transport message 0x314 from NNC
 		if (inboundJsonMsg.functionID == "0x314") {
 			controlMsgType = parseUHESControlMsgType(inboundJsonMsg);
 			if (controlMsgType == "0x5001" && msg1Res != "") {
@@ -276,7 +280,6 @@ function onMessage2(evt) {
 
 function parseUHESControlMsgType(UHESmsg) {
 	var base64String = UHESmsg.functionArgument[0].argumentValue;
-	base64String = base64String.substring(7, base64String.length - 9);
 	var argValueXML = window.atob(base64String);
 
 	var parser = new DOMParser();
