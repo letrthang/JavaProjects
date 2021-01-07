@@ -6,7 +6,7 @@
  *
  */
 public class Main {
-	public static void main(String[] args) {
+	public static void main_111(String[] args) {
 		try {
 			Main m = new Main();
 			LinkedList list = m.new LinkedList();
