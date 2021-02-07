@@ -1,9 +1,5 @@
 /**
- * Simulator for an UHES device.
- * 
- * @author Thang Le.
- * 
- * copyright 2018, www.lecompany.co
+ * @author Thang Le. https://lecompany.co/
  * 
  */
 var output;
@@ -47,45 +43,46 @@ function closeConnection() {
 	writeToScreen("Closed connections");
 }
 
-function sendUHESTransport311Endpoint01() {
+function sendUHESTransport311() {
 	if ((msgTransport311 != "") && (address_1 != "")) {
 		var msg1SendTransport311 = JSON.parse(msgTransport311);
 		msg1SendTransport311.messageID = Math.floor((Math.random() * 9999999999) + 1);
+
 		msg1SendTransport311.desID = node1ID;
 		msg1SendTransport311.sourceID = device1ID;
-		msg1SendTransport311.functionArgument[0].argumentValue = "000058@" + node1ID + "@NON@NONE";
-		msg1SendTransport311.functionArgument[1].argumentValue = "000058@" + device1ID + "@NON@NONE";
-		msg1SendTransport311.functionArgument[2].argumentValue = "000028@" + "mZimisvjtg9QRxvdhkcwJE1T" + "@NON@NONE";
+		// only need reupdate sourceID and DesID
+		msg1SendTransport311.functionArgument[0].argumentValue = node1ID ;
+		msg1SendTransport311.functionArgument[1].argumentValue = device1ID ;
+
 		var finalMsg1Send311 = JSON.stringify(msg1SendTransport311);
 
 		websocket1.send(finalMsg1Send311);
 
 		writeToScreen("Device sent UHES Transport 0x311 to endpoint 1");
 	}
-}
 
-
-function sendUHESTransport311Endpoint02() {
 	if ((msgTransport311 != "") && (address_2 != "")) {
 		var msg2SendTransport311 = JSON.parse(msgTransport311);
 		msg2SendTransport311.messageID = Math.floor((Math.random() * 9999999999) + 1);
 		msg2SendTransport311.desID = node2ID;
 		msg2SendTransport311.sourceID = device2ID;
-		msg2SendTransport311.functionArgument[0].argumentValue = "000058@" + node2ID + "@NON@NONE";
-		msg2SendTransport311.functionArgument[1].argumentValue = "000058@" + device2ID + "@NON@NONE";
-		msg2SendTransport311.functionArgument[2].argumentValue = "000028@" + "NdzK8Pogq4eyOTEQO9bylNMU" + "@NON@NONE";
+		// only need reupdate sourceID and DesID
+		msg2SendTransport311.functionArgument[0].argumentValue = node2ID ;
+		msg2SendTransport311.functionArgument[1].argumentValue =  device2ID ;
 		var finalMsg2Send311 = JSON.stringify(msg2SendTransport311);
 
 		websocket2.send(finalMsg2Send311);
 
 		writeToScreen("Device sent UHES Transport 0x311 to endpoint 2");
 	}
+
+
 }
 
 function startTimer() {
 	writeToScreen("Start all timers");
-	startTimer1Var = window.setInterval(doSend1, 5000);
-	startTimer2Var = window.setInterval(doSend2, 5500);
+	startTimer1Var = window.setInterval(doSend1, 4000);
+	startTimer2Var = window.setInterval(doSend2, 5000);
 }
 
 function stopTimer() {
@@ -158,12 +155,12 @@ function connectWebSocket2(url) {
 
 function onOpen1(evt) {
 	writeToScreen("CONNECTED TO Endpoint 1");
-	window.setTimeout(sendUHESTransport311Endpoint01, 7000) ;
+
 }
 
 function onOpen2(evt) {
 	writeToScreen("CONNECTED TO Endpoint 2");
-	window.setTimeout(sendUHESTransport311Endpoint02, 7500) ;
+
 }
 
 function onClose1(evt) {
@@ -186,13 +183,13 @@ function onMessage1(evt) {
 	var inboundJsonMsg = JSON.parse(evt.data);
 	var controlMsgType;
 
-	if (inboundJsonMsg.protocolID == "UHES2@1.0@RES") {
+	if (inboundJsonMsg.protocolID == "RESPONSE@UHESTRANSPORT@1.0") {
 		if (inboundJsonMsg.functionID == "N.A") {
 			device1ID = inboundJsonMsg.desID;
 			node1ID = inboundJsonMsg.sourceID;
 			writeToScreen("Device1ID= " + device1ID);
 			writeToScreen("node1ID= " + node1ID);
-			writeToScreen('<span style="color: blue;">RESPONSE from server socket endpoint 1: ' + evt.data
+			writeToScreen('<span style="color: blue;">RESPONSE from sockets endpoint 1: ' + evt.data
 				+ '</span>');
 		} else if (inboundJsonMsg.functionID == "0x311") {
 			sessionIDEndpoint1 = inboundJsonMsg.sessionID;
@@ -203,7 +200,7 @@ function onMessage1(evt) {
 
 	} else {
 
-		// request Transport message 0x314 from NNC
+		// if is request Transport message 0x314 from NNC
 		if (inboundJsonMsg.functionID == "0x314") {
 			controlMsgType = parseUHESControlMsgType(inboundJsonMsg);
 			if (controlMsgType == "0x5001" && msg1Res != "") {
@@ -236,25 +233,23 @@ function onMessage2(evt) {
 	var inboundJsonMsg = JSON.parse(evt.data);
 	var controlMsgType;
 
-	// response message from NNC.
 	if (inboundJsonMsg.protocolID == "UHES2@1.0@RES") {
 		if (inboundJsonMsg.functionID == "N.A") {
 			device2ID = inboundJsonMsg.desID;
 			node2ID = inboundJsonMsg.sourceID;
 			writeToScreen("Device2ID= " + device2ID);
 			writeToScreen("Node2ID= " + node2ID);
-			writeToScreen('<span style="color: deeppink;">RESPONSE from server socket endpoint 2: ' + evt.data
+			writeToScreen('<span style="color: deeppink;">RESPONSE from sockets endpoint 2: ' + evt.data
 				+ '</span>');
 		} else if (inboundJsonMsg.functionID == "0x311") {
 			sessionIDEndpoint2 = inboundJsonMsg.sessionID;
 			writeToScreen("UHES Transport SessionID for endpoint 2: " + sessionIDEndpoint2);
-			// enable Timer buttons
-			enableTimerButtons();
 		} else {
 			writeToScreen('<span style="color: GoldenRod;">Endpoint 2 sent back RESPONSE UHES message. MessageID = ' + inboundJsonMsg.messageID + '. Return code: ' + inboundJsonMsg.functionArgument[0].argumentValue + '</span>');
 		}
 	} else {
-		// request Transport message 0x314 from NNC.
+
+		// request Transport message 0x314 from NNC
 		if (inboundJsonMsg.functionID == "0x314") {
 			controlMsgType = parseUHESControlMsgType(inboundJsonMsg);
 			if (controlMsgType == "0x5001" && msg1Res != "") {
@@ -285,7 +280,6 @@ function onMessage2(evt) {
 
 function parseUHESControlMsgType(UHESmsg) {
 	var base64String = UHESmsg.functionArgument[0].argumentValue;
-	base64String = base64String.substring(7, base64String.length - 9);
 	var argValueXML = window.atob(base64String);
 
 	var parser = new DOMParser();
@@ -345,7 +339,6 @@ function doSend2() {
 	if (counter2 == 1 && msg1Send != "") {
 		var outboundMsg1 = JSON.parse(msg1Send);
 		outboundMsg1.messageID = Math.floor((Math.random() * 9999999999) + 1);
-		outboundMsg1.desID = node2ID;
 		outboundMsg1.sourceID = device2ID;
 		outboundMsg1.sessionID = sessionIDEndpoint2;
 		msg1Send = JSON.stringify(outboundMsg1);
@@ -362,12 +355,6 @@ function doSend2() {
 		websocket2.send(msg2Send);
 		counter2 = 0;
 	}
-}
-
-function enableTimerButtons() {
-	// enable start/stop timer button.
-	document.getElementById("butStartTimer").disabled = false;
-	document.getElementById("butStopTimer").disabled = false;
 }
 
 function writeToScreen(message) {
@@ -393,6 +380,9 @@ function initButtonListeners() {
 	};
 	document.getElementById("butCloseConnection").onclick = function() {
 		closeConnection();
+	};
+	document.getElementById("butSendUHES311").onclick = function() {
+		sendUHESTransport311();
 	};
 	document.getElementById("butStartTimer").onclick = function() {
 		startTimer();
